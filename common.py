@@ -1,10 +1,10 @@
 import asyncio
 import time
-from asyncio import protocols, transports, AbstractEventLoop
+from asyncio import protocols, transports, AbstractEventLoop, Future, DatagramProtocol
 import collections
 import functools
 from enum import Enum
-from typing import Union, Tuple, Text
+from typing import Union, Tuple, Text, Dict
 
 from KCP import KCP
 
@@ -13,6 +13,73 @@ TWELVE_HOUR = 12 * 60 * 60 * 1000
 
 def current():
     return int(time.time() * 1000)
+
+
+class UKCP(KCP):
+
+    def __init__(self, conv, manager: 'AbstractManager'):
+        super(UKCP, self).__init__(conv)
+        self.manager = manager
+
+    def output(self, buffer: bytearray, size):
+        self.manager.output(buffer[:size])
+
+    def __lt__(self, other: 'UKCP'):
+        _current = current()
+        return self.check(_current) < other.check(_current)
+
+    def __eq__(self, other: 'UKCP'):
+        _current = current()
+        return self.check(_current) == other.check(_current)
+
+    def __gt__(self, other: 'UKCP'):
+        _current = current()
+        return self.check(_current) > other.check(_current)
+
+
+class AbstractManager:
+    transport: DatagramProtocol
+    connections: Dict[int:UKCP]
+    recv_wait: Dict[int: Future]
+    remote_addr: Tuple[str, int]
+    conv: int
+
+    def output(self, buffer):
+        self.transport.sendto(buffer, addr=self.remote_addr)
+
+    def input(self, conv: int, data: Union[bytearray, bytes] = None):
+        kcp = self.connections.get(conv)
+        kcp.input(data)
+
+    async def recv(self, kcp):
+        data = await self.recv_wait[kcp.conv]
+        self.recv_wait[kcp.conv] = Future()
+        return 'recv', data
+
+    def send(self, kcp, data):
+        kcp.send(data)
+
+    async def interval(self):
+        while True:
+            await asyncio.sleep(0.1)
+            for i in self.connections.values():
+                i.update(current())
+                data = i.recv()
+                if data != -2 and data:
+                    if self.recv_wait[i.conv].done():
+                        self.recv_wait[i.conv].result()[-1:] = data
+                    else:
+                        self.recv_wait[i.conv].set_result(data)
+
+    def get_session(self, conv=None):
+        if conv is not None:
+            conv = conv
+        else:
+            conv = self.conv
+        kcp = UKCP(conv, self)
+        kcp.update(current())
+        self.connections[conv] = kcp
+        return kcp
 
 
 def _with_timeout(name):
@@ -226,7 +293,7 @@ class UKCP(KCP):
     connections = {}
 
     def __init__(self, conv):
-        super(UKCP, self).__init__(conv)
+        super(KCP, self).__init__(conv)
         self.connections[conv] = self
         self._wait_input = asyncio.Future()
 
