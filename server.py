@@ -1,6 +1,6 @@
 import asyncio
 
-from ClientManager import ServerManager
+from ServerManager import ServerManager
 
 
 class Server:

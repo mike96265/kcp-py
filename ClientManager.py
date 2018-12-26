@@ -5,6 +5,7 @@ from collections import defaultdict
 from typing import Union, Text, Tuple
 
 from KCP import KCP
+from common import AbstractManager
 
 logger = logging.getLogger(__name__)
 
