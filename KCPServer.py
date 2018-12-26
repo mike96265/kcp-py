@@ -4,8 +4,14 @@ import time
 from asyncio import protocols, transports, AbstractEventLoop
 from typing import Tuple, Text, Union
 
-from common import StreamIO, Connection, Ready
+from common import StreamIO, Connection, Ready, KCPWithUDP
 from KCP import KCP
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(name)s] %(message)s",
+    datefmt="[%H:%M:%S]:",
+)
 
 logger = logging.getLogger(__name__)
 
@@ -27,8 +33,12 @@ class ServerProxy:
                                                                                  local_addr=(
                                                                                      self.listen_host,
                                                                                      self.listen_port))
+        await self.interval(50)
 
     async def dispatcher(self, connection):
+        reader, writer = await asyncio.open_connection(self.remote_host, self.remote_port, loop=self.loop)
+        stream = StreamIO(reader, writer, loop=self.loop)
+        connection.stream = stream
         pending = {
             self.read_from_client(connection),
             self.read_from_remote(connection)
@@ -43,21 +53,23 @@ class ServerProxy:
                 connection.extra_workers -= done
                 for task in done:
                     try:
-                        ready, *rest = task.result()
-                        if ready is Ready.input:
-                            if not rest[0]:
-                                break
-                            connection.wait_input = asyncio.Future()
-                            connection.session.input(rest[0])
-                            pending.add(self.read_from_remote(connection))
-                        elif ready is Ready.send:
-                            connection.wait_output = asyncio.Future()
-                            pending.add(self.read_from_client(connection))
-                            self.transport.write(rest[0])
-                        else:
-                            pass
+                        result = task.result()
+                        if result is not None:
+                            ready, *rest = result
+                            if ready is Ready.input:
+                                if not rest[0]:
+                                    break
+                                connection.wait_input = asyncio.Future()
+                                connection.session.input(rest[0])
+                                pending.add(self.read_from_remote(connection))
+                            elif ready is Ready.send:
+                                connection.wait_output = asyncio.Future()
+                                pending.add(self.read_from_client(connection))
+                                connection.session.send(rest[0])
+                            else:
+                                pass
                     except Exception as err:
-                        pass
+                        print(err)
         except (asyncio.CancelledError, Exception) as err:
             logger.error(str(err))
         finally:
@@ -65,7 +77,7 @@ class ServerProxy:
 
     @classmethod
     async def read_from_client(cls, connection):
-        return Ready.send, (await connection.stream.read(2))
+        return Ready.send, bytearray((await connection.stream.read(1024)))
 
     @classmethod
     async def write_to_client(cls, connection, data: Union[bytes, bytearray]):
@@ -86,11 +98,12 @@ class ServerProxy:
     async def interval(self, val: int):
         while True:
             await asyncio.sleep(val // 1000)
-            for conn in self.connections:
+            for conn in self.connections.values():
                 conn.session.update(self.current)
-                buffer = bytes(1024)
+                buffer = bytearray(1024)
                 n = conn.session.recv(buffer)
-                conn.extra_workers.add(conn.stream.write(buffer[:n]))
+                if n > 0:
+                    await self.loop.create_task(conn.stream.write(buffer[:n]))
 
 
 class ServerDataForwarder(protocols.DatagramProtocol):
@@ -102,22 +115,19 @@ class ServerDataForwarder(protocols.DatagramProtocol):
         self.transport = transport
 
     def datagram_received(self, data: Union[bytes, Text], addr: Tuple[str, int]):
+        self.transport._address = addr
+        data = bytearray(data)
         wait_to_run = False
         conv = KCP.ikcp_decode32u(data, 0)
         connection = self.proxy.connections.get(conv, None)
         if connection is None:
-            session = KCP(conv, transports)
-            loop = asyncio.get_event_loop()
-            reader, writer = loop.run_until_complete(
-                asyncio.open_connection(self.proxy.remote_host, self.proxy.remote_port,
-                                        loop=self.proxy.loop))
-            stream = StreamIO(reader, writer, loop=self.proxy.loop)
+            session = KCPWithUDP(conv, self.transport)
             connection = Connection(
                 session=session,
-                stream=stream,
                 loop=self.proxy.loop,
                 wait_input=asyncio.Future(),
-                extra_workers=set()
+                extra_workers=set(),
+                stream=None
             )
             self.proxy.connections[conv] = connection
             wait_to_run = True

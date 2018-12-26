@@ -1,4 +1,4 @@
-from typing import Union, List
+from typing import List, Union
 
 IKCP_RTO_NDL = 30  # no delay min rto
 IKCP_RTO_MIN = 100  # normal min rto
@@ -42,7 +42,7 @@ class Segment:
     def __init__(self, size):
         self.data = bytearray(size)
 
-    def encode(self, ptr: Union[bytes, bytearray], offset: int):
+    def encode(self, ptr: bytearray, offset: int):
         _offset = offset
 
         KCP.ikcp_encode32u(ptr, offset, self.conv)
@@ -71,31 +71,31 @@ class KCP:
     # static method
 
     @staticmethod
-    def ikcp_encode8u(p: bytearray, offset: int, c: int):
+    def ikcp_encode8u(p: Union[bytes, bytearray], offset: int, c: int):
         p[0 + offset] = c & 255
 
     @staticmethod
-    def ikcp_decode8u(p: bytearray, offset: int):
+    def ikcp_decode8u(p: Union[bytes, bytearray], offset: int):
         return p[0 + offset]
 
     @staticmethod
-    def ikcp_encode16u(p: bytearray, offset: int, w: int):
+    def ikcp_encode16u(p: Union[bytes, bytearray], offset: int, w: int):
         p[offset + 0] = (w >> 8) & 255
         p[offset + 1] = (w >> 0) & 255
 
     @staticmethod
-    def ikcp_decode16u(p: bytearray, offset: int):
+    def ikcp_decode16u(p: Union[bytes, bytearray], offset: int):
         return (p[0 + offset] & 0xff) << 8 | (p[1 + offset] & 0xff)
 
     @staticmethod
-    def ikcp_encode32u(p: bytearray, offset: int, l: int):
+    def ikcp_encode32u(p: Union[bytes, bytearray], offset: int, l: int):
         p[offset + 0] = (l >> 24) & 255
         p[offset + 1] = (l >> 16) & 255
         p[offset + 2] = (l >> 8) & 255
         p[offset + 3] = (l >> 0) & 255
 
     @staticmethod
-    def ikcp_decode32u(p: bytearray, offset: int):
+    def ikcp_decode32u(p: Union[bytes, bytearray], offset: int):
         return (p[offset + 0] & 0xff) << 24 \
                | (p[offset + 1] & 0xff) << 16 \
                | (p[offset + 2] & 0xff) << 8 \
@@ -160,21 +160,23 @@ class KCP:
         # self.transport = transport
         # self.output_buffer = output_buffer
 
-    def recv(self, buffer: bytearray):
+    def recv(self):
         """
         Put user data out self.nrcv_que in buffer.
         """
 
         # there is no available segment in nrcv_que
-        if not len(self.nrcv_que):
-            return -1
+        buffer = bytearray()
+
+        # if not len(self.nrcv_que):
+        #     return -1
 
         peeksize = self.peeksize()
 
         if peeksize < 0:
             return -2
-        if peeksize > len(buffer):
-            return -3
+        # if peeksize > len(buffer):
+        #     return -3
 
         recover = False
 
@@ -186,7 +188,7 @@ class KCP:
         n = 0
         for segment in self.nrcv_que:
             segment_len = len(segment.data)
-            buffer[n: n + segment_len] = segment.data
+            buffer[n: n + segment_len] = segment.data[:]
             n += segment_len
             count += 1
             if segment.frg == 0:
@@ -213,13 +215,13 @@ class KCP:
             # ready to send back IKCP_CMD_WINS in ikcp_flush
             # tell remote my window size
             self.probe |= IKCP_ASK_TELL
-        return n
+        return buffer
 
     def peeksize(self) -> int:
         """
         check the size of next message in the recv queue
         """
-        if not len(self.nrcv_que):
+        if 0 == len(self.nrcv_que):
             return -1
         first = self.nrcv_que[0]
         if first.frg == 0:
@@ -260,7 +262,7 @@ class KCP:
             segment = Segment(size)
             segment.data[:] = buffer[offset: offset + size]
             offset += size
-            segment.frg = count - i + 1
+            segment.frg = count - i - 1
             self.nsnd_que.append(segment)
             length -= size
         return 0
@@ -352,7 +354,7 @@ class KCP:
 
         # 从接受缓存中移除
         if count > 0:
-            self.nrcv_buf[:] = self.nrcv_buf[count:]
+            self.nrcv_buf = self.nrcv_buf[count:]
 
     def input(self, data: bytearray):
         s_una = self.snd_una
@@ -585,6 +587,7 @@ class KCP:
                 offset += segment.encode(self.buffer, offset)
                 if len(segment.data) > 0:
                     self.buffer[offset: offset + len(segment.data)] = segment.data[:]
+                    offset += len(segment.data)
                 if segment.xmit >= self.dead_link:
                     self.state = -1
         # flash remain segment

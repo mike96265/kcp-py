@@ -1,9 +1,18 @@
 import asyncio
-from asyncio import protocols, transports
+import time
+from asyncio import protocols, transports, AbstractEventLoop
 import collections
 import functools
 from enum import Enum
-from typing import Union
+from typing import Union, Tuple, Text
+
+from KCP import KCP
+
+TWELVE_HOUR = 12 * 60 * 60 * 1000
+
+
+def current():
+    return int(time.time() * 1000)
 
 
 def _with_timeout(name):
@@ -190,14 +199,78 @@ class StreamIO(AbstractStreamIO):
         self.write_timeout = write_timeout or timeout
         self.loop = loop or asyncio.get_event_loop()
 
-    @with_timeout("read_timeout")
+    # @with_timeout("read_timeout")
     async def read(self, count=-1):
         return await self.reader.read(count)
 
-    @with_timeout("write_timeout")
+    # @with_timeout("write_timeout")
     async def write(self, data):
         self.writer.write(data)
         return await self.writer.drain()
 
     def close(self):
         self.writer.close()
+
+
+class KCPWithUDP(KCP):
+
+    def __init__(self, conv, transport):
+        super(KCPWithUDP, self).__init__(conv)
+        self.transport = transport
+
+    def output(self, buffer: bytearray, size):
+        self.transport.sendto(buffer[:size])
+
+
+class UKCP(KCP):
+    connections = {}
+
+    def __init__(self, conv):
+        super(UKCP, self).__init__(conv)
+        self.connections[conv] = self
+        self._wait_input = asyncio.Future()
+
+    def output(self, buffer, size):
+        self.transport.sendto(buffer[:size])
+
+    @classmethod
+    async def start(cls, local_addr: Tuple[str, int] = None, remote_addr: Tuple[str, int] = None,
+                    loop: AbstractEventLoop = None):
+        if all([local_addr, remote_addr]):
+            raise ValueError("remote_addr and local_addr can't be set at the same time")
+        elif remote_addr:
+            cls.transport, cls.protocol = await loop.create_datagram_endpoint(UKCPClientManager,
+                                                                              remote_addr=remote_addr)
+        elif local_addr:
+            cls.transport, cls.protocol = await loop.create_datagram_endpoint(UKCPServerManager,
+                                                                              local_addr=local_addr)
+        else:
+            raise ValueError("u have to set either local_addr to listen or remote_addr to connect")
+
+    async def read_from_remote(self):
+        data = (await self._wait_input)
+        self._wait_input = asyncio.Future()
+        return Ready.input, data
+
+
+class UKCPClientManager(protocols.DatagramProtocol):
+
+    def __init__(self, cls: UKCP):
+        self.cls = cls
+
+    def connection_made(self, transport: transports.BaseTransport):
+        self.transport = transport
+
+    def datagram_received(self, data: Union[bytes, Text], addr: Tuple[str, int]):
+        conv = KCP.ikcp_decode32u(bytearray(data), 0)
+        if conv not in self.cls.connections:
+            pass
+
+
+class UKCPServerManager(protocols.DatagramProtocol):
+
+    def __init__(self, cls):
+        self.cls = cls
+
+    def connection_made(self, transport: transports.BaseTransport):
+        pass
