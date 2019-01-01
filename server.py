@@ -15,7 +15,7 @@ class Server:
         await self.manager.start()
         while True:
             kcp = await self.manager.accept()
-            await self.loop.create_task(self.dispatcher(kcp))
+            self.loop.create_task(self.dispatcher(kcp))
 
     async def dispatcher(self, kcp):
         reader, writer = await asyncio.open_connection(self.remote_addr[0], self.remote_addr[1], loop=self.loop)
@@ -53,7 +53,7 @@ class Server:
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
-    server = Server(('127.0.0.1', 8888), ('127.0.0.1', 9999), loop)
+    server = Server(('127.0.0.1', 8888), ('127.0.0.1', 80), loop)
     loop.run_until_complete(server.start())
     try:
         loop.run_forever()

@@ -1,5 +1,5 @@
 import asyncio
-from asyncio import AbstractEventLoop, DatagramProtocol, Future
+from asyncio import AbstractEventLoop, DatagramProtocol, Future, Queue
 from collections import defaultdict
 from typing import Union, Text, Tuple
 
@@ -16,7 +16,7 @@ class ServerManager(AbstractManager):
         self.connections = {}
         self.recv_wait = defaultdict(Future)
         self.remote_addr = None
-        self.wait_accept = Future()
+        self.wait_accept = Queue()
 
     async def start(self):
         self.transport, self.protocol = await self.loop.create_datagram_endpoint(
@@ -25,9 +25,7 @@ class ServerManager(AbstractManager):
         self.loop.create_task(self.interval())
 
     async def accept(self):
-        accept = await self.wait_accept
-        self.wait_accept = Future()
-        return accept
+        return await self.wait_accept.get()
 
 
 class ServerProtocol(DatagramProtocol):
@@ -45,5 +43,5 @@ class ServerProtocol(DatagramProtocol):
         conv = KCP.ikcp_decode32u(data, 0)
         if conv not in self.manager.connections:
             kcp = self.manager.get_session(conv)
-            self.manager.wait_accept.set_result(kcp)
+            self.manager.loop.create_task(self.manager.wait_accept.put(kcp))
         self.manager.input(conv, data)

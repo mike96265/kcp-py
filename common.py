@@ -36,11 +36,11 @@ class UKCP(KCP):
 
 
 class AbstractManager:
-    transport: DatagramProtocol
-    connections: Dict[int:UKCP]
-    recv_wait: Dict[int: Future]
-    remote_addr: Tuple[str, int]
-    conv: int
+    transport: DatagramProtocol = None
+    connections: Dict[int, UKCP] = None
+    recv_wait: Dict[int, Future] = None
+    remote_addr: Tuple[str, int] = None
+    conv: int = None
 
     def output(self, buffer):
         self.transport.sendto(buffer, addr=self.remote_addr)
