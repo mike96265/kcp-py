@@ -58,12 +58,25 @@ class AbstractManager:
         kcp.send(data)
 
     async def interval(self):
+        initial_buffer = 1024
+        buffer = bytearray()
         while True:
             await asyncio.sleep(0.1)
             for i in self.connections.values():
                 i.update(current())
-                data = i.recv()
-                if data != -2 and data:
+                data_length = i.recv(buffer)
+                data = None
+                if data_length < 0:
+                    if data_length == -3:
+                        bigger_buffer = None
+                        times = 2
+                        while data_length == -3:
+                            bigger_buffer = bytearray(initial_buffer * times)
+                            data_length = i.recv(bigger_buffer)
+                        data = bigger_buffer[:data_length]
+                    else:
+                        pass
+                if data:
                     if self.recv_wait[i.conv].done():
                         self.recv_wait[i.conv].result()[-1:] = data
                     else:
