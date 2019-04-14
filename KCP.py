@@ -160,16 +160,16 @@ class KCP:
         # self.transport = transport
         # self.output_buffer = output_buffer
 
-    def recv(self):
+    def recv(self, size):
         """
         Put user data out self.nrcv_que in buffer.
         """
 
         # there is no available segment in nrcv_que
-        buffer = bytearray()
+        buffer = bytearray(size)
 
-        # if not len(self.nrcv_que):
-        #     return -1
+        if not len(self.nrcv_que):
+            return -1
 
         peeksize = self.peeksize()
 
