@@ -23,7 +23,6 @@ class UKCPSession(KCP):
 
 
 class Connection(asyncio.Protocol):
-    """"""
 
     def __init__(self, conv: int, controller: 'KCPClientController'):
         self.conv = conv
@@ -216,7 +215,7 @@ class KCPClientController(asyncio.DatagramProtocol):
 if __name__ == '__main__':
     asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
     loop = asyncio.get_event_loop()
-    client = KCPClientController(loop, local_addr=('127.0.0.1', 7777), remote_addr=('127.0.0.1', 8888))
+    client = KCPClientController(loop, local_addr=('127.0.0.1', 7777), remote_addr=('yukityan.cc', 29900))
     loop.create_task(client.start())
     try:
         loop.run_forever()
