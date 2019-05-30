@@ -6,7 +6,7 @@ from collections import namedtuple, defaultdict
 from typing import Dict, Tuple, Optional
 import uvloop
 
-from KCP import KCP
+from oldversion.KCP import KCP
 
 logger = logging.getLogger("KCP")
 

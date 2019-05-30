@@ -1,26 +1,30 @@
 import asyncio
+import logging
 
-from ClientManager import ClientManager
+from kcp_manager import KCPClientManager
+
+logger = logging.getLogger(__name__)
 
 
-class Client:
+async def wait(coro, flag):
+    return await coro, flag
 
-    def __init__(self, local_addr, remote_addr, loop=None):
-        self.local_addr = local_addr
-        self.remote_addr = remote_addr
+
+class ClientProxy:
+    manager: KCPClientManager = None
+
+    async def start_serve(self, listen_addr, remote_addr, loop=None):
         self.loop = loop or asyncio.get_event_loop()
-        self.manager = ClientManager(remote_addr=remote_addr, loop=self.loop)
+        self.manager = KCPClientManager(loop, remote_addr=remote_addr)
+        await loop.create_datagram_endpoint(self.manager, remote_addr=remote_addr)
+        server = await asyncio.start_server(self.proxy, listen_addr[0], listen_addr[1], loop=loop)
+        return server
 
-    async def start(self, **kwargs):
-        self.client = await asyncio.start_server(self.dispatcher, host=self.local_addr[0],
-                                                 port=self.local_addr[1], loop=self.loop)
-        await self.manager.start()
-
-    async def dispatcher(self, reader, writer):
-        kcp = self.manager.get_session()
+    async def proxy(self, reader, writer):
+        ur, uw = await self.manager.open_connection()
         pending = {
-            self.manager.recv(kcp),
-            self.read(reader)
+            wait(reader.read(1024), 'rr'),
+            wait(ur.read(1024), 'ur')
         }
         try:
             while True:
@@ -30,31 +34,36 @@ class Client:
                     loop=self.loop
                 )
                 for task in done:
-                    flag, data = task.result()
-                    if flag == 'recv':
-                        writer.write(data)
-                        await writer.drain()
-                        pending.add(self.manager.recv(kcp))
-                    elif flag == 'read':
-                        self.manager.send(kcp, data)
-                        pending.add(self.read(reader))
+                    data, flag = task.result()
+                    if flag == 'rr':
+                        if data:
+                            uw.write(data)
+                            pending.add(wait(uw.drain(), 'uw'))
+                            pending.add(wait(reader.read(1024), 'rr'))
+                        else:
+                            raise Exception
+                    elif flag == 'ur':
+                        if data:
+                            writer.write(data)
+                            pending.add(wait(ur.read(1024), 'ur'))
+                            pending.add(wait(writer.drain(), 'ww'))
+                        else:
+                            raise Exception
                     else:
                         pass
         except (asyncio.CancelledError, Exception) as err:
-            print(err)
+            logger.error(err)
         finally:
+            uw.close()
             writer.close()
-            self.manager.close(kcp)
-
-    async def read(self, reader):
-        return 'read', (await reader.read(1024))
 
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
-    client = Client(('127.0.0.1', 7777), ('127.0.0.1', 8888), loop)
-    loop.run_until_complete(client.start())
+    client = ClientProxy()
+    coro = client.start_serve(('127.0.0.1', 7777), ('127.0.0.1', 8888), loop=loop)
+    loop.create_task(coro)
     try:
         loop.run_forever()
-    except KeyboardInterrupt:
+    finally:
         loop.close()

@@ -3,8 +3,8 @@ import functools
 from typing import Tuple
 import uvloop
 
-from KCP import KCP
-from KCPClient import KCPClientController
+from oldversion.KCP import KCP
+from oldversion.KCPClient import KCPClientController
 
 
 class KCPServerController(KCPClientController):
