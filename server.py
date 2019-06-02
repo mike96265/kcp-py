@@ -1,66 +1,45 @@
 import asyncio
 import logging
 
+import uvloop
+
 from kcp_manager import KCPServerManager
+from pipe import Pipe
 
 logger = logging.getLogger(__name__)
 
 
-async def wait(coro, flag):
-    return await coro, flag
-
-
 class ServerProxy:
 
-    async def start_serve(self, local_addr, remote_addr, loop=None):
+    def __init__(self, local_addr, remote_addr, loop=None):
+        self.local_addr = local_addr
+        self.remote_addr = remote_addr
         self.loop = loop or asyncio.get_event_loop()
         self.manager = KCPServerManager(loop)
-        await loop.create_datagram_endpoint(self.manager, local_addr=local_addr)
-        self.remote_addr = remote_addr
+
+    async def start_serve(self):
+        self.loop = loop or asyncio.get_event_loop()
+        await loop.create_datagram_endpoint(self.manager, local_addr=self.local_addr)
         await self.manager.start_serve(self.proxy)
 
-    async def proxy(self, reader, writer):
-        ur, uw = await asyncio.open_connection(self.remote_addr[0], self.remote_addr[1], loop=self.loop)
-        pending = {
-            wait(reader.read(1024), 'rr'),
-            wait(ur.read(1024), 'ur')
-        }
+    async def proxy(self, kcp_reader, kcp_writer):
+        app_reader, app_writer = await asyncio.open_connection(self.remote_addr[0], self.remote_addr[1], loop=self.loop)
         try:
-            while True:
-                done, pending = await asyncio.wait(
-                    pending,
-                    return_when=asyncio.FIRST_COMPLETED,
-                    loop=self.loop
-                )
-                for task in done:
-                    data, flag = task.result()
-                    if flag == 'rr':
-                        if data:
-                            uw.write(data)
-                            pending.add(wait(uw.drain(), 'uw'))
-                            pending.add(wait(reader.read(1024), 'rr'))
-                        else:
-                            raise Exception
-                    elif flag == 'ur':
-                        if data:
-                            writer.write(data)
-                            pending.add(wait(ur.read(1024), 'ur'))
-                            pending.add(wait(writer.drain(), 'ww'))
-                        else:
-                            raise Exception
-                    else:
-                        pass
+            pipe1 = Pipe(kcp_reader, app_writer, 1400)
+            pipe2 = Pipe(app_reader, kcp_writer, 1400)
+            await asyncio.gather(pipe1.open(), pipe2.open())
         except (asyncio.CancelledError, Exception) as err:
             logger.error(err)
         finally:
-            uw.close()
-            writer.close()
+            app_writer.close()
+            kcp_writer.close()
 
 
 if __name__ == '__main__':
+    asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
     loop = asyncio.get_event_loop()
-    server = ServerProxy()
-    coro = server.start_serve(('127.0.0.1', 8888), ('127.0.0.1', 9999), loop)
+    server = ServerProxy(('127.0.0.1', 8888), ('127.0.0.1', 1080), loop)
+    coro = server.start_serve()
     loop.create_task(coro)
     try:
         loop.run_forever()

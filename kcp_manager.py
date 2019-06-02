@@ -2,10 +2,9 @@ import asyncio
 import functools
 import logging
 import socket
-
 from dataclasses import dataclass
 
-from oldversion.KCP import KCP
+from py_KCP import KCP
 
 logger = logging.getLogger(__name__)
 
@@ -26,14 +25,15 @@ class AbstractKCPManager:
     _active_conns = set()
     _transport = None
     _update_schedule = {}
-    _pending = asyncio.Event()
 
     def __init__(self, loop, remote_addr=None):
+        self._pending = asyncio.Event(loop=loop)
         self.loop = loop
         self.remote_addr = remote_addr
 
     def interval(self):
-        for conv in self._active_conns:
+        while self._active_conns:
+            conv = self._active_conns.pop()
             self.update(conv)
         self.loop.call_later(0.05, self.interval)
 
@@ -98,6 +98,7 @@ class AbstractKCPManager:
         else:
             kcp = KCP(self._conv)
             self._conv += 1
+        kcp.set_nodelay(1, 30, 3, 1)
         return kcp
 
     def create_stream(self):
@@ -112,7 +113,7 @@ class KCPClientManager(AbstractKCPManager, asyncio.DatagramProtocol):
     def __init__(self, loop, remote_addr):
         super(KCPClientManager, self).__init__(loop)
         self.remote_addr = remote_addr
-        self.loop.call_later(0.05, self.interval)
+        self.loop.call_later(0.03, self.interval)
 
     def output(self, data, addr=None):
         super(KCPClientManager, self).output(data, self.remote_addr)
@@ -126,10 +127,10 @@ class KCPClientManager(AbstractKCPManager, asyncio.DatagramProtocol):
     async def open_connection(self):
         kcp = self.create_kcp()
         kcp.output = self.output
+        conv = kcp.conv
         upstream, downstream = self.create_stream()
         downstream_reader, downstream_writer = await asyncio.open_connection(sock=downstream, loop=self.loop)
         upstream_reader, upstream_writer = await asyncio.open_connection(sock=upstream, loop=self.loop)
-        conv = kcp.conv
         conversation = Conversation(conv=conv,
                                     kcp=kcp,
                                     upstream_reader=upstream_reader,
@@ -138,6 +139,7 @@ class KCPClientManager(AbstractKCPManager, asyncio.DatagramProtocol):
                                     downstream_writer=downstream_writer)
         self._conns[conv] = conversation
         self.loop.create_task(self.upstream_waiter(conv, downstream_reader))
+        self._active_conns.add(conv)
         return upstream_reader, upstream_writer
 
     def __call__(self, *args, **kwargs):
@@ -145,12 +147,12 @@ class KCPClientManager(AbstractKCPManager, asyncio.DatagramProtocol):
 
 
 class KCPServerManager(AbstractKCPManager, asyncio.DatagramProtocol):
-    _acceptable = asyncio.Event()
     _accept_dict = {}
 
     def __init__(self, loop):
         super(KCPServerManager, self).__init__(loop, None)
-        self.loop.call_later(50, self.interval)
+        self.loop.call_later(0.03, self.interval)
+        self._acceptable = asyncio.Event()
 
     def output(self, data, addr=None):
         super(KCPServerManager, self).output(data, self.remote_addr)
