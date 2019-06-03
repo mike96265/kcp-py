@@ -160,12 +160,14 @@ class KCP:
         # self.transport = transport
         # self.output_buffer = output_buffer
 
-    def recv(self, buffer: bytearray):
+    def recv(self, size):
         """
         Put user data out self.nrcv_que in buffer.
         """
 
         # there is no available segment in nrcv_que
+        buffer = bytearray(size)
+
         if not len(self.nrcv_que):
             return -1
 
@@ -173,8 +175,8 @@ class KCP:
 
         if peeksize < 0:
             return -2
-        if peeksize > len(buffer):
-            return -3
+        # if peeksize > len(buffer):
+        #     return -3
 
         recover = False
 
@@ -186,7 +188,7 @@ class KCP:
         n = 0
         for segment in self.nrcv_que:
             segment_len = len(segment.data)
-            buffer[n: n + segment_len] = segment.data
+            buffer[n: n + segment_len] = segment.data[:]
             n += segment_len
             count += 1
             if segment.frg == 0:
@@ -213,7 +215,7 @@ class KCP:
             # ready to send back IKCP_CMD_WINS in ikcp_flush
             # tell remote my window size
             self.probe |= IKCP_ASK_TELL
-        return n
+        return buffer
 
     def peeksize(self) -> int:
         """

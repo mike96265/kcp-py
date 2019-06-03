@@ -4,7 +4,7 @@ import time
 from asyncio import Future, DatagramProtocol
 from typing import Union, Tuple, Dict
 
-from KCP import KCP
+from oldversion.KCP import KCP
 
 TWELVE_HOUR = 12 * 60 * 60 * 1000
 

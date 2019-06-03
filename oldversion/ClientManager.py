@@ -4,8 +4,8 @@ from asyncio import AbstractEventLoop, DatagramProtocol, Future
 from collections import defaultdict
 from typing import Union, Text, Tuple
 
-from KCP import KCP
-from common import AbstractManager
+from oldversion.KCP import KCP
+from oldversion.common import AbstractManager
 
 logger = logging.getLogger(__name__)
 
