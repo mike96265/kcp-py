@@ -15,11 +15,11 @@ cdef class A:
 
     def __cinit__(self, cb):
         self.cb = cb
-        self.buffer = <char*> malloc(sizeof(char) * 10)
+        self.buffer = <char*> malloc(sizeof(char) * 30)
         if self.buffer == NULL:
             raise MemoryError()
 
-        memcpy(self.buffer, "1234567890", 10)
+        memcpy(self.buffer, "123456789012345678901234567890", 30)
 
     def __dealloc__(self):
         free(self.buffer)
@@ -29,7 +29,7 @@ cdef class A:
 
     cdef test(self, char *buffer, int size):
         cdef char* o
-        o = <char*> malloc(sizeof(char) * 10)
-        memcpy(o, buffer, 10)
-        self.cb(o)
+        o = <char*> malloc(sizeof(char) * size)
+        memcpy(o, buffer, size)
+        self.cb(o, size)
         free(o)

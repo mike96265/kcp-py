@@ -1,3 +1,5 @@
+from cpython.bytes cimport PyBytes_FromStringAndSize
+
 cdef extern from 'stdio.h':
     int printf(char *format, ...);
 
@@ -45,10 +47,8 @@ cdef int _ibound_(int lower, int middle, int upper):
 cdef int _itimediff(int later, int earlier):
     return <int> later - earlier
 
-ctypedef void (*output_func)(char *data, int size);
-
 cdef class Segment:
-    cdef:
+    cdef public:
         int conv, cmd, frg, wnd, ts, sn, una, resendts, rto, fastack, xmit, size
         char *data
 
@@ -97,6 +97,7 @@ cdef class Segment:
         offset += 4
 
         ikcp_encode32u(ptr, offset, self.size)
+        offset += 4
 
         return offset - _offset
 
@@ -368,9 +369,9 @@ cdef class KCP:
         cdef int offset
         cdef int cmd, frg, wnd, ts, sn, una, length
         cdef Segment segment
+        offset = 0
         while True:
             """解析data"""
-            offset = 0
             if (size - offset) < IKCP_OVERHEAD:
                 break
             conv = ikcp_decode32u(data, offset)
@@ -728,18 +729,11 @@ cdef class KCP:
     cpdef int wait_snd(self):
         return len(self.nsnd_buf) + len(self.nsnd_que)
 
-    cdef ikcp_output(self, char *buffer, int size):
-        print("size: {}".format(size))
-        print("start iter buffer")
-        for i in range(size):
-            print(buffer[i])
+    cpdef ikcp_output(self, char *buffer, int size):
         cdef char* o
         o = <char*> malloc(sizeof(char) * size)
         memcpy(o, buffer, size)
-        print("start iter o")
-        for i in range(size):
-            print(o[i])
-        self.output(o, size)
+        self.output(PyBytes_FromStringAndSize(o, size), size)
         free(o)
 
 

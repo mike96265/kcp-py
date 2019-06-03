@@ -132,7 +132,7 @@ class KCPClientManager(AbstractKCPManager, asyncio.DatagramProtocol):
         self.remote_addr = remote_addr
         self.loop.call_later(0.03, self.interval)
 
-    def output(self, data, addr=None):
+    def output(self, data, size, addr=None):
         print("client output")
         super(KCPClientManager, self).output(data, self.remote_addr)
 
@@ -143,12 +143,7 @@ class KCPClientManager(AbstractKCPManager, asyncio.DatagramProtocol):
             self._active_conns.add(conv)
 
     async def open_connection(self):
-        def output(data, size):
-            print(size)
-            print(data)
-            return self.output(data[:size])
-
-        kcp = self.create_kcp(output=output)
+        kcp = self.create_kcp(output=self.output)
         conv = kcp.conv
         upstream, downstream = self.create_stream()
         downstream_reader, downstream_writer = await asyncio.open_connection(sock=downstream, loop=self.loop)
@@ -186,20 +181,18 @@ class KCPServerManager(AbstractKCPManager, asyncio.DatagramProtocol):
             self.remote_addr = addr
         if conv in self._conns:
             conversation = self._conns[conv]
-            conversation.kcp.input(data, len(data))
+            print("server recv in status %d" % conversation.kcp.input(data, len(data)))
             self._active_conns.add(conv)
         else:
             if conv not in self._accept_dict:
-                def output(out_data, size):
-                    print(size)
-                    print(out_data)
-                    return self.output(out_data[:size])
-
-                kcp = self.create_kcp(conv, output=output)
+                kcp = self.create_kcp(conv, output=self.output)
                 kcp.input(data, len(data))
                 self._accept_dict[conv] = kcp
                 if not self._acceptable.is_set():
                     self._acceptable.set()
+            else:
+                kcp = self._accept_dict[conv]
+                kcp.input(data, len(data))
 
     async def start_serve(self, cb):
         while True:

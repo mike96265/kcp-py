@@ -38,7 +38,7 @@ class ServerProxy:
 if __name__ == '__main__':
     # asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
     loop = asyncio.get_event_loop()
-    server = ServerProxy(('127.0.0.1', 8888), ('127.0.0.1', 9999), loop)
+    server = ServerProxy(('127.0.0.1', 8888), ('127.0.0.1', 1080), loop)
     coro = server.start_serve()
     loop.create_task(coro)
     try:
