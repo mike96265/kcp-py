@@ -4034,8 +4034,8 @@ static void __pyx_pf_3KCP_3KCP_2__dealloc__(struct __pyx_obj_3KCP_KCP *__pyx_v_s
  *         free(self.buffer)
  * 
  *     cpdef int recv(self, char *buffer, int size):             # <<<<<<<<<<<<<<
+ *         printf("recv1 \n")
  *         if not len(self.nrcv_que):
- *             return -1
  */
 
 static PyObject *__pyx_pw_3KCP_3KCP_5recv(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
@@ -4149,6 +4149,15 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
   /* "KCP.pyx":187
  * 
  *     cpdef int recv(self, char *buffer, int size):
+ *         printf("recv1 \n")             # <<<<<<<<<<<<<<
+ *         if not len(self.nrcv_que):
+ *             return -1
+ */
+  (void)(printf(((char *)"recv1 \n")));
+
+  /* "KCP.pyx":188
+ *     cpdef int recv(self, char *buffer, int size):
+ *         printf("recv1 \n")
  *         if not len(self.nrcv_que):             # <<<<<<<<<<<<<<
  *             return -1
  *         cdef int peeksize = self.peeksize()
@@ -4157,15 +4166,15 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
   __Pyx_INCREF(__pyx_t_1);
   if (unlikely(__pyx_t_1 == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 187, __pyx_L1_error)
+    __PYX_ERR(0, 188, __pyx_L1_error)
   }
-  __pyx_t_9 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_9 == ((Py_ssize_t)-1))) __PYX_ERR(0, 187, __pyx_L1_error)
+  __pyx_t_9 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_9 == ((Py_ssize_t)-1))) __PYX_ERR(0, 188, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_10 = ((!(__pyx_t_9 != 0)) != 0);
   if (__pyx_t_10) {
 
-    /* "KCP.pyx":188
- *     cpdef int recv(self, char *buffer, int size):
+    /* "KCP.pyx":189
+ *         printf("recv1 \n")
  *         if not len(self.nrcv_que):
  *             return -1             # <<<<<<<<<<<<<<
  *         cdef int peeksize = self.peeksize()
@@ -4174,16 +4183,16 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
     __pyx_r = -1;
     goto __pyx_L0;
 
-    /* "KCP.pyx":187
- * 
+    /* "KCP.pyx":188
  *     cpdef int recv(self, char *buffer, int size):
+ *         printf("recv1 \n")
  *         if not len(self.nrcv_que):             # <<<<<<<<<<<<<<
  *             return -1
  *         cdef int peeksize = self.peeksize()
  */
   }
 
-  /* "KCP.pyx":189
+  /* "KCP.pyx":190
  *         if not len(self.nrcv_que):
  *             return -1
  *         cdef int peeksize = self.peeksize()             # <<<<<<<<<<<<<<
@@ -4192,7 +4201,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
   __pyx_v_peeksize = ((struct __pyx_vtabstruct_3KCP_KCP *)__pyx_v_self->__pyx_vtab)->peeksize(__pyx_v_self, 0);
 
-  /* "KCP.pyx":190
+  /* "KCP.pyx":191
  *             return -1
  *         cdef int peeksize = self.peeksize()
  *         if peeksize < 0:             # <<<<<<<<<<<<<<
@@ -4202,7 +4211,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
   __pyx_t_10 = ((__pyx_v_peeksize < 0) != 0);
   if (__pyx_t_10) {
 
-    /* "KCP.pyx":191
+    /* "KCP.pyx":192
  *         cdef int peeksize = self.peeksize()
  *         if peeksize < 0:
  *             return -2             # <<<<<<<<<<<<<<
@@ -4212,7 +4221,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
     __pyx_r = -2;
     goto __pyx_L0;
 
-    /* "KCP.pyx":190
+    /* "KCP.pyx":191
  *             return -1
  *         cdef int peeksize = self.peeksize()
  *         if peeksize < 0:             # <<<<<<<<<<<<<<
@@ -4221,7 +4230,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
   }
 
-  /* "KCP.pyx":192
+  /* "KCP.pyx":193
  *         if peeksize < 0:
  *             return -2
  *         if peeksize > size:             # <<<<<<<<<<<<<<
@@ -4231,7 +4240,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
   __pyx_t_10 = ((__pyx_v_peeksize > __pyx_v_size) != 0);
   if (__pyx_t_10) {
 
-    /* "KCP.pyx":193
+    /* "KCP.pyx":194
  *             return -2
  *         if peeksize > size:
  *             return -3             # <<<<<<<<<<<<<<
@@ -4241,7 +4250,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
     __pyx_r = -3;
     goto __pyx_L0;
 
-    /* "KCP.pyx":192
+    /* "KCP.pyx":193
  *         if peeksize < 0:
  *             return -2
  *         if peeksize > size:             # <<<<<<<<<<<<<<
@@ -4250,7 +4259,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
   }
 
-  /* "KCP.pyx":194
+  /* "KCP.pyx":195
  *         if peeksize > size:
  *             return -3
  *         cdef bint recover = False             # <<<<<<<<<<<<<<
@@ -4259,7 +4268,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
   __pyx_v_recover = 0;
 
-  /* "KCP.pyx":195
+  /* "KCP.pyx":196
  *             return -3
  *         cdef bint recover = False
  *         if len(self.nrcv_que) >= self.rcv_wnd:             # <<<<<<<<<<<<<<
@@ -4270,14 +4279,14 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
   __Pyx_INCREF(__pyx_t_1);
   if (unlikely(__pyx_t_1 == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 195, __pyx_L1_error)
+    __PYX_ERR(0, 196, __pyx_L1_error)
   }
-  __pyx_t_9 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_9 == ((Py_ssize_t)-1))) __PYX_ERR(0, 195, __pyx_L1_error)
+  __pyx_t_9 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_9 == ((Py_ssize_t)-1))) __PYX_ERR(0, 196, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_10 = ((__pyx_t_9 >= __pyx_v_self->rcv_wnd) != 0);
   if (__pyx_t_10) {
 
-    /* "KCP.pyx":196
+    /* "KCP.pyx":197
  *         cdef bint recover = False
  *         if len(self.nrcv_que) >= self.rcv_wnd:
  *             recover = True             # <<<<<<<<<<<<<<
@@ -4286,7 +4295,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
     __pyx_v_recover = 1;
 
-    /* "KCP.pyx":195
+    /* "KCP.pyx":196
  *             return -3
  *         cdef bint recover = False
  *         if len(self.nrcv_que) >= self.rcv_wnd:             # <<<<<<<<<<<<<<
@@ -4295,7 +4304,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
   }
 
-  /* "KCP.pyx":198
+  /* "KCP.pyx":199
  *             recover = True
  * 
  *         cdef int count = 0             # <<<<<<<<<<<<<<
@@ -4304,7 +4313,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
   __pyx_v_count = 0;
 
-  /* "KCP.pyx":199
+  /* "KCP.pyx":200
  * 
  *         cdef int count = 0
  *         cdef int n = 0             # <<<<<<<<<<<<<<
@@ -4313,7 +4322,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
   __pyx_v_n = 0;
 
-  /* "KCP.pyx":203
+  /* "KCP.pyx":204
  *         cdef Segment seg
  * 
  *         for seg in self.nrcv_que:             # <<<<<<<<<<<<<<
@@ -4322,22 +4331,22 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
   if (unlikely(__pyx_v_self->nrcv_que == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 203, __pyx_L1_error)
+    __PYX_ERR(0, 204, __pyx_L1_error)
   }
   __pyx_t_1 = __pyx_v_self->nrcv_que; __Pyx_INCREF(__pyx_t_1); __pyx_t_9 = 0;
   for (;;) {
     if (__pyx_t_9 >= PyList_GET_SIZE(__pyx_t_1)) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_9); __Pyx_INCREF(__pyx_t_2); __pyx_t_9++; if (unlikely(0 < 0)) __PYX_ERR(0, 203, __pyx_L1_error)
+    __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_9); __Pyx_INCREF(__pyx_t_2); __pyx_t_9++; if (unlikely(0 < 0)) __PYX_ERR(0, 204, __pyx_L1_error)
     #else
-    __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 203, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 204, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     #endif
-    if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_3KCP_Segment))))) __PYX_ERR(0, 203, __pyx_L1_error)
+    if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_3KCP_Segment))))) __PYX_ERR(0, 204, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_seg, ((struct __pyx_obj_3KCP_Segment *)__pyx_t_2));
     __pyx_t_2 = 0;
 
-    /* "KCP.pyx":204
+    /* "KCP.pyx":205
  * 
  *         for seg in self.nrcv_que:
  *             memcpy(buffer, seg.data, seg.size)             # <<<<<<<<<<<<<<
@@ -4346,7 +4355,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
     (void)(memcpy(__pyx_v_buffer, __pyx_v_seg->data, __pyx_v_seg->size));
 
-    /* "KCP.pyx":205
+    /* "KCP.pyx":206
  *         for seg in self.nrcv_que:
  *             memcpy(buffer, seg.data, seg.size)
  *             buffer += seg.size             # <<<<<<<<<<<<<<
@@ -4355,7 +4364,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
     __pyx_v_buffer = (__pyx_v_buffer + __pyx_v_seg->size);
 
-    /* "KCP.pyx":206
+    /* "KCP.pyx":207
  *             memcpy(buffer, seg.data, seg.size)
  *             buffer += seg.size
  *             count += 1             # <<<<<<<<<<<<<<
@@ -4364,7 +4373,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
     __pyx_v_count = (__pyx_v_count + 1);
 
-    /* "KCP.pyx":207
+    /* "KCP.pyx":208
  *             buffer += seg.size
  *             count += 1
  *             if seg.frg == 0:             # <<<<<<<<<<<<<<
@@ -4374,7 +4383,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
     __pyx_t_10 = ((__pyx_v_seg->frg == 0) != 0);
     if (__pyx_t_10) {
 
-      /* "KCP.pyx":208
+      /* "KCP.pyx":209
  *             count += 1
  *             if seg.frg == 0:
  *                 break             # <<<<<<<<<<<<<<
@@ -4383,7 +4392,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
       goto __pyx_L8_break;
 
-      /* "KCP.pyx":207
+      /* "KCP.pyx":208
  *             buffer += seg.size
  *             count += 1
  *             if seg.frg == 0:             # <<<<<<<<<<<<<<
@@ -4392,7 +4401,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
     }
 
-    /* "KCP.pyx":203
+    /* "KCP.pyx":204
  *         cdef Segment seg
  * 
  *         for seg in self.nrcv_que:             # <<<<<<<<<<<<<<
@@ -4403,7 +4412,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
   __pyx_L8_break:;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "KCP.pyx":210
+  /* "KCP.pyx":211
  *                 break
  * 
  *         if count > 0:             # <<<<<<<<<<<<<<
@@ -4413,7 +4422,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
   __pyx_t_10 = ((__pyx_v_count > 0) != 0);
   if (__pyx_t_10) {
 
-    /* "KCP.pyx":211
+    /* "KCP.pyx":212
  * 
  *         if count > 0:
  *             self.nrcv_que = self.nrcv_que[count:]             # <<<<<<<<<<<<<<
@@ -4422,9 +4431,9 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
     if (unlikely(__pyx_v_self->nrcv_que == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 211, __pyx_L1_error)
+      __PYX_ERR(0, 212, __pyx_L1_error)
     }
-    __pyx_t_1 = __Pyx_PyList_GetSlice(__pyx_v_self->nrcv_que, __pyx_v_count, PY_SSIZE_T_MAX); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 211, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyList_GetSlice(__pyx_v_self->nrcv_que, __pyx_v_count, PY_SSIZE_T_MAX); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 212, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_GIVEREF(__pyx_t_1);
     __Pyx_GOTREF(__pyx_v_self->nrcv_que);
@@ -4432,7 +4441,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
     __pyx_v_self->nrcv_que = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "KCP.pyx":210
+    /* "KCP.pyx":211
  *                 break
  * 
  *         if count > 0:             # <<<<<<<<<<<<<<
@@ -4441,7 +4450,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
   }
 
-  /* "KCP.pyx":213
+  /* "KCP.pyx":214
  *             self.nrcv_que = self.nrcv_que[count:]
  * 
  *         count = 0             # <<<<<<<<<<<<<<
@@ -4450,7 +4459,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
   __pyx_v_count = 0;
 
-  /* "KCP.pyx":215
+  /* "KCP.pyx":216
  *         count = 0
  * 
  *         for seg in self.nrcv_buf:             # <<<<<<<<<<<<<<
@@ -4459,22 +4468,22 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
   if (unlikely(__pyx_v_self->nrcv_buf == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 215, __pyx_L1_error)
+    __PYX_ERR(0, 216, __pyx_L1_error)
   }
   __pyx_t_1 = __pyx_v_self->nrcv_buf; __Pyx_INCREF(__pyx_t_1); __pyx_t_9 = 0;
   for (;;) {
     if (__pyx_t_9 >= PyList_GET_SIZE(__pyx_t_1)) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_9); __Pyx_INCREF(__pyx_t_2); __pyx_t_9++; if (unlikely(0 < 0)) __PYX_ERR(0, 215, __pyx_L1_error)
+    __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_9); __Pyx_INCREF(__pyx_t_2); __pyx_t_9++; if (unlikely(0 < 0)) __PYX_ERR(0, 216, __pyx_L1_error)
     #else
-    __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 215, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 216, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     #endif
-    if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_3KCP_Segment))))) __PYX_ERR(0, 215, __pyx_L1_error)
+    if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_3KCP_Segment))))) __PYX_ERR(0, 216, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_seg, ((struct __pyx_obj_3KCP_Segment *)__pyx_t_2));
     __pyx_t_2 = 0;
 
-    /* "KCP.pyx":216
+    /* "KCP.pyx":217
  * 
  *         for seg in self.nrcv_buf:
  *             if (seg.sn == self.rcv_nxt) and (len(self.nrcv_que) < self.rcv_wnd):             # <<<<<<<<<<<<<<
@@ -4491,16 +4500,16 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
     __Pyx_INCREF(__pyx_t_2);
     if (unlikely(__pyx_t_2 == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-      __PYX_ERR(0, 216, __pyx_L1_error)
+      __PYX_ERR(0, 217, __pyx_L1_error)
     }
-    __pyx_t_12 = PyList_GET_SIZE(__pyx_t_2); if (unlikely(__pyx_t_12 == ((Py_ssize_t)-1))) __PYX_ERR(0, 216, __pyx_L1_error)
+    __pyx_t_12 = PyList_GET_SIZE(__pyx_t_2); if (unlikely(__pyx_t_12 == ((Py_ssize_t)-1))) __PYX_ERR(0, 217, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_11 = ((__pyx_t_12 < __pyx_v_self->rcv_wnd) != 0);
     __pyx_t_10 = __pyx_t_11;
     __pyx_L14_bool_binop_done:;
     if (__pyx_t_10) {
 
-      /* "KCP.pyx":217
+      /* "KCP.pyx":218
  *         for seg in self.nrcv_buf:
  *             if (seg.sn == self.rcv_nxt) and (len(self.nrcv_que) < self.rcv_wnd):
  *                 self.nrcv_que.append(seg)             # <<<<<<<<<<<<<<
@@ -4509,11 +4518,11 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
       if (unlikely(__pyx_v_self->nrcv_que == Py_None)) {
         PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "append");
-        __PYX_ERR(0, 217, __pyx_L1_error)
+        __PYX_ERR(0, 218, __pyx_L1_error)
       }
-      __pyx_t_13 = __Pyx_PyList_Append(__pyx_v_self->nrcv_que, ((PyObject *)__pyx_v_seg)); if (unlikely(__pyx_t_13 == ((int)-1))) __PYX_ERR(0, 217, __pyx_L1_error)
+      __pyx_t_13 = __Pyx_PyList_Append(__pyx_v_self->nrcv_que, ((PyObject *)__pyx_v_seg)); if (unlikely(__pyx_t_13 == ((int)-1))) __PYX_ERR(0, 218, __pyx_L1_error)
 
-      /* "KCP.pyx":218
+      /* "KCP.pyx":219
  *             if (seg.sn == self.rcv_nxt) and (len(self.nrcv_que) < self.rcv_wnd):
  *                 self.nrcv_que.append(seg)
  *                 self.rcv_nxt += 1             # <<<<<<<<<<<<<<
@@ -4522,7 +4531,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
       __pyx_v_self->rcv_nxt = (__pyx_v_self->rcv_nxt + 1);
 
-      /* "KCP.pyx":219
+      /* "KCP.pyx":220
  *                 self.nrcv_que.append(seg)
  *                 self.rcv_nxt += 1
  *                 count += 1             # <<<<<<<<<<<<<<
@@ -4531,7 +4540,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
       __pyx_v_count = (__pyx_v_count + 1);
 
-      /* "KCP.pyx":216
+      /* "KCP.pyx":217
  * 
  *         for seg in self.nrcv_buf:
  *             if (seg.sn == self.rcv_nxt) and (len(self.nrcv_que) < self.rcv_wnd):             # <<<<<<<<<<<<<<
@@ -4541,7 +4550,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
       goto __pyx_L13;
     }
 
-    /* "KCP.pyx":221
+    /* "KCP.pyx":222
  *                 count += 1
  *             else:
  *                 break             # <<<<<<<<<<<<<<
@@ -4553,7 +4562,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
     }
     __pyx_L13:;
 
-    /* "KCP.pyx":215
+    /* "KCP.pyx":216
  *         count = 0
  * 
  *         for seg in self.nrcv_buf:             # <<<<<<<<<<<<<<
@@ -4564,7 +4573,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
   __pyx_L12_break:;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "KCP.pyx":223
+  /* "KCP.pyx":224
  *                 break
  * 
  *         if count > 0:             # <<<<<<<<<<<<<<
@@ -4574,7 +4583,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
   __pyx_t_10 = ((__pyx_v_count > 0) != 0);
   if (__pyx_t_10) {
 
-    /* "KCP.pyx":224
+    /* "KCP.pyx":225
  * 
  *         if count > 0:
  *             self.nrcv_buf = self.nrcv_buf[count:]             # <<<<<<<<<<<<<<
@@ -4583,9 +4592,9 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
     if (unlikely(__pyx_v_self->nrcv_buf == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 224, __pyx_L1_error)
+      __PYX_ERR(0, 225, __pyx_L1_error)
     }
-    __pyx_t_1 = __Pyx_PyList_GetSlice(__pyx_v_self->nrcv_buf, __pyx_v_count, PY_SSIZE_T_MAX); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 224, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyList_GetSlice(__pyx_v_self->nrcv_buf, __pyx_v_count, PY_SSIZE_T_MAX); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 225, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_GIVEREF(__pyx_t_1);
     __Pyx_GOTREF(__pyx_v_self->nrcv_buf);
@@ -4593,7 +4602,7 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
     __pyx_v_self->nrcv_buf = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "KCP.pyx":223
+    /* "KCP.pyx":224
  *                 break
  * 
  *         if count > 0:             # <<<<<<<<<<<<<<
@@ -4602,20 +4611,20 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
   }
 
-  /* "KCP.pyx":226
+  /* "KCP.pyx":227
  *             self.nrcv_buf = self.nrcv_buf[count:]
  * 
  *         if (len(self.nrcv_que) < self.rcv_wnd) and recover:             # <<<<<<<<<<<<<<
  *             self.probe |= IKCP_ASK_TELL
- *         return 1
+ *         printf("recv2 \n")
  */
   __pyx_t_1 = __pyx_v_self->nrcv_que;
   __Pyx_INCREF(__pyx_t_1);
   if (unlikely(__pyx_t_1 == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 226, __pyx_L1_error)
+    __PYX_ERR(0, 227, __pyx_L1_error)
   }
-  __pyx_t_9 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_9 == ((Py_ssize_t)-1))) __PYX_ERR(0, 226, __pyx_L1_error)
+  __pyx_t_9 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_9 == ((Py_ssize_t)-1))) __PYX_ERR(0, 227, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_11 = ((__pyx_t_9 < __pyx_v_self->rcv_wnd) != 0);
   if (__pyx_t_11) {
@@ -4628,27 +4637,36 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
   __pyx_L18_bool_binop_done:;
   if (__pyx_t_10) {
 
-    /* "KCP.pyx":227
+    /* "KCP.pyx":228
  * 
  *         if (len(self.nrcv_que) < self.rcv_wnd) and recover:
  *             self.probe |= IKCP_ASK_TELL             # <<<<<<<<<<<<<<
+ *         printf("recv2 \n")
  *         return 1
- * 
  */
     __pyx_v_self->probe = (__pyx_v_self->probe | __pyx_v_3KCP_IKCP_ASK_TELL);
 
-    /* "KCP.pyx":226
+    /* "KCP.pyx":227
  *             self.nrcv_buf = self.nrcv_buf[count:]
  * 
  *         if (len(self.nrcv_que) < self.rcv_wnd) and recover:             # <<<<<<<<<<<<<<
  *             self.probe |= IKCP_ASK_TELL
- *         return 1
+ *         printf("recv2 \n")
  */
   }
 
-  /* "KCP.pyx":228
+  /* "KCP.pyx":229
  *         if (len(self.nrcv_que) < self.rcv_wnd) and recover:
  *             self.probe |= IKCP_ASK_TELL
+ *         printf("recv2 \n")             # <<<<<<<<<<<<<<
+ *         return 1
+ * 
+ */
+  (void)(printf(((char *)"recv2 \n")));
+
+  /* "KCP.pyx":230
+ *             self.probe |= IKCP_ASK_TELL
+ *         printf("recv2 \n")
  *         return 1             # <<<<<<<<<<<<<<
  * 
  *     cpdef int peeksize(self):
@@ -4660,8 +4678,8 @@ static int __pyx_f_3KCP_3KCP_recv(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  *         free(self.buffer)
  * 
  *     cpdef int recv(self, char *buffer, int size):             # <<<<<<<<<<<<<<
+ *         printf("recv1 \n")
  *         if not len(self.nrcv_que):
- *             return -1
  */
 
   /* function exit code */
@@ -4765,7 +4783,7 @@ static PyObject *__pyx_pf_3KCP_3KCP_4recv(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
   return __pyx_r;
 }
 
-/* "KCP.pyx":230
+/* "KCP.pyx":232
  *         return 1
  * 
  *     cpdef int peeksize(self):             # <<<<<<<<<<<<<<
@@ -4796,7 +4814,7 @@ static int __pyx_f_3KCP_3KCP_peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_peeksize); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 230, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_peeksize); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 232, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_3KCP_3KCP_7peeksize)) {
         __Pyx_INCREF(__pyx_t_1);
@@ -4812,10 +4830,10 @@ static int __pyx_f_3KCP_3KCP_peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 230, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 232, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 230, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 232, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_5;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -4834,7 +4852,7 @@ static int __pyx_f_3KCP_3KCP_peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
     #endif
   }
 
-  /* "KCP.pyx":231
+  /* "KCP.pyx":233
  * 
  *     cpdef int peeksize(self):
  *         if 0 == len(self.nrcv_que):             # <<<<<<<<<<<<<<
@@ -4845,14 +4863,14 @@ static int __pyx_f_3KCP_3KCP_peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
   __Pyx_INCREF(__pyx_t_1);
   if (unlikely(__pyx_t_1 == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 231, __pyx_L1_error)
+    __PYX_ERR(0, 233, __pyx_L1_error)
   }
-  __pyx_t_6 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 231, __pyx_L1_error)
+  __pyx_t_6 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 233, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_7 = ((0 == __pyx_t_6) != 0);
   if (__pyx_t_7) {
 
-    /* "KCP.pyx":232
+    /* "KCP.pyx":234
  *     cpdef int peeksize(self):
  *         if 0 == len(self.nrcv_que):
  *             return -1             # <<<<<<<<<<<<<<
@@ -4862,7 +4880,7 @@ static int __pyx_f_3KCP_3KCP_peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
     __pyx_r = -1;
     goto __pyx_L0;
 
-    /* "KCP.pyx":231
+    /* "KCP.pyx":233
  * 
  *     cpdef int peeksize(self):
  *         if 0 == len(self.nrcv_que):             # <<<<<<<<<<<<<<
@@ -4871,7 +4889,7 @@ static int __pyx_f_3KCP_3KCP_peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
  */
   }
 
-  /* "KCP.pyx":233
+  /* "KCP.pyx":235
  *         if 0 == len(self.nrcv_que):
  *             return -1
  *         cdef Segment seg = self.nrcv_que[0]             # <<<<<<<<<<<<<<
@@ -4880,15 +4898,15 @@ static int __pyx_f_3KCP_3KCP_peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
  */
   if (unlikely(__pyx_v_self->nrcv_que == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 233, __pyx_L1_error)
+    __PYX_ERR(0, 235, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_self->nrcv_que, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 233, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_self->nrcv_que, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 235, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_3KCP_Segment))))) __PYX_ERR(0, 233, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_3KCP_Segment))))) __PYX_ERR(0, 235, __pyx_L1_error)
   __pyx_v_seg = ((struct __pyx_obj_3KCP_Segment *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "KCP.pyx":234
+  /* "KCP.pyx":236
  *             return -1
  *         cdef Segment seg = self.nrcv_que[0]
  *         if seg.frg == 0:             # <<<<<<<<<<<<<<
@@ -4898,7 +4916,7 @@ static int __pyx_f_3KCP_3KCP_peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
   __pyx_t_7 = ((__pyx_v_seg->frg == 0) != 0);
   if (__pyx_t_7) {
 
-    /* "KCP.pyx":235
+    /* "KCP.pyx":237
  *         cdef Segment seg = self.nrcv_que[0]
  *         if seg.frg == 0:
  *             return seg.size             # <<<<<<<<<<<<<<
@@ -4908,7 +4926,7 @@ static int __pyx_f_3KCP_3KCP_peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
     __pyx_r = __pyx_v_seg->size;
     goto __pyx_L0;
 
-    /* "KCP.pyx":234
+    /* "KCP.pyx":236
  *             return -1
  *         cdef Segment seg = self.nrcv_que[0]
  *         if seg.frg == 0:             # <<<<<<<<<<<<<<
@@ -4917,7 +4935,7 @@ static int __pyx_f_3KCP_3KCP_peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
  */
   }
 
-  /* "KCP.pyx":236
+  /* "KCP.pyx":238
  *         if seg.frg == 0:
  *             return seg.size
  *         if len(self.nrcv_que) < (seg.frg + 1):             # <<<<<<<<<<<<<<
@@ -4928,14 +4946,14 @@ static int __pyx_f_3KCP_3KCP_peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
   __Pyx_INCREF(__pyx_t_1);
   if (unlikely(__pyx_t_1 == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 236, __pyx_L1_error)
+    __PYX_ERR(0, 238, __pyx_L1_error)
   }
-  __pyx_t_6 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 236, __pyx_L1_error)
+  __pyx_t_6 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 238, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_7 = ((__pyx_t_6 < (__pyx_v_seg->frg + 1)) != 0);
   if (__pyx_t_7) {
 
-    /* "KCP.pyx":237
+    /* "KCP.pyx":239
  *             return seg.size
  *         if len(self.nrcv_que) < (seg.frg + 1):
  *             return -1             # <<<<<<<<<<<<<<
@@ -4945,7 +4963,7 @@ static int __pyx_f_3KCP_3KCP_peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
     __pyx_r = -1;
     goto __pyx_L0;
 
-    /* "KCP.pyx":236
+    /* "KCP.pyx":238
  *         if seg.frg == 0:
  *             return seg.size
  *         if len(self.nrcv_que) < (seg.frg + 1):             # <<<<<<<<<<<<<<
@@ -4954,7 +4972,7 @@ static int __pyx_f_3KCP_3KCP_peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
  */
   }
 
-  /* "KCP.pyx":238
+  /* "KCP.pyx":240
  *         if len(self.nrcv_que) < (seg.frg + 1):
  *             return -1
  *         cdef int length = 0             # <<<<<<<<<<<<<<
@@ -4963,7 +4981,7 @@ static int __pyx_f_3KCP_3KCP_peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
  */
   __pyx_v_length = 0;
 
-  /* "KCP.pyx":239
+  /* "KCP.pyx":241
  *             return -1
  *         cdef int length = 0
  *         for seg in self.nrcv_que:             # <<<<<<<<<<<<<<
@@ -4972,22 +4990,22 @@ static int __pyx_f_3KCP_3KCP_peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
  */
   if (unlikely(__pyx_v_self->nrcv_que == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 239, __pyx_L1_error)
+    __PYX_ERR(0, 241, __pyx_L1_error)
   }
   __pyx_t_1 = __pyx_v_self->nrcv_que; __Pyx_INCREF(__pyx_t_1); __pyx_t_6 = 0;
   for (;;) {
     if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_1)) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_6); __Pyx_INCREF(__pyx_t_2); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 239, __pyx_L1_error)
+    __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_6); __Pyx_INCREF(__pyx_t_2); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 241, __pyx_L1_error)
     #else
-    __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 239, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 241, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     #endif
-    if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_3KCP_Segment))))) __PYX_ERR(0, 239, __pyx_L1_error)
+    if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_3KCP_Segment))))) __PYX_ERR(0, 241, __pyx_L1_error)
     __Pyx_DECREF_SET(__pyx_v_seg, ((struct __pyx_obj_3KCP_Segment *)__pyx_t_2));
     __pyx_t_2 = 0;
 
-    /* "KCP.pyx":240
+    /* "KCP.pyx":242
  *         cdef int length = 0
  *         for seg in self.nrcv_que:
  *             length += seg.size             # <<<<<<<<<<<<<<
@@ -4996,7 +5014,7 @@ static int __pyx_f_3KCP_3KCP_peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
  */
     __pyx_v_length = (__pyx_v_length + __pyx_v_seg->size);
 
-    /* "KCP.pyx":241
+    /* "KCP.pyx":243
  *         for seg in self.nrcv_que:
  *             length += seg.size
  *             if seg.frg == 0:             # <<<<<<<<<<<<<<
@@ -5006,7 +5024,7 @@ static int __pyx_f_3KCP_3KCP_peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
     __pyx_t_7 = ((__pyx_v_seg->frg == 0) != 0);
     if (__pyx_t_7) {
 
-      /* "KCP.pyx":242
+      /* "KCP.pyx":244
  *             length += seg.size
  *             if seg.frg == 0:
  *                 break             # <<<<<<<<<<<<<<
@@ -5015,7 +5033,7 @@ static int __pyx_f_3KCP_3KCP_peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
  */
       goto __pyx_L7_break;
 
-      /* "KCP.pyx":241
+      /* "KCP.pyx":243
  *         for seg in self.nrcv_que:
  *             length += seg.size
  *             if seg.frg == 0:             # <<<<<<<<<<<<<<
@@ -5024,7 +5042,7 @@ static int __pyx_f_3KCP_3KCP_peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
  */
     }
 
-    /* "KCP.pyx":239
+    /* "KCP.pyx":241
  *             return -1
  *         cdef int length = 0
  *         for seg in self.nrcv_que:             # <<<<<<<<<<<<<<
@@ -5035,7 +5053,7 @@ static int __pyx_f_3KCP_3KCP_peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
   __pyx_L7_break:;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "KCP.pyx":243
+  /* "KCP.pyx":245
  *             if seg.frg == 0:
  *                 break
  *         return length             # <<<<<<<<<<<<<<
@@ -5045,7 +5063,7 @@ static int __pyx_f_3KCP_3KCP_peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
   __pyx_r = __pyx_v_length;
   goto __pyx_L0;
 
-  /* "KCP.pyx":230
+  /* "KCP.pyx":232
  *         return 1
  * 
  *     cpdef int peeksize(self):             # <<<<<<<<<<<<<<
@@ -5086,7 +5104,7 @@ static PyObject *__pyx_pf_3KCP_3KCP_6peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("peeksize", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3KCP_3KCP_peeksize(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3KCP_3KCP_peeksize(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 232, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5103,12 +5121,12 @@ static PyObject *__pyx_pf_3KCP_3KCP_6peeksize(struct __pyx_obj_3KCP_KCP *__pyx_v
   return __pyx_r;
 }
 
-/* "KCP.pyx":245
+/* "KCP.pyx":247
  *         return length
  * 
  *     cpdef int send(self, char *buffer, int size):             # <<<<<<<<<<<<<<
+ *         printf("send1 \n")
  *         cdef int idx
- *         cdef int count
  */
 
 static PyObject *__pyx_pw_3KCP_3KCP_9send(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
@@ -5143,12 +5161,12 @@ static int __pyx_f_3KCP_3KCP_send(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_send); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 245, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_send); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 247, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_3KCP_3KCP_9send)) {
-        __pyx_t_3 = __Pyx_PyBytes_FromString(__pyx_v_buffer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 245, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyBytes_FromString(__pyx_v_buffer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 247, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_size); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 245, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_size); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 247, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_5 = __pyx_t_1; __pyx_t_6 = NULL;
@@ -5166,7 +5184,7 @@ static int __pyx_f_3KCP_3KCP_send(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 245, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 247, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -5176,7 +5194,7 @@ static int __pyx_f_3KCP_3KCP_send(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 245, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 247, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -5184,7 +5202,7 @@ static int __pyx_f_3KCP_3KCP_send(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
         } else
         #endif
         {
-          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 245, __pyx_L1_error)
+          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 247, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           if (__pyx_t_6) {
             __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -5195,12 +5213,12 @@ static int __pyx_f_3KCP_3KCP_send(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
           PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_t_4);
           __pyx_t_3 = 0;
           __pyx_t_4 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 245, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 247, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 245, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 247, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_7;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -5220,6 +5238,15 @@ static int __pyx_f_3KCP_3KCP_send(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
   }
 
   /* "KCP.pyx":248
+ * 
+ *     cpdef int send(self, char *buffer, int size):
+ *         printf("send1 \n")             # <<<<<<<<<<<<<<
+ *         cdef int idx
+ *         cdef int count
+ */
+  (void)(printf(((char *)"send1 \n")));
+
+  /* "KCP.pyx":251
  *         cdef int idx
  *         cdef int count
  *         if size < self.mss:             # <<<<<<<<<<<<<<
@@ -5229,7 +5256,7 @@ static int __pyx_f_3KCP_3KCP_send(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
   __pyx_t_9 = ((__pyx_v_size < __pyx_v_self->mss) != 0);
   if (__pyx_t_9) {
 
-    /* "KCP.pyx":249
+    /* "KCP.pyx":252
  *         cdef int count
  *         if size < self.mss:
  *             count = 1             # <<<<<<<<<<<<<<
@@ -5238,7 +5265,7 @@ static int __pyx_f_3KCP_3KCP_send(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
     __pyx_v_count = 1;
 
-    /* "KCP.pyx":248
+    /* "KCP.pyx":251
  *         cdef int idx
  *         cdef int count
  *         if size < self.mss:             # <<<<<<<<<<<<<<
@@ -5248,7 +5275,7 @@ static int __pyx_f_3KCP_3KCP_send(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
     goto __pyx_L3;
   }
 
-  /* "KCP.pyx":251
+  /* "KCP.pyx":254
  *             count = 1
  *         else:
  *             count = (size + self.mss - 1) / self.mss             # <<<<<<<<<<<<<<
@@ -5259,17 +5286,17 @@ static int __pyx_f_3KCP_3KCP_send(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
     __pyx_t_10 = ((__pyx_v_size + __pyx_v_self->mss) - 1);
     if (unlikely(__pyx_v_self->mss == 0)) {
       PyErr_SetString(PyExc_ZeroDivisionError, "integer division or modulo by zero");
-      __PYX_ERR(0, 251, __pyx_L1_error)
+      __PYX_ERR(0, 254, __pyx_L1_error)
     }
     else if (sizeof(long) == sizeof(long) && (!(((int)-1) > 0)) && unlikely(__pyx_v_self->mss == (int)-1)  && unlikely(UNARY_NEG_WOULD_OVERFLOW(__pyx_t_10))) {
       PyErr_SetString(PyExc_OverflowError, "value too large to perform division");
-      __PYX_ERR(0, 251, __pyx_L1_error)
+      __PYX_ERR(0, 254, __pyx_L1_error)
     }
     __pyx_v_count = __Pyx_div_long(__pyx_t_10, __pyx_v_self->mss);
   }
   __pyx_L3:;
 
-  /* "KCP.pyx":253
+  /* "KCP.pyx":256
  *             count = (size + self.mss - 1) / self.mss
  * 
  *         if count > 255:             # <<<<<<<<<<<<<<
@@ -5279,7 +5306,7 @@ static int __pyx_f_3KCP_3KCP_send(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
   __pyx_t_9 = ((__pyx_v_count > 0xFF) != 0);
   if (__pyx_t_9) {
 
-    /* "KCP.pyx":254
+    /* "KCP.pyx":257
  * 
  *         if count > 255:
  *             return -2             # <<<<<<<<<<<<<<
@@ -5289,7 +5316,7 @@ static int __pyx_f_3KCP_3KCP_send(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
     __pyx_r = -2;
     goto __pyx_L0;
 
-    /* "KCP.pyx":253
+    /* "KCP.pyx":256
  *             count = (size + self.mss - 1) / self.mss
  * 
  *         if count > 255:             # <<<<<<<<<<<<<<
@@ -5298,7 +5325,7 @@ static int __pyx_f_3KCP_3KCP_send(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
   }
 
-  /* "KCP.pyx":256
+  /* "KCP.pyx":259
  *             return -2
  * 
  *         if count == 0:             # <<<<<<<<<<<<<<
@@ -5308,7 +5335,7 @@ static int __pyx_f_3KCP_3KCP_send(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
   __pyx_t_9 = ((__pyx_v_count == 0) != 0);
   if (__pyx_t_9) {
 
-    /* "KCP.pyx":257
+    /* "KCP.pyx":260
  * 
  *         if count == 0:
  *             count = 1             # <<<<<<<<<<<<<<
@@ -5317,7 +5344,7 @@ static int __pyx_f_3KCP_3KCP_send(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
     __pyx_v_count = 1;
 
-    /* "KCP.pyx":256
+    /* "KCP.pyx":259
  *             return -2
  * 
  *         if count == 0:             # <<<<<<<<<<<<<<
@@ -5326,7 +5353,7 @@ static int __pyx_f_3KCP_3KCP_send(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
   }
 
-  /* "KCP.pyx":262
+  /* "KCP.pyx":265
  *         cdef Segment seg
  * 
  *         for i in range(count):             # <<<<<<<<<<<<<<
@@ -5338,7 +5365,7 @@ static int __pyx_f_3KCP_3KCP_send(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
   for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
     __pyx_v_i = __pyx_t_12;
 
-    /* "KCP.pyx":263
+    /* "KCP.pyx":266
  * 
  *         for i in range(count):
  *             seg_size = self.mss if (size > self.mss) else size             # <<<<<<<<<<<<<<
@@ -5352,22 +5379,22 @@ static int __pyx_f_3KCP_3KCP_send(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
     }
     __pyx_v_seg_size = __pyx_t_13;
 
-    /* "KCP.pyx":264
+    /* "KCP.pyx":267
  *         for i in range(count):
  *             seg_size = self.mss if (size > self.mss) else size
  *             seg = Segment(seg_size)             # <<<<<<<<<<<<<<
  *             memcpy(seg.data, buffer, seg_size)
  *             buffer += seg_size
  */
-    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_seg_size); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_seg_size); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 267, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_3KCP_Segment), __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 264, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_3KCP_Segment), __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 267, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_XDECREF_SET(__pyx_v_seg, ((struct __pyx_obj_3KCP_Segment *)__pyx_t_2));
     __pyx_t_2 = 0;
 
-    /* "KCP.pyx":265
+    /* "KCP.pyx":268
  *             seg_size = self.mss if (size > self.mss) else size
  *             seg = Segment(seg_size)
  *             memcpy(seg.data, buffer, seg_size)             # <<<<<<<<<<<<<<
@@ -5376,7 +5403,7 @@ static int __pyx_f_3KCP_3KCP_send(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
     (void)(memcpy(__pyx_v_seg->data, __pyx_v_buffer, __pyx_v_seg_size));
 
-    /* "KCP.pyx":266
+    /* "KCP.pyx":269
  *             seg = Segment(seg_size)
  *             memcpy(seg.data, buffer, seg_size)
  *             buffer += seg_size             # <<<<<<<<<<<<<<
@@ -5385,7 +5412,7 @@ static int __pyx_f_3KCP_3KCP_send(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
     __pyx_v_buffer = (__pyx_v_buffer + __pyx_v_seg_size);
 
-    /* "KCP.pyx":267
+    /* "KCP.pyx":270
  *             memcpy(seg.data, buffer, seg_size)
  *             buffer += seg_size
  *             seg.frg = count - i - 1             # <<<<<<<<<<<<<<
@@ -5394,32 +5421,41 @@ static int __pyx_f_3KCP_3KCP_send(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
  */
     __pyx_v_seg->frg = ((__pyx_v_count - __pyx_v_i) - 1);
 
-    /* "KCP.pyx":268
+    /* "KCP.pyx":271
  *             buffer += seg_size
  *             seg.frg = count - i - 1
  *             self.nsnd_que.append(seg)             # <<<<<<<<<<<<<<
  *             size -= seg_size
- *         return 0
+ *         printf("send2 \n")
  */
     if (unlikely(__pyx_v_self->nsnd_que == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "append");
-      __PYX_ERR(0, 268, __pyx_L1_error)
+      __PYX_ERR(0, 271, __pyx_L1_error)
     }
-    __pyx_t_14 = __Pyx_PyList_Append(__pyx_v_self->nsnd_que, ((PyObject *)__pyx_v_seg)); if (unlikely(__pyx_t_14 == ((int)-1))) __PYX_ERR(0, 268, __pyx_L1_error)
+    __pyx_t_14 = __Pyx_PyList_Append(__pyx_v_self->nsnd_que, ((PyObject *)__pyx_v_seg)); if (unlikely(__pyx_t_14 == ((int)-1))) __PYX_ERR(0, 271, __pyx_L1_error)
 
-    /* "KCP.pyx":269
+    /* "KCP.pyx":272
  *             seg.frg = count - i - 1
  *             self.nsnd_que.append(seg)
  *             size -= seg_size             # <<<<<<<<<<<<<<
+ *         printf("send2 \n")
  *         return 0
- * 
  */
     __pyx_v_size = (__pyx_v_size - __pyx_v_seg_size);
   }
 
-  /* "KCP.pyx":270
+  /* "KCP.pyx":273
  *             self.nsnd_que.append(seg)
  *             size -= seg_size
+ *         printf("send2 \n")             # <<<<<<<<<<<<<<
+ *         return 0
+ * 
+ */
+  (void)(printf(((char *)"send2 \n")));
+
+  /* "KCP.pyx":274
+ *             size -= seg_size
+ *         printf("send2 \n")
  *         return 0             # <<<<<<<<<<<<<<
  * 
  *     cdef void update_ack(self, int rtt):
@@ -5427,12 +5463,12 @@ static int __pyx_f_3KCP_3KCP_send(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char 
   __pyx_r = 0;
   goto __pyx_L0;
 
-  /* "KCP.pyx":245
+  /* "KCP.pyx":247
  *         return length
  * 
  *     cpdef int send(self, char *buffer, int size):             # <<<<<<<<<<<<<<
+ *         printf("send1 \n")
  *         cdef int idx
- *         cdef int count
  */
 
   /* function exit code */
@@ -5483,11 +5519,11 @@ static PyObject *__pyx_pw_3KCP_3KCP_9send(PyObject *__pyx_v_self, PyObject *__py
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_size)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("send", 1, 2, 2, 1); __PYX_ERR(0, 245, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("send", 1, 2, 2, 1); __PYX_ERR(0, 247, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "send") < 0)) __PYX_ERR(0, 245, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "send") < 0)) __PYX_ERR(0, 247, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -5495,12 +5531,12 @@ static PyObject *__pyx_pw_3KCP_3KCP_9send(PyObject *__pyx_v_self, PyObject *__py
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_buffer = __Pyx_PyObject_AsWritableString(values[0]); if (unlikely((!__pyx_v_buffer) && PyErr_Occurred())) __PYX_ERR(0, 245, __pyx_L3_error)
-    __pyx_v_size = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_size == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 245, __pyx_L3_error)
+    __pyx_v_buffer = __Pyx_PyObject_AsWritableString(values[0]); if (unlikely((!__pyx_v_buffer) && PyErr_Occurred())) __PYX_ERR(0, 247, __pyx_L3_error)
+    __pyx_v_size = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_size == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 247, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("send", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 245, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("send", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 247, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("KCP.KCP.send", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5519,7 +5555,7 @@ static PyObject *__pyx_pf_3KCP_3KCP_8send(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("send", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3KCP_3KCP_send(__pyx_v_self, __pyx_v_buffer, __pyx_v_size, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 245, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3KCP_3KCP_send(__pyx_v_self, __pyx_v_buffer, __pyx_v_size, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 247, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5536,7 +5572,7 @@ static PyObject *__pyx_pf_3KCP_3KCP_8send(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
   return __pyx_r;
 }
 
-/* "KCP.pyx":272
+/* "KCP.pyx":276
  *         return 0
  * 
  *     cdef void update_ack(self, int rtt):             # <<<<<<<<<<<<<<
@@ -5554,7 +5590,7 @@ static void __pyx_f_3KCP_3KCP_update_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self
   int __pyx_t_4;
   __Pyx_RefNannySetupContext("update_ack", 0);
 
-  /* "KCP.pyx":274
+  /* "KCP.pyx":278
  *     cdef void update_ack(self, int rtt):
  *         """parse ack"""
  *         if self.rx_srtt == 0:             # <<<<<<<<<<<<<<
@@ -5564,7 +5600,7 @@ static void __pyx_f_3KCP_3KCP_update_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self
   __pyx_t_1 = ((__pyx_v_self->rx_srtt == 0) != 0);
   if (__pyx_t_1) {
 
-    /* "KCP.pyx":275
+    /* "KCP.pyx":279
  *         """parse ack"""
  *         if self.rx_srtt == 0:
  *             self.rx_srtt = rtt             # <<<<<<<<<<<<<<
@@ -5573,7 +5609,7 @@ static void __pyx_f_3KCP_3KCP_update_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_self->rx_srtt = __pyx_v_rtt;
 
-    /* "KCP.pyx":276
+    /* "KCP.pyx":280
  *         if self.rx_srtt == 0:
  *             self.rx_srtt = rtt
  *             self.rx_rttval = rtt // 2             # <<<<<<<<<<<<<<
@@ -5582,7 +5618,7 @@ static void __pyx_f_3KCP_3KCP_update_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_self->rx_rttval = __Pyx_div_long(__pyx_v_rtt, 2);
 
-    /* "KCP.pyx":274
+    /* "KCP.pyx":278
  *     cdef void update_ack(self, int rtt):
  *         """parse ack"""
  *         if self.rx_srtt == 0:             # <<<<<<<<<<<<<<
@@ -5592,7 +5628,7 @@ static void __pyx_f_3KCP_3KCP_update_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self
     goto __pyx_L3;
   }
 
-  /* "KCP.pyx":278
+  /* "KCP.pyx":282
  *             self.rx_rttval = rtt // 2
  *         else:
  *             delta = rtt - self.rx_srtt             # <<<<<<<<<<<<<<
@@ -5600,36 +5636,36 @@ static void __pyx_f_3KCP_3KCP_update_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  *                 delta = -delta
  */
   /*else*/ {
-    __pyx_t_2 = __Pyx_PyInt_From_int((__pyx_v_rtt - __pyx_v_self->rx_srtt)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 278, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_int((__pyx_v_rtt - __pyx_v_self->rx_srtt)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 282, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_v_delta = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "KCP.pyx":279
+    /* "KCP.pyx":283
  *         else:
  *             delta = rtt - self.rx_srtt
  *             if delta < 0:             # <<<<<<<<<<<<<<
  *                 delta = -delta
  *             self.rx_rttval = (3 * self.rx_rttval + delta) // 4
  */
-    __pyx_t_2 = PyObject_RichCompare(__pyx_v_delta, __pyx_int_0, Py_LT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 279, __pyx_L1_error)
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 279, __pyx_L1_error)
+    __pyx_t_2 = PyObject_RichCompare(__pyx_v_delta, __pyx_int_0, Py_LT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 283, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 283, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (__pyx_t_1) {
 
-      /* "KCP.pyx":280
+      /* "KCP.pyx":284
  *             delta = rtt - self.rx_srtt
  *             if delta < 0:
  *                 delta = -delta             # <<<<<<<<<<<<<<
  *             self.rx_rttval = (3 * self.rx_rttval + delta) // 4
  *             self.rx_srtt = (7 * self.rx_srtt + rtt) // 8
  */
-      __pyx_t_2 = PyNumber_Negative(__pyx_v_delta); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 280, __pyx_L1_error)
+      __pyx_t_2 = PyNumber_Negative(__pyx_v_delta); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 284, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF_SET(__pyx_v_delta, __pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "KCP.pyx":279
+      /* "KCP.pyx":283
  *         else:
  *             delta = rtt - self.rx_srtt
  *             if delta < 0:             # <<<<<<<<<<<<<<
@@ -5638,26 +5674,26 @@ static void __pyx_f_3KCP_3KCP_update_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     }
 
-    /* "KCP.pyx":281
+    /* "KCP.pyx":285
  *             if delta < 0:
  *                 delta = -delta
  *             self.rx_rttval = (3 * self.rx_rttval + delta) // 4             # <<<<<<<<<<<<<<
  *             self.rx_srtt = (7 * self.rx_srtt + rtt) // 8
  *             if self.rx_srtt < 1:
  */
-    __pyx_t_2 = __Pyx_PyInt_From_long((3 * __pyx_v_self->rx_rttval)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 281, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_long((3 * __pyx_v_self->rx_rttval)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 285, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = PyNumber_Add(__pyx_t_2, __pyx_v_delta); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 281, __pyx_L1_error)
+    __pyx_t_3 = PyNumber_Add(__pyx_t_2, __pyx_v_delta); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 285, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyInt_FloorDivideObjC(__pyx_t_3, __pyx_int_4, 4, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 281, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_FloorDivideObjC(__pyx_t_3, __pyx_int_4, 4, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 285, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 281, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 285, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_self->rx_rttval = __pyx_t_4;
 
-    /* "KCP.pyx":282
+    /* "KCP.pyx":286
  *                 delta = -delta
  *             self.rx_rttval = (3 * self.rx_rttval + delta) // 4
  *             self.rx_srtt = (7 * self.rx_srtt + rtt) // 8             # <<<<<<<<<<<<<<
@@ -5666,7 +5702,7 @@ static void __pyx_f_3KCP_3KCP_update_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_self->rx_srtt = __Pyx_div_long(((7 * __pyx_v_self->rx_srtt) + __pyx_v_rtt), 8);
 
-    /* "KCP.pyx":283
+    /* "KCP.pyx":287
  *             self.rx_rttval = (3 * self.rx_rttval + delta) // 4
  *             self.rx_srtt = (7 * self.rx_srtt + rtt) // 8
  *             if self.rx_srtt < 1:             # <<<<<<<<<<<<<<
@@ -5676,7 +5712,7 @@ static void __pyx_f_3KCP_3KCP_update_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self
     __pyx_t_1 = ((__pyx_v_self->rx_srtt < 1) != 0);
     if (__pyx_t_1) {
 
-      /* "KCP.pyx":284
+      /* "KCP.pyx":288
  *             self.rx_srtt = (7 * self.rx_srtt + rtt) // 8
  *             if self.rx_srtt < 1:
  *                 self.rx_srtt = 1             # <<<<<<<<<<<<<<
@@ -5685,7 +5721,7 @@ static void __pyx_f_3KCP_3KCP_update_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
       __pyx_v_self->rx_srtt = 1;
 
-      /* "KCP.pyx":283
+      /* "KCP.pyx":287
  *             self.rx_rttval = (3 * self.rx_rttval + delta) // 4
  *             self.rx_srtt = (7 * self.rx_srtt + rtt) // 8
  *             if self.rx_srtt < 1:             # <<<<<<<<<<<<<<
@@ -5696,7 +5732,7 @@ static void __pyx_f_3KCP_3KCP_update_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self
   }
   __pyx_L3:;
 
-  /* "KCP.pyx":285
+  /* "KCP.pyx":289
  *             if self.rx_srtt < 1:
  *                 self.rx_srtt = 1
  *         rto = self.rx_srtt + _imax_(1, 4 * self.rx_rttval)             # <<<<<<<<<<<<<<
@@ -5705,7 +5741,7 @@ static void __pyx_f_3KCP_3KCP_update_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
   __pyx_v_rto = (__pyx_v_self->rx_srtt + __pyx_f_3KCP__imax_(1, (4 * __pyx_v_self->rx_rttval)));
 
-  /* "KCP.pyx":286
+  /* "KCP.pyx":290
  *                 self.rx_srtt = 1
  *         rto = self.rx_srtt + _imax_(1, 4 * self.rx_rttval)
  *         self.rx_rto = _ibound_(self.rx_minrto, rto, IKCP_RTO_MAX)             # <<<<<<<<<<<<<<
@@ -5714,7 +5750,7 @@ static void __pyx_f_3KCP_3KCP_update_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
   __pyx_v_self->rx_rto = __pyx_f_3KCP__ibound_(__pyx_v_self->rx_minrto, __pyx_v_rto, __pyx_v_3KCP_IKCP_RTO_MAX);
 
-  /* "KCP.pyx":272
+  /* "KCP.pyx":276
  *         return 0
  * 
  *     cdef void update_ack(self, int rtt):             # <<<<<<<<<<<<<<
@@ -5733,7 +5769,7 @@ static void __pyx_f_3KCP_3KCP_update_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self
   __Pyx_RefNannyFinishContext();
 }
 
-/* "KCP.pyx":288
+/* "KCP.pyx":292
  *         self.rx_rto = _ibound_(self.rx_minrto, rto, IKCP_RTO_MAX)
  * 
  *     cdef void shrink_buf(self):             # <<<<<<<<<<<<<<
@@ -5750,7 +5786,7 @@ static void __pyx_f_3KCP_3KCP_shrink_buf(struct __pyx_obj_3KCP_KCP *__pyx_v_self
   int __pyx_t_5;
   __Pyx_RefNannySetupContext("shrink_buf", 0);
 
-  /* "KCP.pyx":290
+  /* "KCP.pyx":294
  *     cdef void shrink_buf(self):
  *         """snd_una"""
  *         if len(self.nsnd_buf) > 0:             # <<<<<<<<<<<<<<
@@ -5761,14 +5797,14 @@ static void __pyx_f_3KCP_3KCP_shrink_buf(struct __pyx_obj_3KCP_KCP *__pyx_v_self
   __Pyx_INCREF(__pyx_t_1);
   if (unlikely(__pyx_t_1 == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 290, __pyx_L1_error)
+    __PYX_ERR(0, 294, __pyx_L1_error)
   }
-  __pyx_t_2 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 290, __pyx_L1_error)
+  __pyx_t_2 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 294, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_3 = ((__pyx_t_2 > 0) != 0);
   if (__pyx_t_3) {
 
-    /* "KCP.pyx":291
+    /* "KCP.pyx":295
  *         """snd_una"""
  *         if len(self.nsnd_buf) > 0:
  *             self.snd_una = self.nsnd_buf[0].sn             # <<<<<<<<<<<<<<
@@ -5777,18 +5813,18 @@ static void __pyx_f_3KCP_3KCP_shrink_buf(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     if (unlikely(__pyx_v_self->nsnd_buf == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 291, __pyx_L1_error)
+      __PYX_ERR(0, 295, __pyx_L1_error)
     }
-    __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_self->nsnd_buf, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 291, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_self->nsnd_buf, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 295, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_sn); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 291, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_sn); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 295, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 291, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 295, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_v_self->snd_una = __pyx_t_5;
 
-    /* "KCP.pyx":290
+    /* "KCP.pyx":294
  *     cdef void shrink_buf(self):
  *         """snd_una"""
  *         if len(self.nsnd_buf) > 0:             # <<<<<<<<<<<<<<
@@ -5798,7 +5834,7 @@ static void __pyx_f_3KCP_3KCP_shrink_buf(struct __pyx_obj_3KCP_KCP *__pyx_v_self
     goto __pyx_L3;
   }
 
-  /* "KCP.pyx":293
+  /* "KCP.pyx":297
  *             self.snd_una = self.nsnd_buf[0].sn
  *         else:
  *             self.snd_una = self.snd_nxt             # <<<<<<<<<<<<<<
@@ -5811,7 +5847,7 @@ static void __pyx_f_3KCP_3KCP_shrink_buf(struct __pyx_obj_3KCP_KCP *__pyx_v_self
   }
   __pyx_L3:;
 
-  /* "KCP.pyx":288
+  /* "KCP.pyx":292
  *         self.rx_rto = _ibound_(self.rx_minrto, rto, IKCP_RTO_MAX)
  * 
  *     cdef void shrink_buf(self):             # <<<<<<<<<<<<<<
@@ -5829,7 +5865,7 @@ static void __pyx_f_3KCP_3KCP_shrink_buf(struct __pyx_obj_3KCP_KCP *__pyx_v_self
   __Pyx_RefNannyFinishContext();
 }
 
-/* "KCP.pyx":295
+/* "KCP.pyx":299
  *             self.snd_una = self.snd_nxt
  * 
  *     cdef void parse_ack(self, int sn):             # <<<<<<<<<<<<<<
@@ -5848,7 +5884,7 @@ static void __pyx_f_3KCP_3KCP_parse_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self,
   PyObject *__pyx_t_5 = NULL;
   __Pyx_RefNannySetupContext("parse_ack", 0);
 
-  /* "KCP.pyx":297
+  /* "KCP.pyx":301
  *     cdef void parse_ack(self, int sn):
  *         """ack"""
  *         if (_itimediff(sn, self.snd_una) < 0) or (_itimediff(sn, self.snd_nxt) >= 0):             # <<<<<<<<<<<<<<
@@ -5866,7 +5902,7 @@ static void __pyx_f_3KCP_3KCP_parse_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self,
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "KCP.pyx":298
+    /* "KCP.pyx":302
  *         """ack"""
  *         if (_itimediff(sn, self.snd_una) < 0) or (_itimediff(sn, self.snd_nxt) >= 0):
  *             return             # <<<<<<<<<<<<<<
@@ -5875,7 +5911,7 @@ static void __pyx_f_3KCP_3KCP_parse_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self,
  */
     goto __pyx_L0;
 
-    /* "KCP.pyx":297
+    /* "KCP.pyx":301
  *     cdef void parse_ack(self, int sn):
  *         """ack"""
  *         if (_itimediff(sn, self.snd_una) < 0) or (_itimediff(sn, self.snd_nxt) >= 0):             # <<<<<<<<<<<<<<
@@ -5884,7 +5920,7 @@ static void __pyx_f_3KCP_3KCP_parse_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self,
  */
   }
 
-  /* "KCP.pyx":299
+  /* "KCP.pyx":303
  *         if (_itimediff(sn, self.snd_una) < 0) or (_itimediff(sn, self.snd_nxt) >= 0):
  *             return
  *         cdef int index = 0             # <<<<<<<<<<<<<<
@@ -5893,7 +5929,7 @@ static void __pyx_f_3KCP_3KCP_parse_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self,
  */
   __pyx_v_index = 0;
 
-  /* "KCP.pyx":301
+  /* "KCP.pyx":305
  *         cdef int index = 0
  *         cdef Segment segment
  *         for segment in self.nsnd_buf:             # <<<<<<<<<<<<<<
@@ -5902,22 +5938,22 @@ static void __pyx_f_3KCP_3KCP_parse_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self,
  */
   if (unlikely(__pyx_v_self->nsnd_buf == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 301, __pyx_L1_error)
+    __PYX_ERR(0, 305, __pyx_L1_error)
   }
   __pyx_t_3 = __pyx_v_self->nsnd_buf; __Pyx_INCREF(__pyx_t_3); __pyx_t_4 = 0;
   for (;;) {
     if (__pyx_t_4 >= PyList_GET_SIZE(__pyx_t_3)) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_5 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_5); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 301, __pyx_L1_error)
+    __pyx_t_5 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_5); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 305, __pyx_L1_error)
     #else
-    __pyx_t_5 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 301, __pyx_L1_error)
+    __pyx_t_5 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 305, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     #endif
-    if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_3KCP_Segment))))) __PYX_ERR(0, 301, __pyx_L1_error)
+    if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_3KCP_Segment))))) __PYX_ERR(0, 305, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_segment, ((struct __pyx_obj_3KCP_Segment *)__pyx_t_5));
     __pyx_t_5 = 0;
 
-    /* "KCP.pyx":302
+    /* "KCP.pyx":306
  *         cdef Segment segment
  *         for segment in self.nsnd_buf:
  *             if _itimediff(sn, segment.sn) < 0:             # <<<<<<<<<<<<<<
@@ -5927,7 +5963,7 @@ static void __pyx_f_3KCP_3KCP_parse_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self,
     __pyx_t_1 = ((__pyx_f_3KCP__itimediff(__pyx_v_sn, __pyx_v_segment->sn) < 0) != 0);
     if (__pyx_t_1) {
 
-      /* "KCP.pyx":303
+      /* "KCP.pyx":307
  *         for segment in self.nsnd_buf:
  *             if _itimediff(sn, segment.sn) < 0:
  *                 break             # <<<<<<<<<<<<<<
@@ -5936,7 +5972,7 @@ static void __pyx_f_3KCP_3KCP_parse_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self,
  */
       goto __pyx_L7_break;
 
-      /* "KCP.pyx":302
+      /* "KCP.pyx":306
  *         cdef Segment segment
  *         for segment in self.nsnd_buf:
  *             if _itimediff(sn, segment.sn) < 0:             # <<<<<<<<<<<<<<
@@ -5945,7 +5981,7 @@ static void __pyx_f_3KCP_3KCP_parse_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self,
  */
     }
 
-    /* "KCP.pyx":304
+    /* "KCP.pyx":308
  *             if _itimediff(sn, segment.sn) < 0:
  *                 break
  *             segment.fastack += 1             # <<<<<<<<<<<<<<
@@ -5954,7 +5990,7 @@ static void __pyx_f_3KCP_3KCP_parse_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self,
  */
     __pyx_v_segment->fastack = (__pyx_v_segment->fastack + 1);
 
-    /* "KCP.pyx":305
+    /* "KCP.pyx":309
  *                 break
  *             segment.fastack += 1
  *             if sn == segment.sn:             # <<<<<<<<<<<<<<
@@ -5964,7 +6000,7 @@ static void __pyx_f_3KCP_3KCP_parse_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self,
     __pyx_t_1 = ((__pyx_v_sn == __pyx_v_segment->sn) != 0);
     if (__pyx_t_1) {
 
-      /* "KCP.pyx":306
+      /* "KCP.pyx":310
  *             segment.fastack += 1
  *             if sn == segment.sn:
  *                 self.nsnd_buf.pop(index)             # <<<<<<<<<<<<<<
@@ -5973,13 +6009,13 @@ static void __pyx_f_3KCP_3KCP_parse_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self,
  */
       if (unlikely(__pyx_v_self->nsnd_buf == Py_None)) {
         PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "pop");
-        __PYX_ERR(0, 306, __pyx_L1_error)
+        __PYX_ERR(0, 310, __pyx_L1_error)
       }
-      __pyx_t_5 = __Pyx_PyList_PopIndex(__pyx_v_self->nsnd_buf, Py_None, __pyx_v_index, 1, int, __Pyx_PyInt_From_int); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 306, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyList_PopIndex(__pyx_v_self->nsnd_buf, Py_None, __pyx_v_index, 1, int, __Pyx_PyInt_From_int); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 310, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "KCP.pyx":307
+      /* "KCP.pyx":311
  *             if sn == segment.sn:
  *                 self.nsnd_buf.pop(index)
  *                 break             # <<<<<<<<<<<<<<
@@ -5988,7 +6024,7 @@ static void __pyx_f_3KCP_3KCP_parse_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self,
  */
       goto __pyx_L7_break;
 
-      /* "KCP.pyx":305
+      /* "KCP.pyx":309
  *                 break
  *             segment.fastack += 1
  *             if sn == segment.sn:             # <<<<<<<<<<<<<<
@@ -5997,7 +6033,7 @@ static void __pyx_f_3KCP_3KCP_parse_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self,
  */
     }
 
-    /* "KCP.pyx":308
+    /* "KCP.pyx":312
  *                 self.nsnd_buf.pop(index)
  *                 break
  *             index += 1             # <<<<<<<<<<<<<<
@@ -6006,7 +6042,7 @@ static void __pyx_f_3KCP_3KCP_parse_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self,
  */
     __pyx_v_index = (__pyx_v_index + 1);
 
-    /* "KCP.pyx":301
+    /* "KCP.pyx":305
  *         cdef int index = 0
  *         cdef Segment segment
  *         for segment in self.nsnd_buf:             # <<<<<<<<<<<<<<
@@ -6017,7 +6053,7 @@ static void __pyx_f_3KCP_3KCP_parse_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self,
   __pyx_L7_break:;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "KCP.pyx":295
+  /* "KCP.pyx":299
  *             self.snd_una = self.snd_nxt
  * 
  *     cdef void parse_ack(self, int sn):             # <<<<<<<<<<<<<<
@@ -6036,7 +6072,7 @@ static void __pyx_f_3KCP_3KCP_parse_ack(struct __pyx_obj_3KCP_KCP *__pyx_v_self,
   __Pyx_RefNannyFinishContext();
 }
 
-/* "KCP.pyx":310
+/* "KCP.pyx":314
  *             index += 1
  * 
  *     cdef parse_una(self, int una):             # <<<<<<<<<<<<<<
@@ -6057,7 +6093,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_una(struct __pyx_obj_3KCP_KCP *__pyx_v_
   Py_ssize_t __pyx_t_6;
   __Pyx_RefNannySetupContext("parse_una", 0);
 
-  /* "KCP.pyx":312
+  /* "KCP.pyx":316
  *     cdef parse_una(self, int una):
  *         """una"""
  *         count = 0             # <<<<<<<<<<<<<<
@@ -6067,7 +6103,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_una(struct __pyx_obj_3KCP_KCP *__pyx_v_
   __Pyx_INCREF(__pyx_int_0);
   __pyx_v_count = __pyx_int_0;
 
-  /* "KCP.pyx":313
+  /* "KCP.pyx":317
  *         """una"""
  *         count = 0
  *         for segment in self.nsnd_buf:             # <<<<<<<<<<<<<<
@@ -6076,47 +6112,47 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_una(struct __pyx_obj_3KCP_KCP *__pyx_v_
  */
   if (unlikely(__pyx_v_self->nsnd_buf == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 313, __pyx_L1_error)
+    __PYX_ERR(0, 317, __pyx_L1_error)
   }
   __pyx_t_1 = __pyx_v_self->nsnd_buf; __Pyx_INCREF(__pyx_t_1); __pyx_t_2 = 0;
   for (;;) {
     if (__pyx_t_2 >= PyList_GET_SIZE(__pyx_t_1)) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_3 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_3); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(0, 313, __pyx_L1_error)
+    __pyx_t_3 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_3); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(0, 317, __pyx_L1_error)
     #else
-    __pyx_t_3 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 313, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 317, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     #endif
     __Pyx_XDECREF_SET(__pyx_v_segment, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "KCP.pyx":314
+    /* "KCP.pyx":318
  *         count = 0
  *         for segment in self.nsnd_buf:
  *             if _itimediff(una, segment.sn) > 0:             # <<<<<<<<<<<<<<
  *                 count += 1
  *             else:
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_segment, __pyx_n_s_sn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 314, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_segment, __pyx_n_s_sn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 318, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 314, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 318, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_5 = ((__pyx_f_3KCP__itimediff(__pyx_v_una, __pyx_t_4) > 0) != 0);
     if (__pyx_t_5) {
 
-      /* "KCP.pyx":315
+      /* "KCP.pyx":319
  *         for segment in self.nsnd_buf:
  *             if _itimediff(una, segment.sn) > 0:
  *                 count += 1             # <<<<<<<<<<<<<<
  *             else:
  *                 break
  */
-      __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_v_count, __pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 315, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_v_count, __pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 319, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF_SET(__pyx_v_count, __pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "KCP.pyx":314
+      /* "KCP.pyx":318
  *         count = 0
  *         for segment in self.nsnd_buf:
  *             if _itimediff(una, segment.sn) > 0:             # <<<<<<<<<<<<<<
@@ -6126,7 +6162,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_una(struct __pyx_obj_3KCP_KCP *__pyx_v_
       goto __pyx_L5;
     }
 
-    /* "KCP.pyx":317
+    /* "KCP.pyx":321
  *                 count += 1
  *             else:
  *                 break             # <<<<<<<<<<<<<<
@@ -6138,7 +6174,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_una(struct __pyx_obj_3KCP_KCP *__pyx_v_
     }
     __pyx_L5:;
 
-    /* "KCP.pyx":313
+    /* "KCP.pyx":317
  *         """una"""
  *         count = 0
  *         for segment in self.nsnd_buf:             # <<<<<<<<<<<<<<
@@ -6149,19 +6185,19 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_una(struct __pyx_obj_3KCP_KCP *__pyx_v_
   __pyx_L4_break:;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "KCP.pyx":318
+  /* "KCP.pyx":322
  *             else:
  *                 break
  *         if count > 0:             # <<<<<<<<<<<<<<
  *             self.nsnd_buf = self.nsnd_buf[count:]
  * 
  */
-  __pyx_t_1 = PyObject_RichCompare(__pyx_v_count, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 318, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 318, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_v_count, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 322, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 322, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_5) {
 
-    /* "KCP.pyx":319
+    /* "KCP.pyx":323
  *                 break
  *         if count > 0:
  *             self.nsnd_buf = self.nsnd_buf[count:]             # <<<<<<<<<<<<<<
@@ -6170,7 +6206,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_una(struct __pyx_obj_3KCP_KCP *__pyx_v_
  */
     if (unlikely(__pyx_v_self->nsnd_buf == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 319, __pyx_L1_error)
+      __PYX_ERR(0, 323, __pyx_L1_error)
     }
     __Pyx_INCREF(__pyx_v_count);
     __pyx_t_1 = __pyx_v_count;
@@ -6178,11 +6214,11 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_una(struct __pyx_obj_3KCP_KCP *__pyx_v_
     if (__pyx_t_5) {
       __pyx_t_2 = 0;
     } else {
-      __pyx_t_6 = __Pyx_PyIndex_AsSsize_t(__pyx_t_1); if (unlikely((__pyx_t_6 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 319, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyIndex_AsSsize_t(__pyx_t_1); if (unlikely((__pyx_t_6 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 323, __pyx_L1_error)
       __pyx_t_2 = __pyx_t_6;
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyList_GetSlice(__pyx_v_self->nsnd_buf, __pyx_t_2, PY_SSIZE_T_MAX); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 319, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyList_GetSlice(__pyx_v_self->nsnd_buf, __pyx_t_2, PY_SSIZE_T_MAX); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 323, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_GIVEREF(__pyx_t_1);
     __Pyx_GOTREF(__pyx_v_self->nsnd_buf);
@@ -6190,7 +6226,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_una(struct __pyx_obj_3KCP_KCP *__pyx_v_
     __pyx_v_self->nsnd_buf = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "KCP.pyx":318
+    /* "KCP.pyx":322
  *             else:
  *                 break
  *         if count > 0:             # <<<<<<<<<<<<<<
@@ -6199,7 +6235,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_una(struct __pyx_obj_3KCP_KCP *__pyx_v_
  */
   }
 
-  /* "KCP.pyx":310
+  /* "KCP.pyx":314
  *             index += 1
  * 
  *     cdef parse_una(self, int una):             # <<<<<<<<<<<<<<
@@ -6223,7 +6259,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_una(struct __pyx_obj_3KCP_KCP *__pyx_v_
   return __pyx_r;
 }
 
-/* "KCP.pyx":321
+/* "KCP.pyx":325
  *             self.nsnd_buf = self.nsnd_buf[count:]
  * 
  *     cdef ack_push(self, int sn, int ts):             # <<<<<<<<<<<<<<
@@ -6238,7 +6274,7 @@ static PyObject *__pyx_f_3KCP_3KCP_ack_push(struct __pyx_obj_3KCP_KCP *__pyx_v_s
   int __pyx_t_2;
   __Pyx_RefNannySetupContext("ack_push", 0);
 
-  /* "KCP.pyx":323
+  /* "KCP.pyx":327
  *     cdef ack_push(self, int sn, int ts):
  *         """ackflush"""
  *         self.acklist.append(sn)             # <<<<<<<<<<<<<<
@@ -6247,14 +6283,14 @@ static PyObject *__pyx_f_3KCP_3KCP_ack_push(struct __pyx_obj_3KCP_KCP *__pyx_v_s
  */
   if (unlikely(__pyx_v_self->acklist == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "append");
-    __PYX_ERR(0, 323, __pyx_L1_error)
+    __PYX_ERR(0, 327, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_sn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 323, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_sn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 327, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyList_Append(__pyx_v_self->acklist, __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 323, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Append(__pyx_v_self->acklist, __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 327, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "KCP.pyx":324
+  /* "KCP.pyx":328
  *         """ackflush"""
  *         self.acklist.append(sn)
  *         self.acklist.append(ts)             # <<<<<<<<<<<<<<
@@ -6263,14 +6299,14 @@ static PyObject *__pyx_f_3KCP_3KCP_ack_push(struct __pyx_obj_3KCP_KCP *__pyx_v_s
  */
   if (unlikely(__pyx_v_self->acklist == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "append");
-    __PYX_ERR(0, 324, __pyx_L1_error)
+    __PYX_ERR(0, 328, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ts); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 324, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_ts); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 328, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyList_Append(__pyx_v_self->acklist, __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 324, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Append(__pyx_v_self->acklist, __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 328, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "KCP.pyx":321
+  /* "KCP.pyx":325
  *             self.nsnd_buf = self.nsnd_buf[count:]
  * 
  *     cdef ack_push(self, int sn, int ts):             # <<<<<<<<<<<<<<
@@ -6291,7 +6327,7 @@ static PyObject *__pyx_f_3KCP_3KCP_ack_push(struct __pyx_obj_3KCP_KCP *__pyx_v_s
   return __pyx_r;
 }
 
-/* "KCP.pyx":326
+/* "KCP.pyx":330
  *         self.acklist.append(ts)
  * 
  *     cdef parse_data(self, Segment new_segment):             # <<<<<<<<<<<<<<
@@ -6319,7 +6355,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
   Py_ssize_t __pyx_t_8;
   __Pyx_RefNannySetupContext("parse_data", 0);
 
-  /* "KCP.pyx":328
+  /* "KCP.pyx":332
  *     cdef parse_data(self, Segment new_segment):
  *         """"""
  *         cdef int sn = new_segment.sn             # <<<<<<<<<<<<<<
@@ -6329,7 +6365,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
   __pyx_t_1 = __pyx_v_new_segment->sn;
   __pyx_v_sn = __pyx_t_1;
 
-  /* "KCP.pyx":329
+  /* "KCP.pyx":333
  *         """"""
  *         cdef int sn = new_segment.sn
  *         cdef bint repeat = False             # <<<<<<<<<<<<<<
@@ -6338,7 +6374,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
  */
   __pyx_v_repeat = 0;
 
-  /* "KCP.pyx":330
+  /* "KCP.pyx":334
  *         cdef int sn = new_segment.sn
  *         cdef bint repeat = False
  *         cdef int after_idx = -1             # <<<<<<<<<<<<<<
@@ -6347,7 +6383,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
  */
   __pyx_v_after_idx = -1;
 
-  /* "KCP.pyx":332
+  /* "KCP.pyx":336
  *         cdef int after_idx = -1
  * 
  *         if (_itimediff(sn, self.rcv_nxt + self.rcv_wnd) >= 0) or (_itimediff(sn, self.rcv_nxt) < 0):             # <<<<<<<<<<<<<<
@@ -6365,7 +6401,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_2) {
 
-    /* "KCP.pyx":333
+    /* "KCP.pyx":337
  * 
  *         if (_itimediff(sn, self.rcv_nxt + self.rcv_wnd) >= 0) or (_itimediff(sn, self.rcv_nxt) < 0):
  *             return             # <<<<<<<<<<<<<<
@@ -6376,7 +6412,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "KCP.pyx":332
+    /* "KCP.pyx":336
  *         cdef int after_idx = -1
  * 
  *         if (_itimediff(sn, self.rcv_nxt + self.rcv_wnd) >= 0) or (_itimediff(sn, self.rcv_nxt) < 0):             # <<<<<<<<<<<<<<
@@ -6385,7 +6421,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
  */
   }
 
-  /* "KCP.pyx":334
+  /* "KCP.pyx":338
  *         if (_itimediff(sn, self.rcv_nxt + self.rcv_wnd) >= 0) or (_itimediff(sn, self.rcv_nxt) < 0):
  *             return
  *         n = len(self.nrcv_buf) - 1             # <<<<<<<<<<<<<<
@@ -6396,13 +6432,13 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
   __Pyx_INCREF(__pyx_t_4);
   if (unlikely(__pyx_t_4 == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 334, __pyx_L1_error)
+    __PYX_ERR(0, 338, __pyx_L1_error)
   }
-  __pyx_t_5 = PyList_GET_SIZE(__pyx_t_4); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 334, __pyx_L1_error)
+  __pyx_t_5 = PyList_GET_SIZE(__pyx_t_4); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 338, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_n = (__pyx_t_5 - 1);
 
-  /* "KCP.pyx":339
+  /* "KCP.pyx":343
  *         cdef int i
  *         cdef Segment segment
  *         for i in range(n, -1, -1):             # <<<<<<<<<<<<<<
@@ -6412,7 +6448,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
   for (__pyx_t_1 = __pyx_v_n; __pyx_t_1 > -1; __pyx_t_1-=1) {
     __pyx_v_i = __pyx_t_1;
 
-    /* "KCP.pyx":340
+    /* "KCP.pyx":344
  *         cdef Segment segment
  *         for i in range(n, -1, -1):
  *             segment = self.nrcv_buf[i]             # <<<<<<<<<<<<<<
@@ -6421,15 +6457,15 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
  */
     if (unlikely(__pyx_v_self->nrcv_buf == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 340, __pyx_L1_error)
+      __PYX_ERR(0, 344, __pyx_L1_error)
     }
-    __pyx_t_4 = __Pyx_GetItemInt_List(__pyx_v_self->nrcv_buf, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 340, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt_List(__pyx_v_self->nrcv_buf, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_3KCP_Segment))))) __PYX_ERR(0, 340, __pyx_L1_error)
+    if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_3KCP_Segment))))) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_segment, ((struct __pyx_obj_3KCP_Segment *)__pyx_t_4));
     __pyx_t_4 = 0;
 
-    /* "KCP.pyx":341
+    /* "KCP.pyx":345
  *         for i in range(n, -1, -1):
  *             segment = self.nrcv_buf[i]
  *             if segment.sn == sn:             # <<<<<<<<<<<<<<
@@ -6439,7 +6475,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
     __pyx_t_2 = ((__pyx_v_segment->sn == __pyx_v_sn) != 0);
     if (__pyx_t_2) {
 
-      /* "KCP.pyx":342
+      /* "KCP.pyx":346
  *             segment = self.nrcv_buf[i]
  *             if segment.sn == sn:
  *                 repeat = True             # <<<<<<<<<<<<<<
@@ -6448,7 +6484,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
  */
       __pyx_v_repeat = 1;
 
-      /* "KCP.pyx":343
+      /* "KCP.pyx":347
  *             if segment.sn == sn:
  *                 repeat = True
  *                 break             # <<<<<<<<<<<<<<
@@ -6457,7 +6493,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
  */
       goto __pyx_L7_break;
 
-      /* "KCP.pyx":341
+      /* "KCP.pyx":345
  *         for i in range(n, -1, -1):
  *             segment = self.nrcv_buf[i]
  *             if segment.sn == sn:             # <<<<<<<<<<<<<<
@@ -6466,7 +6502,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
  */
     }
 
-    /* "KCP.pyx":344
+    /* "KCP.pyx":348
  *                 repeat = True
  *                 break
  *             if _itimediff(sn, segment.sn) > 0:             # <<<<<<<<<<<<<<
@@ -6476,7 +6512,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
     __pyx_t_2 = ((__pyx_f_3KCP__itimediff(__pyx_v_sn, __pyx_v_segment->sn) > 0) != 0);
     if (__pyx_t_2) {
 
-      /* "KCP.pyx":345
+      /* "KCP.pyx":349
  *                 break
  *             if _itimediff(sn, segment.sn) > 0:
  *                 after_idx = i             # <<<<<<<<<<<<<<
@@ -6485,7 +6521,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
  */
       __pyx_v_after_idx = __pyx_v_i;
 
-      /* "KCP.pyx":346
+      /* "KCP.pyx":350
  *             if _itimediff(sn, segment.sn) > 0:
  *                 after_idx = i
  *                 break             # <<<<<<<<<<<<<<
@@ -6494,7 +6530,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
  */
       goto __pyx_L7_break;
 
-      /* "KCP.pyx":344
+      /* "KCP.pyx":348
  *                 repeat = True
  *                 break
  *             if _itimediff(sn, segment.sn) > 0:             # <<<<<<<<<<<<<<
@@ -6505,7 +6541,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
   }
   __pyx_L7_break:;
 
-  /* "KCP.pyx":348
+  /* "KCP.pyx":352
  *                 break
  * 
  *         if not repeat:             # <<<<<<<<<<<<<<
@@ -6515,7 +6551,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
   __pyx_t_2 = ((!(__pyx_v_repeat != 0)) != 0);
   if (__pyx_t_2) {
 
-    /* "KCP.pyx":349
+    /* "KCP.pyx":353
  * 
  *         if not repeat:
  *             self.nrcv_buf.insert(after_idx + 1, new_segment)             # <<<<<<<<<<<<<<
@@ -6524,11 +6560,11 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
  */
     if (unlikely(__pyx_v_self->nrcv_buf == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "insert");
-      __PYX_ERR(0, 349, __pyx_L1_error)
+      __PYX_ERR(0, 353, __pyx_L1_error)
     }
-    __pyx_t_6 = PyList_Insert(__pyx_v_self->nrcv_buf, (__pyx_v_after_idx + 1), ((PyObject *)__pyx_v_new_segment)); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 349, __pyx_L1_error)
+    __pyx_t_6 = PyList_Insert(__pyx_v_self->nrcv_buf, (__pyx_v_after_idx + 1), ((PyObject *)__pyx_v_new_segment)); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 353, __pyx_L1_error)
 
-    /* "KCP.pyx":348
+    /* "KCP.pyx":352
  *                 break
  * 
  *         if not repeat:             # <<<<<<<<<<<<<<
@@ -6537,7 +6573,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
  */
   }
 
-  /* "KCP.pyx":352
+  /* "KCP.pyx":356
  * 
  *         #
  *         cdef int count = 0             # <<<<<<<<<<<<<<
@@ -6546,7 +6582,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
  */
   __pyx_v_count = 0;
 
-  /* "KCP.pyx":353
+  /* "KCP.pyx":357
  *         #
  *         cdef int count = 0
  *         for segment in self.nrcv_buf:             # <<<<<<<<<<<<<<
@@ -6555,22 +6591,22 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
  */
   if (unlikely(__pyx_v_self->nrcv_buf == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 353, __pyx_L1_error)
+    __PYX_ERR(0, 357, __pyx_L1_error)
   }
   __pyx_t_4 = __pyx_v_self->nrcv_buf; __Pyx_INCREF(__pyx_t_4); __pyx_t_5 = 0;
   for (;;) {
     if (__pyx_t_5 >= PyList_GET_SIZE(__pyx_t_4)) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_7 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_5); __Pyx_INCREF(__pyx_t_7); __pyx_t_5++; if (unlikely(0 < 0)) __PYX_ERR(0, 353, __pyx_L1_error)
+    __pyx_t_7 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_5); __Pyx_INCREF(__pyx_t_7); __pyx_t_5++; if (unlikely(0 < 0)) __PYX_ERR(0, 357, __pyx_L1_error)
     #else
-    __pyx_t_7 = PySequence_ITEM(__pyx_t_4, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 353, __pyx_L1_error)
+    __pyx_t_7 = PySequence_ITEM(__pyx_t_4, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 357, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     #endif
-    if (!(likely(((__pyx_t_7) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_7, __pyx_ptype_3KCP_Segment))))) __PYX_ERR(0, 353, __pyx_L1_error)
+    if (!(likely(((__pyx_t_7) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_7, __pyx_ptype_3KCP_Segment))))) __PYX_ERR(0, 357, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_segment, ((struct __pyx_obj_3KCP_Segment *)__pyx_t_7));
     __pyx_t_7 = 0;
 
-    /* "KCP.pyx":354
+    /* "KCP.pyx":358
  *         cdef int count = 0
  *         for segment in self.nrcv_buf:
  *             if (segment.sn == self.rcv_nxt) and (len(self.nrcv_que) < self.rcv_wnd):             # <<<<<<<<<<<<<<
@@ -6587,16 +6623,16 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
     __Pyx_INCREF(__pyx_t_7);
     if (unlikely(__pyx_t_7 == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-      __PYX_ERR(0, 354, __pyx_L1_error)
+      __PYX_ERR(0, 358, __pyx_L1_error)
     }
-    __pyx_t_8 = PyList_GET_SIZE(__pyx_t_7); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 354, __pyx_L1_error)
+    __pyx_t_8 = PyList_GET_SIZE(__pyx_t_7); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 358, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_3 = ((__pyx_t_8 < __pyx_v_self->rcv_wnd) != 0);
     __pyx_t_2 = __pyx_t_3;
     __pyx_L14_bool_binop_done:;
     if (__pyx_t_2) {
 
-      /* "KCP.pyx":355
+      /* "KCP.pyx":359
  *         for segment in self.nrcv_buf:
  *             if (segment.sn == self.rcv_nxt) and (len(self.nrcv_que) < self.rcv_wnd):
  *                 self.nrcv_que.append(segment)             # <<<<<<<<<<<<<<
@@ -6605,11 +6641,11 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
  */
       if (unlikely(__pyx_v_self->nrcv_que == Py_None)) {
         PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "append");
-        __PYX_ERR(0, 355, __pyx_L1_error)
+        __PYX_ERR(0, 359, __pyx_L1_error)
       }
-      __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_self->nrcv_que, ((PyObject *)__pyx_v_segment)); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 355, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_self->nrcv_que, ((PyObject *)__pyx_v_segment)); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 359, __pyx_L1_error)
 
-      /* "KCP.pyx":356
+      /* "KCP.pyx":360
  *             if (segment.sn == self.rcv_nxt) and (len(self.nrcv_que) < self.rcv_wnd):
  *                 self.nrcv_que.append(segment)
  *                 self.rcv_nxt += 1             # <<<<<<<<<<<<<<
@@ -6618,7 +6654,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
  */
       __pyx_v_self->rcv_nxt = (__pyx_v_self->rcv_nxt + 1);
 
-      /* "KCP.pyx":357
+      /* "KCP.pyx":361
  *                 self.nrcv_que.append(segment)
  *                 self.rcv_nxt += 1
  *                 count += 1             # <<<<<<<<<<<<<<
@@ -6627,7 +6663,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
  */
       __pyx_v_count = (__pyx_v_count + 1);
 
-      /* "KCP.pyx":354
+      /* "KCP.pyx":358
  *         cdef int count = 0
  *         for segment in self.nrcv_buf:
  *             if (segment.sn == self.rcv_nxt) and (len(self.nrcv_que) < self.rcv_wnd):             # <<<<<<<<<<<<<<
@@ -6637,7 +6673,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
       goto __pyx_L13;
     }
 
-    /* "KCP.pyx":359
+    /* "KCP.pyx":363
  *                 count += 1
  *             else:
  *                 break             # <<<<<<<<<<<<<<
@@ -6649,7 +6685,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
     }
     __pyx_L13:;
 
-    /* "KCP.pyx":353
+    /* "KCP.pyx":357
  *         #
  *         cdef int count = 0
  *         for segment in self.nrcv_buf:             # <<<<<<<<<<<<<<
@@ -6660,7 +6696,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
   __pyx_L12_break:;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "KCP.pyx":362
+  /* "KCP.pyx":366
  * 
  *         #
  *         if count > 0:             # <<<<<<<<<<<<<<
@@ -6670,7 +6706,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
   __pyx_t_2 = ((__pyx_v_count > 0) != 0);
   if (__pyx_t_2) {
 
-    /* "KCP.pyx":363
+    /* "KCP.pyx":367
  *         #
  *         if count > 0:
  *             self.nrcv_buf = self.nrcv_buf[count:]             # <<<<<<<<<<<<<<
@@ -6679,9 +6715,9 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
  */
     if (unlikely(__pyx_v_self->nrcv_buf == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 363, __pyx_L1_error)
+      __PYX_ERR(0, 367, __pyx_L1_error)
     }
-    __pyx_t_4 = __Pyx_PyList_GetSlice(__pyx_v_self->nrcv_buf, __pyx_v_count, PY_SSIZE_T_MAX); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 363, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyList_GetSlice(__pyx_v_self->nrcv_buf, __pyx_v_count, PY_SSIZE_T_MAX); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 367, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_4);
     __Pyx_GOTREF(__pyx_v_self->nrcv_buf);
@@ -6689,7 +6725,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
     __pyx_v_self->nrcv_buf = ((PyObject*)__pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "KCP.pyx":362
+    /* "KCP.pyx":366
  * 
  *         #
  *         if count > 0:             # <<<<<<<<<<<<<<
@@ -6698,7 +6734,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
  */
   }
 
-  /* "KCP.pyx":326
+  /* "KCP.pyx":330
  *         self.acklist.append(ts)
  * 
  *     cdef parse_data(self, Segment new_segment):             # <<<<<<<<<<<<<<
@@ -6721,7 +6757,7 @@ static PyObject *__pyx_f_3KCP_3KCP_parse_data(struct __pyx_obj_3KCP_KCP *__pyx_v
   return __pyx_r;
 }
 
-/* "KCP.pyx":365
+/* "KCP.pyx":369
  *             self.nrcv_buf = self.nrcv_buf[count:]
  * 
  *     cpdef input(self, char *data, int size):             # <<<<<<<<<<<<<<
@@ -6765,13 +6801,13 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_input); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 365, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_input); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 369, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_3KCP_3KCP_11input)) {
         __Pyx_XDECREF(__pyx_r);
-        __pyx_t_3 = __Pyx_PyBytes_FromString(__pyx_v_data); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 365, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyBytes_FromString(__pyx_v_data); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 369, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_size); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 365, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_size); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 369, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_5 = __pyx_t_1; __pyx_t_6 = NULL;
@@ -6789,7 +6825,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 365, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 369, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -6799,7 +6835,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 365, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 369, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -6807,7 +6843,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
         } else
         #endif
         {
-          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 365, __pyx_L1_error)
+          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 369, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           if (__pyx_t_6) {
             __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -6818,7 +6854,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
           PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_t_4);
           __pyx_t_3 = 0;
           __pyx_t_4 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 365, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 369, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
@@ -6841,7 +6877,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
     #endif
   }
 
-  /* "KCP.pyx":366
+  /* "KCP.pyx":370
  * 
  *     cpdef input(self, char *data, int size):
  *         cdef int s_una = self.snd_una             # <<<<<<<<<<<<<<
@@ -6851,7 +6887,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
   __pyx_t_7 = __pyx_v_self->snd_una;
   __pyx_v_s_una = __pyx_t_7;
 
-  /* "KCP.pyx":367
+  /* "KCP.pyx":371
  *     cpdef input(self, char *data, int size):
  *         cdef int s_una = self.snd_una
  *         if size < IKCP_OVERHEAD:             # <<<<<<<<<<<<<<
@@ -6861,7 +6897,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
   __pyx_t_9 = ((__pyx_v_size < __pyx_v_3KCP_IKCP_OVERHEAD) != 0);
   if (__pyx_t_9) {
 
-    /* "KCP.pyx":368
+    /* "KCP.pyx":372
  *         cdef int s_una = self.snd_una
  *         if size < IKCP_OVERHEAD:
  *             return 0             # <<<<<<<<<<<<<<
@@ -6873,7 +6909,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
     __pyx_r = __pyx_int_0;
     goto __pyx_L0;
 
-    /* "KCP.pyx":367
+    /* "KCP.pyx":371
  *     cpdef input(self, char *data, int size):
  *         cdef int s_una = self.snd_una
  *         if size < IKCP_OVERHEAD:             # <<<<<<<<<<<<<<
@@ -6882,25 +6918,34 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
   }
 
-  /* "KCP.pyx":372
+  /* "KCP.pyx":376
  *         cdef int cmd, frg, wnd, ts, sn, una, length
  *         cdef Segment segment
  *         offset = 0             # <<<<<<<<<<<<<<
+ *         printf("input 1\n")
  *         while True:
- *             """data"""
  */
   __pyx_v_offset = 0;
 
-  /* "KCP.pyx":373
+  /* "KCP.pyx":377
  *         cdef Segment segment
  *         offset = 0
+ *         printf("input 1\n")             # <<<<<<<<<<<<<<
+ *         while True:
+ *             """data"""
+ */
+  (void)(printf(((char *)"input 1\n")));
+
+  /* "KCP.pyx":378
+ *         offset = 0
+ *         printf("input 1\n")
  *         while True:             # <<<<<<<<<<<<<<
  *             """data"""
  *             if (size - offset) < IKCP_OVERHEAD:
  */
   while (1) {
 
-    /* "KCP.pyx":375
+    /* "KCP.pyx":380
  *         while True:
  *             """data"""
  *             if (size - offset) < IKCP_OVERHEAD:             # <<<<<<<<<<<<<<
@@ -6910,7 +6955,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
     __pyx_t_9 = (((__pyx_v_size - __pyx_v_offset) < __pyx_v_3KCP_IKCP_OVERHEAD) != 0);
     if (__pyx_t_9) {
 
-      /* "KCP.pyx":376
+      /* "KCP.pyx":381
  *             """data"""
  *             if (size - offset) < IKCP_OVERHEAD:
  *                 break             # <<<<<<<<<<<<<<
@@ -6919,7 +6964,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
       goto __pyx_L5_break;
 
-      /* "KCP.pyx":375
+      /* "KCP.pyx":380
  *         while True:
  *             """data"""
  *             if (size - offset) < IKCP_OVERHEAD:             # <<<<<<<<<<<<<<
@@ -6928,7 +6973,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     }
 
-    /* "KCP.pyx":377
+    /* "KCP.pyx":382
  *             if (size - offset) < IKCP_OVERHEAD:
  *                 break
  *             conv = ikcp_decode32u(data, offset)             # <<<<<<<<<<<<<<
@@ -6937,7 +6982,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_conv = __pyx_f_3KCP_ikcp_decode32u(__pyx_v_data, __pyx_v_offset);
 
-    /* "KCP.pyx":378
+    /* "KCP.pyx":383
  *                 break
  *             conv = ikcp_decode32u(data, offset)
  *             offset += 4             # <<<<<<<<<<<<<<
@@ -6946,7 +6991,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_offset = (__pyx_v_offset + 4);
 
-    /* "KCP.pyx":379
+    /* "KCP.pyx":384
  *             conv = ikcp_decode32u(data, offset)
  *             offset += 4
  *             if self.conv != conv:             # <<<<<<<<<<<<<<
@@ -6956,7 +7001,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
     __pyx_t_9 = ((__pyx_v_self->conv != __pyx_v_conv) != 0);
     if (__pyx_t_9) {
 
-      /* "KCP.pyx":380
+      /* "KCP.pyx":385
  *             offset += 4
  *             if self.conv != conv:
  *                 return -1             # <<<<<<<<<<<<<<
@@ -6968,7 +7013,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
       __pyx_r = __pyx_int_neg_1;
       goto __pyx_L0;
 
-      /* "KCP.pyx":379
+      /* "KCP.pyx":384
  *             conv = ikcp_decode32u(data, offset)
  *             offset += 4
  *             if self.conv != conv:             # <<<<<<<<<<<<<<
@@ -6977,7 +7022,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     }
 
-    /* "KCP.pyx":381
+    /* "KCP.pyx":386
  *             if self.conv != conv:
  *                 return -1
  *             cmd = ikcp_decode8u(data, offset)             # <<<<<<<<<<<<<<
@@ -6986,7 +7031,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_cmd = __pyx_f_3KCP_ikcp_decode8u(__pyx_v_data, __pyx_v_offset);
 
-    /* "KCP.pyx":382
+    /* "KCP.pyx":387
  *                 return -1
  *             cmd = ikcp_decode8u(data, offset)
  *             offset += 1             # <<<<<<<<<<<<<<
@@ -6995,7 +7040,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_offset = (__pyx_v_offset + 1);
 
-    /* "KCP.pyx":383
+    /* "KCP.pyx":388
  *             cmd = ikcp_decode8u(data, offset)
  *             offset += 1
  *             frg = ikcp_decode8u(data, offset)             # <<<<<<<<<<<<<<
@@ -7004,7 +7049,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_frg = __pyx_f_3KCP_ikcp_decode8u(__pyx_v_data, __pyx_v_offset);
 
-    /* "KCP.pyx":384
+    /* "KCP.pyx":389
  *             offset += 1
  *             frg = ikcp_decode8u(data, offset)
  *             offset += 1             # <<<<<<<<<<<<<<
@@ -7013,7 +7058,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_offset = (__pyx_v_offset + 1);
 
-    /* "KCP.pyx":385
+    /* "KCP.pyx":390
  *             frg = ikcp_decode8u(data, offset)
  *             offset += 1
  *             wnd = ikcp_decode16u(data, offset)             # <<<<<<<<<<<<<<
@@ -7022,7 +7067,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_wnd = __pyx_f_3KCP_ikcp_decode16u(__pyx_v_data, __pyx_v_offset);
 
-    /* "KCP.pyx":386
+    /* "KCP.pyx":391
  *             offset += 1
  *             wnd = ikcp_decode16u(data, offset)
  *             offset += 2             # <<<<<<<<<<<<<<
@@ -7031,7 +7076,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_offset = (__pyx_v_offset + 2);
 
-    /* "KCP.pyx":387
+    /* "KCP.pyx":392
  *             wnd = ikcp_decode16u(data, offset)
  *             offset += 2
  *             ts = ikcp_decode32u(data, offset)             # <<<<<<<<<<<<<<
@@ -7040,7 +7085,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_ts = __pyx_f_3KCP_ikcp_decode32u(__pyx_v_data, __pyx_v_offset);
 
-    /* "KCP.pyx":388
+    /* "KCP.pyx":393
  *             offset += 2
  *             ts = ikcp_decode32u(data, offset)
  *             offset += 4             # <<<<<<<<<<<<<<
@@ -7049,7 +7094,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_offset = (__pyx_v_offset + 4);
 
-    /* "KCP.pyx":389
+    /* "KCP.pyx":394
  *             ts = ikcp_decode32u(data, offset)
  *             offset += 4
  *             sn = ikcp_decode32u(data, offset)             # <<<<<<<<<<<<<<
@@ -7058,7 +7103,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_sn = __pyx_f_3KCP_ikcp_decode32u(__pyx_v_data, __pyx_v_offset);
 
-    /* "KCP.pyx":390
+    /* "KCP.pyx":395
  *             offset += 4
  *             sn = ikcp_decode32u(data, offset)
  *             offset += 4             # <<<<<<<<<<<<<<
@@ -7067,7 +7112,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_offset = (__pyx_v_offset + 4);
 
-    /* "KCP.pyx":391
+    /* "KCP.pyx":396
  *             sn = ikcp_decode32u(data, offset)
  *             offset += 4
  *             una = ikcp_decode32u(data, offset)             # <<<<<<<<<<<<<<
@@ -7076,7 +7121,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_una = __pyx_f_3KCP_ikcp_decode32u(__pyx_v_data, __pyx_v_offset);
 
-    /* "KCP.pyx":392
+    /* "KCP.pyx":397
  *             offset += 4
  *             una = ikcp_decode32u(data, offset)
  *             offset += 4             # <<<<<<<<<<<<<<
@@ -7085,7 +7130,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_offset = (__pyx_v_offset + 4);
 
-    /* "KCP.pyx":393
+    /* "KCP.pyx":398
  *             una = ikcp_decode32u(data, offset)
  *             offset += 4
  *             length = ikcp_decode32u(data, offset)             # <<<<<<<<<<<<<<
@@ -7094,7 +7139,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_length = __pyx_f_3KCP_ikcp_decode32u(__pyx_v_data, __pyx_v_offset);
 
-    /* "KCP.pyx":394
+    /* "KCP.pyx":399
  *             offset += 4
  *             length = ikcp_decode32u(data, offset)
  *             offset += 4             # <<<<<<<<<<<<<<
@@ -7103,7 +7148,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_offset = (__pyx_v_offset + 4);
 
-    /* "KCP.pyx":396
+    /* "KCP.pyx":401
  *             offset += 4
  *             """"""
  *             if (size - offset) < length:             # <<<<<<<<<<<<<<
@@ -7113,7 +7158,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
     __pyx_t_9 = (((__pyx_v_size - __pyx_v_offset) < __pyx_v_length) != 0);
     if (__pyx_t_9) {
 
-      /* "KCP.pyx":397
+      /* "KCP.pyx":402
  *             """"""
  *             if (size - offset) < length:
  *                 return -2             # <<<<<<<<<<<<<<
@@ -7125,7 +7170,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
       __pyx_r = __pyx_int_neg_2;
       goto __pyx_L0;
 
-      /* "KCP.pyx":396
+      /* "KCP.pyx":401
  *             offset += 4
  *             """"""
  *             if (size - offset) < length:             # <<<<<<<<<<<<<<
@@ -7134,7 +7179,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     }
 
-    /* "KCP.pyx":398
+    /* "KCP.pyx":403
  *             if (size - offset) < length:
  *                 return -2
  *             data += offset             # <<<<<<<<<<<<<<
@@ -7143,7 +7188,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_data = (__pyx_v_data + __pyx_v_offset);
 
-    /* "KCP.pyx":400
+    /* "KCP.pyx":405
  *             data += offset
  *             if (
  *                     cmd != IKCP_CMD_PUSH             # <<<<<<<<<<<<<<
@@ -7157,7 +7202,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
       goto __pyx_L10_bool_binop_done;
     }
 
-    /* "KCP.pyx":401
+    /* "KCP.pyx":406
  *             if (
  *                     cmd != IKCP_CMD_PUSH
  *                     and cmd != IKCP_CMD_ACK             # <<<<<<<<<<<<<<
@@ -7171,7 +7216,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
       goto __pyx_L10_bool_binop_done;
     }
 
-    /* "KCP.pyx":402
+    /* "KCP.pyx":407
  *                     cmd != IKCP_CMD_PUSH
  *                     and cmd != IKCP_CMD_ACK
  *                     and cmd != IKCP_CMD_WASK             # <<<<<<<<<<<<<<
@@ -7185,7 +7230,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
       goto __pyx_L10_bool_binop_done;
     }
 
-    /* "KCP.pyx":403
+    /* "KCP.pyx":408
  *                     and cmd != IKCP_CMD_ACK
  *                     and cmd != IKCP_CMD_WASK
  *                     and cmd != IKCP_CMD_WINS             # <<<<<<<<<<<<<<
@@ -7196,7 +7241,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
     __pyx_t_9 = __pyx_t_10;
     __pyx_L10_bool_binop_done:;
 
-    /* "KCP.pyx":399
+    /* "KCP.pyx":404
  *                 return -2
  *             data += offset
  *             if (             # <<<<<<<<<<<<<<
@@ -7205,19 +7250,19 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     if (__pyx_t_9) {
 
-      /* "KCP.pyx":405
+      /* "KCP.pyx":410
  *                     and cmd != IKCP_CMD_WINS
  *             ):
  *                 return -3             # <<<<<<<<<<<<<<
- * 
  *             self.rmt_wnd = wnd
+ *             self.parse_una(una)
  */
       __Pyx_XDECREF(__pyx_r);
       __Pyx_INCREF(__pyx_int_neg_3);
       __pyx_r = __pyx_int_neg_3;
       goto __pyx_L0;
 
-      /* "KCP.pyx":399
+      /* "KCP.pyx":404
  *                 return -2
  *             data += offset
  *             if (             # <<<<<<<<<<<<<<
@@ -7226,27 +7271,27 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     }
 
-    /* "KCP.pyx":407
+    /* "KCP.pyx":411
+ *             ):
  *                 return -3
- * 
  *             self.rmt_wnd = wnd             # <<<<<<<<<<<<<<
  *             self.parse_una(una)
  *             self.shrink_buf()
  */
     __pyx_v_self->rmt_wnd = __pyx_v_wnd;
 
-    /* "KCP.pyx":408
- * 
+    /* "KCP.pyx":412
+ *                 return -3
  *             self.rmt_wnd = wnd
  *             self.parse_una(una)             # <<<<<<<<<<<<<<
  *             self.shrink_buf()
  * 
  */
-    __pyx_t_1 = ((struct __pyx_vtabstruct_3KCP_KCP *)__pyx_v_self->__pyx_vtab)->parse_una(__pyx_v_self, __pyx_v_una); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 408, __pyx_L1_error)
+    __pyx_t_1 = ((struct __pyx_vtabstruct_3KCP_KCP *)__pyx_v_self->__pyx_vtab)->parse_una(__pyx_v_self, __pyx_v_una); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 412, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "KCP.pyx":409
+    /* "KCP.pyx":413
  *             self.rmt_wnd = wnd
  *             self.parse_una(una)
  *             self.shrink_buf()             # <<<<<<<<<<<<<<
@@ -7255,7 +7300,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     ((struct __pyx_vtabstruct_3KCP_KCP *)__pyx_v_self->__pyx_vtab)->shrink_buf(__pyx_v_self);
 
-    /* "KCP.pyx":411
+    /* "KCP.pyx":415
  *             self.shrink_buf()
  * 
  *             if IKCP_CMD_ACK == cmd:             # <<<<<<<<<<<<<<
@@ -7265,7 +7310,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
     __pyx_t_9 = ((__pyx_v_3KCP_IKCP_CMD_ACK == __pyx_v_cmd) != 0);
     if (__pyx_t_9) {
 
-      /* "KCP.pyx":413
+      /* "KCP.pyx":417
  *             if IKCP_CMD_ACK == cmd:
  *                 """ack """
  *                 if _itimediff(self.current, ts) >= 0:             # <<<<<<<<<<<<<<
@@ -7275,7 +7320,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
       __pyx_t_9 = ((__pyx_f_3KCP__itimediff(__pyx_v_self->current, __pyx_v_ts) >= 0) != 0);
       if (__pyx_t_9) {
 
-        /* "KCP.pyx":414
+        /* "KCP.pyx":418
  *                 """ack """
  *                 if _itimediff(self.current, ts) >= 0:
  *                     self.update_ack(_itimediff(self.current, ts))             # <<<<<<<<<<<<<<
@@ -7284,7 +7329,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
         ((struct __pyx_vtabstruct_3KCP_KCP *)__pyx_v_self->__pyx_vtab)->update_ack(__pyx_v_self, __pyx_f_3KCP__itimediff(__pyx_v_self->current, __pyx_v_ts));
 
-        /* "KCP.pyx":413
+        /* "KCP.pyx":417
  *             if IKCP_CMD_ACK == cmd:
  *                 """ack """
  *                 if _itimediff(self.current, ts) >= 0:             # <<<<<<<<<<<<<<
@@ -7293,7 +7338,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
       }
 
-      /* "KCP.pyx":415
+      /* "KCP.pyx":419
  *                 if _itimediff(self.current, ts) >= 0:
  *                     self.update_ack(_itimediff(self.current, ts))
  *                 self.parse_ack(sn)             # <<<<<<<<<<<<<<
@@ -7302,7 +7347,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
       ((struct __pyx_vtabstruct_3KCP_KCP *)__pyx_v_self->__pyx_vtab)->parse_ack(__pyx_v_self, __pyx_v_sn);
 
-      /* "KCP.pyx":416
+      /* "KCP.pyx":420
  *                     self.update_ack(_itimediff(self.current, ts))
  *                 self.parse_ack(sn)
  *                 self.shrink_buf()             # <<<<<<<<<<<<<<
@@ -7311,7 +7356,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
       ((struct __pyx_vtabstruct_3KCP_KCP *)__pyx_v_self->__pyx_vtab)->shrink_buf(__pyx_v_self);
 
-      /* "KCP.pyx":411
+      /* "KCP.pyx":415
  *             self.shrink_buf()
  * 
  *             if IKCP_CMD_ACK == cmd:             # <<<<<<<<<<<<<<
@@ -7321,7 +7366,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
       goto __pyx_L14;
     }
 
-    /* "KCP.pyx":417
+    /* "KCP.pyx":421
  *                 self.parse_ack(sn)
  *                 self.shrink_buf()
  *             elif IKCP_CMD_PUSH == cmd:             # <<<<<<<<<<<<<<
@@ -7331,7 +7376,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
     __pyx_t_9 = ((__pyx_v_3KCP_IKCP_CMD_PUSH == __pyx_v_cmd) != 0);
     if (__pyx_t_9) {
 
-      /* "KCP.pyx":419
+      /* "KCP.pyx":423
  *             elif IKCP_CMD_PUSH == cmd:
  *                 """"""
  *                 if _itimediff(sn, self.rcv_nxt + self.rcv_wnd) < 0:             # <<<<<<<<<<<<<<
@@ -7341,18 +7386,18 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
       __pyx_t_9 = ((__pyx_f_3KCP__itimediff(__pyx_v_sn, (__pyx_v_self->rcv_nxt + __pyx_v_self->rcv_wnd)) < 0) != 0);
       if (__pyx_t_9) {
 
-        /* "KCP.pyx":420
+        /* "KCP.pyx":424
  *                 """"""
  *                 if _itimediff(sn, self.rcv_nxt + self.rcv_wnd) < 0:
  *                     self.ack_push(sn, ts)             # <<<<<<<<<<<<<<
  *                     if _itimediff(sn, self.rcv_nxt) >= 0:
  *                         segment = Segment(length)
  */
-        __pyx_t_1 = ((struct __pyx_vtabstruct_3KCP_KCP *)__pyx_v_self->__pyx_vtab)->ack_push(__pyx_v_self, __pyx_v_sn, __pyx_v_ts); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 420, __pyx_L1_error)
+        __pyx_t_1 = ((struct __pyx_vtabstruct_3KCP_KCP *)__pyx_v_self->__pyx_vtab)->ack_push(__pyx_v_self, __pyx_v_sn, __pyx_v_ts); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 424, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "KCP.pyx":421
+        /* "KCP.pyx":425
  *                 if _itimediff(sn, self.rcv_nxt + self.rcv_wnd) < 0:
  *                     self.ack_push(sn, ts)
  *                     if _itimediff(sn, self.rcv_nxt) >= 0:             # <<<<<<<<<<<<<<
@@ -7362,22 +7407,22 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
         __pyx_t_9 = ((__pyx_f_3KCP__itimediff(__pyx_v_sn, __pyx_v_self->rcv_nxt) >= 0) != 0);
         if (__pyx_t_9) {
 
-          /* "KCP.pyx":422
+          /* "KCP.pyx":426
  *                     self.ack_push(sn, ts)
  *                     if _itimediff(sn, self.rcv_nxt) >= 0:
  *                         segment = Segment(length)             # <<<<<<<<<<<<<<
  *                         segment.conv = conv
  *                         segment.cmd = cmd
  */
-          __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 422, __pyx_L1_error)
+          __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 426, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
-          __pyx_t_2 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_3KCP_Segment), __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 422, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_3KCP_Segment), __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 426, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
           __Pyx_XDECREF_SET(__pyx_v_segment, ((struct __pyx_obj_3KCP_Segment *)__pyx_t_2));
           __pyx_t_2 = 0;
 
-          /* "KCP.pyx":423
+          /* "KCP.pyx":427
  *                     if _itimediff(sn, self.rcv_nxt) >= 0:
  *                         segment = Segment(length)
  *                         segment.conv = conv             # <<<<<<<<<<<<<<
@@ -7386,7 +7431,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
           __pyx_v_segment->conv = __pyx_v_conv;
 
-          /* "KCP.pyx":424
+          /* "KCP.pyx":428
  *                         segment = Segment(length)
  *                         segment.conv = conv
  *                         segment.cmd = cmd             # <<<<<<<<<<<<<<
@@ -7395,7 +7440,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
           __pyx_v_segment->cmd = __pyx_v_cmd;
 
-          /* "KCP.pyx":425
+          /* "KCP.pyx":429
  *                         segment.conv = conv
  *                         segment.cmd = cmd
  *                         segment.frg = frg             # <<<<<<<<<<<<<<
@@ -7404,7 +7449,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
           __pyx_v_segment->frg = __pyx_v_frg;
 
-          /* "KCP.pyx":426
+          /* "KCP.pyx":430
  *                         segment.cmd = cmd
  *                         segment.frg = frg
  *                         segment.wnd = wnd             # <<<<<<<<<<<<<<
@@ -7413,7 +7458,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
           __pyx_v_segment->wnd = __pyx_v_wnd;
 
-          /* "KCP.pyx":427
+          /* "KCP.pyx":431
  *                         segment.frg = frg
  *                         segment.wnd = wnd
  *                         segment.ts = ts             # <<<<<<<<<<<<<<
@@ -7422,7 +7467,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
           __pyx_v_segment->ts = __pyx_v_ts;
 
-          /* "KCP.pyx":428
+          /* "KCP.pyx":432
  *                         segment.wnd = wnd
  *                         segment.ts = ts
  *                         segment.sn = sn             # <<<<<<<<<<<<<<
@@ -7431,7 +7476,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
           __pyx_v_segment->sn = __pyx_v_sn;
 
-          /* "KCP.pyx":429
+          /* "KCP.pyx":433
  *                         segment.ts = ts
  *                         segment.sn = sn
  *                         segment.una = una             # <<<<<<<<<<<<<<
@@ -7440,7 +7485,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
           __pyx_v_segment->una = __pyx_v_una;
 
-          /* "KCP.pyx":430
+          /* "KCP.pyx":434
  *                         segment.sn = sn
  *                         segment.una = una
  *                         if length > 0:             # <<<<<<<<<<<<<<
@@ -7450,7 +7495,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
           __pyx_t_9 = ((__pyx_v_length > 0) != 0);
           if (__pyx_t_9) {
 
-            /* "KCP.pyx":431
+            /* "KCP.pyx":435
  *                         segment.una = una
  *                         if length > 0:
  *                             memcpy(segment.data, data, offset + length)             # <<<<<<<<<<<<<<
@@ -7459,7 +7504,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
             (void)(memcpy(__pyx_v_segment->data, __pyx_v_data, (__pyx_v_offset + __pyx_v_length)));
 
-            /* "KCP.pyx":432
+            /* "KCP.pyx":436
  *                         if length > 0:
  *                             memcpy(segment.data, data, offset + length)
  *                             data += length             # <<<<<<<<<<<<<<
@@ -7468,7 +7513,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
             __pyx_v_data = (__pyx_v_data + __pyx_v_length);
 
-            /* "KCP.pyx":430
+            /* "KCP.pyx":434
  *                         segment.sn = sn
  *                         segment.una = una
  *                         if length > 0:             # <<<<<<<<<<<<<<
@@ -7477,18 +7522,18 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
           }
 
-          /* "KCP.pyx":433
+          /* "KCP.pyx":437
  *                             memcpy(segment.data, data, offset + length)
  *                             data += length
  *                         self.parse_data(segment)             # <<<<<<<<<<<<<<
  *             elif IKCP_CMD_WASK == cmd:
  *                 self.probe |= IKCP_ASK_TELL
  */
-          __pyx_t_2 = ((struct __pyx_vtabstruct_3KCP_KCP *)__pyx_v_self->__pyx_vtab)->parse_data(__pyx_v_self, __pyx_v_segment); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 433, __pyx_L1_error)
+          __pyx_t_2 = ((struct __pyx_vtabstruct_3KCP_KCP *)__pyx_v_self->__pyx_vtab)->parse_data(__pyx_v_self, __pyx_v_segment); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 437, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-          /* "KCP.pyx":421
+          /* "KCP.pyx":425
  *                 if _itimediff(sn, self.rcv_nxt + self.rcv_wnd) < 0:
  *                     self.ack_push(sn, ts)
  *                     if _itimediff(sn, self.rcv_nxt) >= 0:             # <<<<<<<<<<<<<<
@@ -7497,7 +7542,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
         }
 
-        /* "KCP.pyx":419
+        /* "KCP.pyx":423
  *             elif IKCP_CMD_PUSH == cmd:
  *                 """"""
  *                 if _itimediff(sn, self.rcv_nxt + self.rcv_wnd) < 0:             # <<<<<<<<<<<<<<
@@ -7506,7 +7551,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
       }
 
-      /* "KCP.pyx":417
+      /* "KCP.pyx":421
  *                 self.parse_ack(sn)
  *                 self.shrink_buf()
  *             elif IKCP_CMD_PUSH == cmd:             # <<<<<<<<<<<<<<
@@ -7516,7 +7561,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
       goto __pyx_L14;
     }
 
-    /* "KCP.pyx":434
+    /* "KCP.pyx":438
  *                             data += length
  *                         self.parse_data(segment)
  *             elif IKCP_CMD_WASK == cmd:             # <<<<<<<<<<<<<<
@@ -7526,7 +7571,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
     __pyx_t_9 = ((__pyx_v_3KCP_IKCP_CMD_WASK == __pyx_v_cmd) != 0);
     if (__pyx_t_9) {
 
-      /* "KCP.pyx":435
+      /* "KCP.pyx":439
  *                         self.parse_data(segment)
  *             elif IKCP_CMD_WASK == cmd:
  *                 self.probe |= IKCP_ASK_TELL             # <<<<<<<<<<<<<<
@@ -7535,7 +7580,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
       __pyx_v_self->probe = (__pyx_v_self->probe | __pyx_v_3KCP_IKCP_ASK_TELL);
 
-      /* "KCP.pyx":434
+      /* "KCP.pyx":438
  *                             data += length
  *                         self.parse_data(segment)
  *             elif IKCP_CMD_WASK == cmd:             # <<<<<<<<<<<<<<
@@ -7545,7 +7590,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
       goto __pyx_L14;
     }
 
-    /* "KCP.pyx":436
+    /* "KCP.pyx":440
  *             elif IKCP_CMD_WASK == cmd:
  *                 self.probe |= IKCP_ASK_TELL
  *             elif IKCP_CMD_WINS == cmd:             # <<<<<<<<<<<<<<
@@ -7557,12 +7602,12 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
       goto __pyx_L14;
     }
 
-    /* "KCP.pyx":439
+    /* "KCP.pyx":443
  *                 pass
  *             else:
  *                 return -3             # <<<<<<<<<<<<<<
+ *         printf("input3 \n")
  *         if _itimediff(self.snd_una, s_una) > 0:
- *             if self.cwnd < self.rmt_wnd:
  */
     /*else*/ {
       __Pyx_XDECREF(__pyx_r);
@@ -7574,9 +7619,18 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
   }
   __pyx_L5_break:;
 
-  /* "KCP.pyx":440
+  /* "KCP.pyx":444
  *             else:
  *                 return -3
+ *         printf("input3 \n")             # <<<<<<<<<<<<<<
+ *         if _itimediff(self.snd_una, s_una) > 0:
+ *             if self.cwnd < self.rmt_wnd:
+ */
+  (void)(printf(((char *)"input3 \n")));
+
+  /* "KCP.pyx":445
+ *                 return -3
+ *         printf("input3 \n")
  *         if _itimediff(self.snd_una, s_una) > 0:             # <<<<<<<<<<<<<<
  *             if self.cwnd < self.rmt_wnd:
  *                 mss = self.mss
@@ -7584,8 +7638,8 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
   __pyx_t_9 = ((__pyx_f_3KCP__itimediff(__pyx_v_self->snd_una, __pyx_v_s_una) > 0) != 0);
   if (__pyx_t_9) {
 
-    /* "KCP.pyx":441
- *                 return -3
+    /* "KCP.pyx":446
+ *         printf("input3 \n")
  *         if _itimediff(self.snd_una, s_una) > 0:
  *             if self.cwnd < self.rmt_wnd:             # <<<<<<<<<<<<<<
  *                 mss = self.mss
@@ -7594,19 +7648,19 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
     __pyx_t_9 = ((__pyx_v_self->cwnd < __pyx_v_self->rmt_wnd) != 0);
     if (__pyx_t_9) {
 
-      /* "KCP.pyx":442
+      /* "KCP.pyx":447
  *         if _itimediff(self.snd_una, s_una) > 0:
  *             if self.cwnd < self.rmt_wnd:
  *                 mss = self.mss             # <<<<<<<<<<<<<<
  *                 if self.cwnd < self.ssthresh:
  *                     self.cwnd += 1
  */
-      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->mss); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 442, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->mss); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 447, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __pyx_v_mss = __pyx_t_2;
       __pyx_t_2 = 0;
 
-      /* "KCP.pyx":443
+      /* "KCP.pyx":448
  *             if self.cwnd < self.rmt_wnd:
  *                 mss = self.mss
  *                 if self.cwnd < self.ssthresh:             # <<<<<<<<<<<<<<
@@ -7616,7 +7670,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
       __pyx_t_9 = ((__pyx_v_self->cwnd < __pyx_v_self->ssthresh) != 0);
       if (__pyx_t_9) {
 
-        /* "KCP.pyx":444
+        /* "KCP.pyx":449
  *                 mss = self.mss
  *                 if self.cwnd < self.ssthresh:
  *                     self.cwnd += 1             # <<<<<<<<<<<<<<
@@ -7625,23 +7679,23 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
         __pyx_v_self->cwnd = (__pyx_v_self->cwnd + 1);
 
-        /* "KCP.pyx":445
+        /* "KCP.pyx":450
  *                 if self.cwnd < self.ssthresh:
  *                     self.cwnd += 1
  *                     self.incr += mss             # <<<<<<<<<<<<<<
  *                 else:
  *                     if self.incr < mss:
  */
-        __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->incr); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 445, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->incr); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 450, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_t_2, __pyx_v_mss); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 445, __pyx_L1_error)
+        __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_t_2, __pyx_v_mss); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 450, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 445, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 450, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __pyx_v_self->incr = __pyx_t_7;
 
-        /* "KCP.pyx":443
+        /* "KCP.pyx":448
  *             if self.cwnd < self.rmt_wnd:
  *                 mss = self.mss
  *                 if self.cwnd < self.ssthresh:             # <<<<<<<<<<<<<<
@@ -7651,7 +7705,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
         goto __pyx_L21;
       }
 
-      /* "KCP.pyx":447
+      /* "KCP.pyx":452
  *                     self.incr += mss
  *                 else:
  *                     if self.incr < mss:             # <<<<<<<<<<<<<<
@@ -7659,25 +7713,25 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  *                     self.incr += (mss * mss) // self.incr + (mss // 16)
  */
       /*else*/ {
-        __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->incr); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 447, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->incr); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 452, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_v_mss, Py_LT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 447, __pyx_L1_error)
+        __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_v_mss, Py_LT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 452, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 447, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 452, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         if (__pyx_t_9) {
 
-          /* "KCP.pyx":448
+          /* "KCP.pyx":453
  *                 else:
  *                     if self.incr < mss:
  *                         self.incr = mss             # <<<<<<<<<<<<<<
  *                     self.incr += (mss * mss) // self.incr + (mss // 16)
  *                     if (self.cwnd + 1) * mss <= self.incr:
  */
-          __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_v_mss); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 448, __pyx_L1_error)
+          __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_v_mss); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 453, __pyx_L1_error)
           __pyx_v_self->incr = __pyx_t_7;
 
-          /* "KCP.pyx":447
+          /* "KCP.pyx":452
  *                     self.incr += mss
  *                 else:
  *                     if self.incr < mss:             # <<<<<<<<<<<<<<
@@ -7686,59 +7740,59 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
         }
 
-        /* "KCP.pyx":449
+        /* "KCP.pyx":454
  *                     if self.incr < mss:
  *                         self.incr = mss
  *                     self.incr += (mss * mss) // self.incr + (mss // 16)             # <<<<<<<<<<<<<<
  *                     if (self.cwnd + 1) * mss <= self.incr:
  *                         self.cwnd += 1
  */
-        __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->incr); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 449, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->incr); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 454, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_1 = PyNumber_Multiply(__pyx_v_mss, __pyx_v_mss); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 449, __pyx_L1_error)
+        __pyx_t_1 = PyNumber_Multiply(__pyx_v_mss, __pyx_v_mss); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 454, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_self->incr); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 449, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_self->incr); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 454, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_8 = PyNumber_FloorDivide(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 449, __pyx_L1_error)
+        __pyx_t_8 = PyNumber_FloorDivide(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 454, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_5 = __Pyx_PyInt_FloorDivideObjC(__pyx_v_mss, __pyx_int_16, 16, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 449, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyInt_FloorDivideObjC(__pyx_v_mss, __pyx_int_16, 16, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 454, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_1 = PyNumber_Add(__pyx_t_8, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 449, __pyx_L1_error)
+        __pyx_t_1 = PyNumber_Add(__pyx_t_8, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 454, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_5 = PyNumber_InPlaceAdd(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 449, __pyx_L1_error)
+        __pyx_t_5 = PyNumber_InPlaceAdd(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 454, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 449, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 454, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __pyx_v_self->incr = __pyx_t_7;
 
-        /* "KCP.pyx":450
+        /* "KCP.pyx":455
  *                         self.incr = mss
  *                     self.incr += (mss * mss) // self.incr + (mss // 16)
  *                     if (self.cwnd + 1) * mss <= self.incr:             # <<<<<<<<<<<<<<
  *                         self.cwnd += 1
  *                     if self.cwnd > self.rmt_wnd:
  */
-        __pyx_t_5 = __Pyx_PyInt_From_long((__pyx_v_self->cwnd + 1)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 450, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyInt_From_long((__pyx_v_self->cwnd + 1)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 455, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_1 = PyNumber_Multiply(__pyx_t_5, __pyx_v_mss); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 450, __pyx_L1_error)
+        __pyx_t_1 = PyNumber_Multiply(__pyx_t_5, __pyx_v_mss); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 455, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_self->incr); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 450, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_self->incr); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 455, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_t_5, Py_LE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 450, __pyx_L1_error)
+        __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_t_5, Py_LE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 455, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 450, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 455, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         if (__pyx_t_9) {
 
-          /* "KCP.pyx":451
+          /* "KCP.pyx":456
  *                     self.incr += (mss * mss) // self.incr + (mss // 16)
  *                     if (self.cwnd + 1) * mss <= self.incr:
  *                         self.cwnd += 1             # <<<<<<<<<<<<<<
@@ -7747,7 +7801,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
           __pyx_v_self->cwnd = (__pyx_v_self->cwnd + 1);
 
-          /* "KCP.pyx":450
+          /* "KCP.pyx":455
  *                         self.incr = mss
  *                     self.incr += (mss * mss) // self.incr + (mss // 16)
  *                     if (self.cwnd + 1) * mss <= self.incr:             # <<<<<<<<<<<<<<
@@ -7756,7 +7810,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
         }
 
-        /* "KCP.pyx":452
+        /* "KCP.pyx":457
  *                     if (self.cwnd + 1) * mss <= self.incr:
  *                         self.cwnd += 1
  *                     if self.cwnd > self.rmt_wnd:             # <<<<<<<<<<<<<<
@@ -7766,33 +7820,33 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
         __pyx_t_9 = ((__pyx_v_self->cwnd > __pyx_v_self->rmt_wnd) != 0);
         if (__pyx_t_9) {
 
-          /* "KCP.pyx":453
+          /* "KCP.pyx":458
  *                         self.cwnd += 1
  *                     if self.cwnd > self.rmt_wnd:
  *                         self.cwnd = self.rmt_wnd             # <<<<<<<<<<<<<<
  *                         self.incr = self.rmt_wnd * mss
- *         return 0
+ *         printf("input4 \n")
  */
           __pyx_t_7 = __pyx_v_self->rmt_wnd;
           __pyx_v_self->cwnd = __pyx_t_7;
 
-          /* "KCP.pyx":454
+          /* "KCP.pyx":459
  *                     if self.cwnd > self.rmt_wnd:
  *                         self.cwnd = self.rmt_wnd
  *                         self.incr = self.rmt_wnd * mss             # <<<<<<<<<<<<<<
+ *         printf("input4 \n")
  *         return 0
- * 
  */
-          __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->rmt_wnd); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 454, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->rmt_wnd); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 459, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_5 = PyNumber_Multiply(__pyx_t_2, __pyx_v_mss); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 454, __pyx_L1_error)
+          __pyx_t_5 = PyNumber_Multiply(__pyx_t_2, __pyx_v_mss); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 459, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 454, __pyx_L1_error)
+          __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 459, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
           __pyx_v_self->incr = __pyx_t_7;
 
-          /* "KCP.pyx":452
+          /* "KCP.pyx":457
  *                     if (self.cwnd + 1) * mss <= self.incr:
  *                         self.cwnd += 1
  *                     if self.cwnd > self.rmt_wnd:             # <<<<<<<<<<<<<<
@@ -7803,8 +7857,8 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
       }
       __pyx_L21:;
 
-      /* "KCP.pyx":441
- *                 return -3
+      /* "KCP.pyx":446
+ *         printf("input3 \n")
  *         if _itimediff(self.snd_una, s_una) > 0:
  *             if self.cwnd < self.rmt_wnd:             # <<<<<<<<<<<<<<
  *                 mss = self.mss
@@ -7812,18 +7866,27 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     }
 
-    /* "KCP.pyx":440
- *             else:
+    /* "KCP.pyx":445
  *                 return -3
+ *         printf("input3 \n")
  *         if _itimediff(self.snd_una, s_una) > 0:             # <<<<<<<<<<<<<<
  *             if self.cwnd < self.rmt_wnd:
  *                 mss = self.mss
  */
   }
 
-  /* "KCP.pyx":455
+  /* "KCP.pyx":460
  *                         self.cwnd = self.rmt_wnd
  *                         self.incr = self.rmt_wnd * mss
+ *         printf("input4 \n")             # <<<<<<<<<<<<<<
+ *         return 0
+ * 
+ */
+  (void)(printf(((char *)"input4 \n")));
+
+  /* "KCP.pyx":461
+ *                         self.incr = self.rmt_wnd * mss
+ *         printf("input4 \n")
  *         return 0             # <<<<<<<<<<<<<<
  * 
  *     cdef int wnd_unused(self):
@@ -7833,7 +7896,7 @@ static PyObject *__pyx_f_3KCP_3KCP_input(struct __pyx_obj_3KCP_KCP *__pyx_v_self
   __pyx_r = __pyx_int_0;
   goto __pyx_L0;
 
-  /* "KCP.pyx":365
+  /* "KCP.pyx":369
  *             self.nrcv_buf = self.nrcv_buf[count:]
  * 
  *     cpdef input(self, char *data, int size):             # <<<<<<<<<<<<<<
@@ -7891,11 +7954,11 @@ static PyObject *__pyx_pw_3KCP_3KCP_11input(PyObject *__pyx_v_self, PyObject *__
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_size)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("input", 1, 2, 2, 1); __PYX_ERR(0, 365, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("input", 1, 2, 2, 1); __PYX_ERR(0, 369, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "input") < 0)) __PYX_ERR(0, 365, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "input") < 0)) __PYX_ERR(0, 369, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -7903,12 +7966,12 @@ static PyObject *__pyx_pw_3KCP_3KCP_11input(PyObject *__pyx_v_self, PyObject *__
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_data = __Pyx_PyObject_AsWritableString(values[0]); if (unlikely((!__pyx_v_data) && PyErr_Occurred())) __PYX_ERR(0, 365, __pyx_L3_error)
-    __pyx_v_size = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_size == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 365, __pyx_L3_error)
+    __pyx_v_data = __Pyx_PyObject_AsWritableString(values[0]); if (unlikely((!__pyx_v_data) && PyErr_Occurred())) __PYX_ERR(0, 369, __pyx_L3_error)
+    __pyx_v_size = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_size == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 369, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("input", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 365, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("input", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 369, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("KCP.KCP.input", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -7927,7 +7990,7 @@ static PyObject *__pyx_pf_3KCP_3KCP_10input(struct __pyx_obj_3KCP_KCP *__pyx_v_s
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("input", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_3KCP_3KCP_input(__pyx_v_self, __pyx_v_data, __pyx_v_size, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 365, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_3KCP_3KCP_input(__pyx_v_self, __pyx_v_data, __pyx_v_size, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 369, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -7944,7 +8007,7 @@ static PyObject *__pyx_pf_3KCP_3KCP_10input(struct __pyx_obj_3KCP_KCP *__pyx_v_s
   return __pyx_r;
 }
 
-/* "KCP.pyx":457
+/* "KCP.pyx":463
  *         return 0
  * 
  *     cdef int wnd_unused(self):             # <<<<<<<<<<<<<<
@@ -7960,7 +8023,7 @@ static int __pyx_f_3KCP_3KCP_wnd_unused(struct __pyx_obj_3KCP_KCP *__pyx_v_self)
   int __pyx_t_3;
   __Pyx_RefNannySetupContext("wnd_unused", 0);
 
-  /* "KCP.pyx":458
+  /* "KCP.pyx":464
  * 
  *     cdef int wnd_unused(self):
  *         if len(self.nrcv_que) < self.rcv_wnd:             # <<<<<<<<<<<<<<
@@ -7971,14 +8034,14 @@ static int __pyx_f_3KCP_3KCP_wnd_unused(struct __pyx_obj_3KCP_KCP *__pyx_v_self)
   __Pyx_INCREF(__pyx_t_1);
   if (unlikely(__pyx_t_1 == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 458, __pyx_L1_error)
+    __PYX_ERR(0, 464, __pyx_L1_error)
   }
-  __pyx_t_2 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 458, __pyx_L1_error)
+  __pyx_t_2 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 464, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_3 = ((__pyx_t_2 < __pyx_v_self->rcv_wnd) != 0);
   if (__pyx_t_3) {
 
-    /* "KCP.pyx":459
+    /* "KCP.pyx":465
  *     cdef int wnd_unused(self):
  *         if len(self.nrcv_que) < self.rcv_wnd:
  *             return self.rcv_wnd - len(self.nrcv_que)             # <<<<<<<<<<<<<<
@@ -7989,14 +8052,14 @@ static int __pyx_f_3KCP_3KCP_wnd_unused(struct __pyx_obj_3KCP_KCP *__pyx_v_self)
     __Pyx_INCREF(__pyx_t_1);
     if (unlikely(__pyx_t_1 == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-      __PYX_ERR(0, 459, __pyx_L1_error)
+      __PYX_ERR(0, 465, __pyx_L1_error)
     }
-    __pyx_t_2 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 459, __pyx_L1_error)
+    __pyx_t_2 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 465, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_r = (__pyx_v_self->rcv_wnd - __pyx_t_2);
     goto __pyx_L0;
 
-    /* "KCP.pyx":458
+    /* "KCP.pyx":464
  * 
  *     cdef int wnd_unused(self):
  *         if len(self.nrcv_que) < self.rcv_wnd:             # <<<<<<<<<<<<<<
@@ -8005,7 +8068,7 @@ static int __pyx_f_3KCP_3KCP_wnd_unused(struct __pyx_obj_3KCP_KCP *__pyx_v_self)
  */
   }
 
-  /* "KCP.pyx":460
+  /* "KCP.pyx":466
  *         if len(self.nrcv_que) < self.rcv_wnd:
  *             return self.rcv_wnd - len(self.nrcv_que)
  *         return 0             # <<<<<<<<<<<<<<
@@ -8015,7 +8078,7 @@ static int __pyx_f_3KCP_3KCP_wnd_unused(struct __pyx_obj_3KCP_KCP *__pyx_v_self)
   __pyx_r = 0;
   goto __pyx_L0;
 
-  /* "KCP.pyx":457
+  /* "KCP.pyx":463
  *         return 0
  * 
  *     cdef int wnd_unused(self):             # <<<<<<<<<<<<<<
@@ -8033,7 +8096,7 @@ static int __pyx_f_3KCP_3KCP_wnd_unused(struct __pyx_obj_3KCP_KCP *__pyx_v_self)
   return __pyx_r;
 }
 
-/* "KCP.pyx":462
+/* "KCP.pyx":468
  *         return 0
  * 
  *     cdef void flush(self):             # <<<<<<<<<<<<<<
@@ -8074,7 +8137,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
   PyObject *__pyx_t_12 = NULL;
   __Pyx_RefNannySetupContext("flush", 0);
 
-  /* "KCP.pyx":465
+  /* "KCP.pyx":471
  *         cdef int current
  *         cdef int change, lost
  *         current = self.current             # <<<<<<<<<<<<<<
@@ -8084,66 +8147,75 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
   __pyx_t_1 = __pyx_v_self->current;
   __pyx_v_current = __pyx_t_1;
 
-  /* "KCP.pyx":466
+  /* "KCP.pyx":472
  *         cdef int change, lost
  *         current = self.current
  *         change = 0             # <<<<<<<<<<<<<<
  *         lost = 0
- *         cdef char* buffer
+ *         cdef char*buffer
  */
   __pyx_v_change = 0;
 
-  /* "KCP.pyx":467
+  /* "KCP.pyx":473
  *         current = self.current
  *         change = 0
  *         lost = 0             # <<<<<<<<<<<<<<
- *         cdef char* buffer
+ *         cdef char*buffer
  * 
  */
   __pyx_v_lost = 0;
 
-  /* "KCP.pyx":470
- *         cdef char* buffer
+  /* "KCP.pyx":476
+ *         cdef char*buffer
  * 
  *         if self.updated == 0:             # <<<<<<<<<<<<<<
  *             return
- * 
+ *         printf("flush 1\n")
  */
   __pyx_t_2 = ((__pyx_v_self->updated == 0) != 0);
   if (__pyx_t_2) {
 
-    /* "KCP.pyx":471
+    /* "KCP.pyx":477
  * 
  *         if self.updated == 0:
  *             return             # <<<<<<<<<<<<<<
- * 
+ *         printf("flush 1\n")
  *         cdef Segment seg = Segment(0)
  */
     goto __pyx_L0;
 
-    /* "KCP.pyx":470
- *         cdef char* buffer
+    /* "KCP.pyx":476
+ *         cdef char*buffer
  * 
  *         if self.updated == 0:             # <<<<<<<<<<<<<<
  *             return
- * 
+ *         printf("flush 1\n")
  */
   }
 
-  /* "KCP.pyx":473
+  /* "KCP.pyx":478
+ *         if self.updated == 0:
  *             return
- * 
+ *         printf("flush 1\n")             # <<<<<<<<<<<<<<
+ *         cdef Segment seg = Segment(0)
+ *         seg.conv = self.conv
+ */
+  (void)(printf(((char *)"flush 1\n")));
+
+  /* "KCP.pyx":479
+ *             return
+ *         printf("flush 1\n")
  *         cdef Segment seg = Segment(0)             # <<<<<<<<<<<<<<
  *         seg.conv = self.conv
  *         seg.cmd = IKCP_CMD_ACK
  */
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3KCP_Segment), __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 473, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3KCP_Segment), __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 479, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_v_seg = ((struct __pyx_obj_3KCP_Segment *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "KCP.pyx":474
- * 
+  /* "KCP.pyx":480
+ *         printf("flush 1\n")
  *         cdef Segment seg = Segment(0)
  *         seg.conv = self.conv             # <<<<<<<<<<<<<<
  *         seg.cmd = IKCP_CMD_ACK
@@ -8152,7 +8224,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
   __pyx_t_1 = __pyx_v_self->conv;
   __pyx_v_seg->conv = __pyx_t_1;
 
-  /* "KCP.pyx":475
+  /* "KCP.pyx":481
  *         cdef Segment seg = Segment(0)
  *         seg.conv = self.conv
  *         seg.cmd = IKCP_CMD_ACK             # <<<<<<<<<<<<<<
@@ -8161,26 +8233,35 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
   __pyx_v_seg->cmd = __pyx_v_3KCP_IKCP_CMD_ACK;
 
-  /* "KCP.pyx":476
+  /* "KCP.pyx":482
  *         seg.conv = self.conv
  *         seg.cmd = IKCP_CMD_ACK
  *         seg.wnd = self.wnd_unused()             # <<<<<<<<<<<<<<
  *         seg.una = self.rcv_nxt
- * 
+ *         printf("flush 2\n")
  */
   __pyx_v_seg->wnd = ((struct __pyx_vtabstruct_3KCP_KCP *)__pyx_v_self->__pyx_vtab)->wnd_unused(__pyx_v_self);
 
-  /* "KCP.pyx":477
+  /* "KCP.pyx":483
  *         seg.cmd = IKCP_CMD_ACK
  *         seg.wnd = self.wnd_unused()
  *         seg.una = self.rcv_nxt             # <<<<<<<<<<<<<<
+ *         printf("flush 2\n")
  * 
- *         cdef int count, offset, i
  */
   __pyx_t_1 = __pyx_v_self->rcv_nxt;
   __pyx_v_seg->una = __pyx_t_1;
 
-  /* "KCP.pyx":480
+  /* "KCP.pyx":484
+ *         seg.wnd = self.wnd_unused()
+ *         seg.una = self.rcv_nxt
+ *         printf("flush 2\n")             # <<<<<<<<<<<<<<
+ * 
+ *         cdef int count, offset, i
+ */
+  (void)(printf(((char *)"flush 2\n")));
+
+  /* "KCP.pyx":487
  * 
  *         cdef int count, offset, i
  *         count = len(self.acklist) // 2             # <<<<<<<<<<<<<<
@@ -8191,13 +8272,13 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
   __Pyx_INCREF(__pyx_t_3);
   if (unlikely(__pyx_t_3 == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 480, __pyx_L1_error)
+    __PYX_ERR(0, 487, __pyx_L1_error)
   }
-  __pyx_t_4 = PyList_GET_SIZE(__pyx_t_3); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 480, __pyx_L1_error)
+  __pyx_t_4 = PyList_GET_SIZE(__pyx_t_3); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 487, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_count = __Pyx_div_Py_ssize_t(__pyx_t_4, 2);
 
-  /* "KCP.pyx":481
+  /* "KCP.pyx":488
  *         cdef int count, offset, i
  *         count = len(self.acklist) // 2
  *         offset = 0             # <<<<<<<<<<<<<<
@@ -8206,7 +8287,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
   __pyx_v_offset = 0;
 
-  /* "KCP.pyx":482
+  /* "KCP.pyx":489
  *         count = len(self.acklist) // 2
  *         offset = 0
  *         for i in range(count):             # <<<<<<<<<<<<<<
@@ -8218,7 +8299,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
   for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
     __pyx_v_i = __pyx_t_6;
 
-    /* "KCP.pyx":483
+    /* "KCP.pyx":490
  *         offset = 0
  *         for i in range(count):
  *             if (offset + IKCP_OVERHEAD) > self.mtu:             # <<<<<<<<<<<<<<
@@ -8228,18 +8309,18 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
     __pyx_t_2 = (((__pyx_v_offset + __pyx_v_3KCP_IKCP_OVERHEAD) > __pyx_v_self->mtu) != 0);
     if (__pyx_t_2) {
 
-      /* "KCP.pyx":484
+      /* "KCP.pyx":491
  *         for i in range(count):
  *             if (offset + IKCP_OVERHEAD) > self.mtu:
  *                 self.ikcp_output(self.buffer, offset)             # <<<<<<<<<<<<<<
  *                 offset = 0
  *             seg.sn = self.acklist[i * 2]
  */
-      __pyx_t_3 = ((struct __pyx_vtabstruct_3KCP_KCP *)__pyx_v_self->__pyx_vtab)->ikcp_output(__pyx_v_self, __pyx_v_self->buffer, __pyx_v_offset, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 484, __pyx_L1_error)
+      __pyx_t_3 = ((struct __pyx_vtabstruct_3KCP_KCP *)__pyx_v_self->__pyx_vtab)->ikcp_output(__pyx_v_self, __pyx_v_self->buffer, __pyx_v_offset, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 491, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "KCP.pyx":485
+      /* "KCP.pyx":492
  *             if (offset + IKCP_OVERHEAD) > self.mtu:
  *                 self.ikcp_output(self.buffer, offset)
  *                 offset = 0             # <<<<<<<<<<<<<<
@@ -8248,7 +8329,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       __pyx_v_offset = 0;
 
-      /* "KCP.pyx":483
+      /* "KCP.pyx":490
  *         offset = 0
  *         for i in range(count):
  *             if (offset + IKCP_OVERHEAD) > self.mtu:             # <<<<<<<<<<<<<<
@@ -8257,7 +8338,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     }
 
-    /* "KCP.pyx":486
+    /* "KCP.pyx":493
  *                 self.ikcp_output(self.buffer, offset)
  *                 offset = 0
  *             seg.sn = self.acklist[i * 2]             # <<<<<<<<<<<<<<
@@ -8266,16 +8347,16 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     if (unlikely(__pyx_v_self->acklist == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 486, __pyx_L1_error)
+      __PYX_ERR(0, 493, __pyx_L1_error)
     }
     __pyx_t_7 = (__pyx_v_i * 2);
-    __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_self->acklist, __pyx_t_7, long, 1, __Pyx_PyInt_From_long, 1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 486, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_self->acklist, __pyx_t_7, long, 1, __Pyx_PyInt_From_long, 1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 493, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 486, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 493, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_seg->sn = __pyx_t_8;
 
-    /* "KCP.pyx":487
+    /* "KCP.pyx":494
  *                 offset = 0
  *             seg.sn = self.acklist[i * 2]
  *             seg.ts = self.acklist[i * 2 + 1]             # <<<<<<<<<<<<<<
@@ -8284,33 +8365,33 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     if (unlikely(__pyx_v_self->acklist == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 487, __pyx_L1_error)
+      __PYX_ERR(0, 494, __pyx_L1_error)
     }
     __pyx_t_7 = ((__pyx_v_i * 2) + 1);
-    __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_self->acklist, __pyx_t_7, long, 1, __Pyx_PyInt_From_long, 1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 487, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_self->acklist, __pyx_t_7, long, 1, __Pyx_PyInt_From_long, 1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 494, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 487, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 494, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_seg->ts = __pyx_t_8;
 
-    /* "KCP.pyx":488
+    /* "KCP.pyx":495
  *             seg.sn = self.acklist[i * 2]
  *             seg.ts = self.acklist[i * 2 + 1]
  *             offset += seg.encode(self.buffer, offset)             # <<<<<<<<<<<<<<
  *         self.acklist.clear()
- * 
+ *         printf("flush 3\n")
  */
     __pyx_v_offset = (__pyx_v_offset + ((struct __pyx_vtabstruct_3KCP_Segment *)__pyx_v_seg->__pyx_vtab)->encode(__pyx_v_seg, __pyx_v_self->buffer, __pyx_v_offset));
   }
 
-  /* "KCP.pyx":489
+  /* "KCP.pyx":496
  *             seg.ts = self.acklist[i * 2 + 1]
  *             offset += seg.encode(self.buffer, offset)
  *         self.acklist.clear()             # <<<<<<<<<<<<<<
+ *         printf("flush 3\n")
  * 
- *         #
  */
-  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->acklist, __pyx_n_s_clear); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 489, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->acklist, __pyx_n_s_clear); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 496, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __pyx_t_10 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_9))) {
@@ -8324,12 +8405,21 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
   }
   __pyx_t_3 = (__pyx_t_10) ? __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_t_10) : __Pyx_PyObject_CallNoArg(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 489, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 496, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "KCP.pyx":492
+  /* "KCP.pyx":497
+ *             offset += seg.encode(self.buffer, offset)
+ *         self.acklist.clear()
+ *         printf("flush 3\n")             # <<<<<<<<<<<<<<
+ * 
+ *         #
+ */
+  (void)(printf(((char *)"flush 3\n")));
+
+  /* "KCP.pyx":500
  * 
  *         #
  *         if 0 == self.rmt_wnd:             # <<<<<<<<<<<<<<
@@ -8339,7 +8429,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
   __pyx_t_2 = ((0 == __pyx_v_self->rmt_wnd) != 0);
   if (__pyx_t_2) {
 
-    /* "KCP.pyx":493
+    /* "KCP.pyx":501
  *         #
  *         if 0 == self.rmt_wnd:
  *             if 0 == self.probe_wait:             # <<<<<<<<<<<<<<
@@ -8349,7 +8439,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
     __pyx_t_2 = ((0 == __pyx_v_self->probe_wait) != 0);
     if (__pyx_t_2) {
 
-      /* "KCP.pyx":494
+      /* "KCP.pyx":502
  *         if 0 == self.rmt_wnd:
  *             if 0 == self.probe_wait:
  *                 self.probe_wait = IKCP_PROBE_INIT             # <<<<<<<<<<<<<<
@@ -8358,7 +8448,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       __pyx_v_self->probe_wait = __pyx_v_3KCP_IKCP_PROBE_INIT;
 
-      /* "KCP.pyx":495
+      /* "KCP.pyx":503
  *             if 0 == self.probe_wait:
  *                 self.probe_wait = IKCP_PROBE_INIT
  *                 self.ts_probe = self.current + self.probe_wait             # <<<<<<<<<<<<<<
@@ -8367,7 +8457,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       __pyx_v_self->ts_probe = (__pyx_v_self->current + __pyx_v_self->probe_wait);
 
-      /* "KCP.pyx":493
+      /* "KCP.pyx":501
  *         #
  *         if 0 == self.rmt_wnd:
  *             if 0 == self.probe_wait:             # <<<<<<<<<<<<<<
@@ -8377,7 +8467,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
       goto __pyx_L8;
     }
 
-    /* "KCP.pyx":498
+    /* "KCP.pyx":506
  *             else:
  *                 #
  *                 if _itimediff(self.current, self.ts_probe) >= 0:             # <<<<<<<<<<<<<<
@@ -8388,7 +8478,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
       __pyx_t_2 = ((__pyx_f_3KCP__itimediff(__pyx_v_self->current, __pyx_v_self->ts_probe) >= 0) != 0);
       if (__pyx_t_2) {
 
-        /* "KCP.pyx":499
+        /* "KCP.pyx":507
  *                 #
  *                 if _itimediff(self.current, self.ts_probe) >= 0:
  *                     if self.probe_wait < IKCP_PROBE_INIT:             # <<<<<<<<<<<<<<
@@ -8398,7 +8488,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
         __pyx_t_2 = ((__pyx_v_self->probe_wait < __pyx_v_3KCP_IKCP_PROBE_INIT) != 0);
         if (__pyx_t_2) {
 
-          /* "KCP.pyx":500
+          /* "KCP.pyx":508
  *                 if _itimediff(self.current, self.ts_probe) >= 0:
  *                     if self.probe_wait < IKCP_PROBE_INIT:
  *                         self.probe_wait = IKCP_PROBE_INIT             # <<<<<<<<<<<<<<
@@ -8407,7 +8497,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
           __pyx_v_self->probe_wait = __pyx_v_3KCP_IKCP_PROBE_INIT;
 
-          /* "KCP.pyx":499
+          /* "KCP.pyx":507
  *                 #
  *                 if _itimediff(self.current, self.ts_probe) >= 0:
  *                     if self.probe_wait < IKCP_PROBE_INIT:             # <<<<<<<<<<<<<<
@@ -8416,7 +8506,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
         }
 
-        /* "KCP.pyx":502
+        /* "KCP.pyx":510
  *                         self.probe_wait = IKCP_PROBE_INIT
  * 
  *                     self.probe_wait += self.probe_wait / 2             # <<<<<<<<<<<<<<
@@ -8425,7 +8515,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
         __pyx_v_self->probe_wait = (__pyx_v_self->probe_wait + __Pyx_div_long(__pyx_v_self->probe_wait, 2));
 
-        /* "KCP.pyx":503
+        /* "KCP.pyx":511
  * 
  *                     self.probe_wait += self.probe_wait / 2
  *                     if self.probe_wait > IKCP_PROBE_LIMIT:             # <<<<<<<<<<<<<<
@@ -8435,7 +8525,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
         __pyx_t_2 = ((__pyx_v_self->probe_wait > __pyx_v_3KCP_IKCP_PROBE_LIMIT) != 0);
         if (__pyx_t_2) {
 
-          /* "KCP.pyx":504
+          /* "KCP.pyx":512
  *                     self.probe_wait += self.probe_wait / 2
  *                     if self.probe_wait > IKCP_PROBE_LIMIT:
  *                         self.probe_wait = IKCP_PROBE_LIMIT             # <<<<<<<<<<<<<<
@@ -8444,7 +8534,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
           __pyx_v_self->probe_wait = __pyx_v_3KCP_IKCP_PROBE_LIMIT;
 
-          /* "KCP.pyx":503
+          /* "KCP.pyx":511
  * 
  *                     self.probe_wait += self.probe_wait / 2
  *                     if self.probe_wait > IKCP_PROBE_LIMIT:             # <<<<<<<<<<<<<<
@@ -8453,7 +8543,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
         }
 
-        /* "KCP.pyx":505
+        /* "KCP.pyx":513
  *                     if self.probe_wait > IKCP_PROBE_LIMIT:
  *                         self.probe_wait = IKCP_PROBE_LIMIT
  *                     self.ts_probe = self.current + self.probe_wait             # <<<<<<<<<<<<<<
@@ -8462,7 +8552,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
         __pyx_v_self->ts_probe = (__pyx_v_self->current + __pyx_v_self->probe_wait);
 
-        /* "KCP.pyx":506
+        /* "KCP.pyx":514
  *                         self.probe_wait = IKCP_PROBE_LIMIT
  *                     self.ts_probe = self.current + self.probe_wait
  *                     self.probe |= IKCP_ASK_SEND             # <<<<<<<<<<<<<<
@@ -8471,7 +8561,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
         __pyx_v_self->probe = (__pyx_v_self->probe | __pyx_v_3KCP_IKCP_ASK_SEND);
 
-        /* "KCP.pyx":498
+        /* "KCP.pyx":506
  *             else:
  *                 #
  *                 if _itimediff(self.current, self.ts_probe) >= 0:             # <<<<<<<<<<<<<<
@@ -8482,7 +8572,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
     }
     __pyx_L8:;
 
-    /* "KCP.pyx":492
+    /* "KCP.pyx":500
  * 
  *         #
  *         if 0 == self.rmt_wnd:             # <<<<<<<<<<<<<<
@@ -8492,28 +8582,37 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
     goto __pyx_L7;
   }
 
-  /* "KCP.pyx":508
+  /* "KCP.pyx":516
  *                     self.probe |= IKCP_ASK_SEND
  *         else:
  *             self.ts_probe = 0             # <<<<<<<<<<<<<<
  *             self.probe_wait = 0
- * 
+ *         printf("flush 4\n")
  */
   /*else*/ {
     __pyx_v_self->ts_probe = 0;
 
-    /* "KCP.pyx":509
+    /* "KCP.pyx":517
  *         else:
  *             self.ts_probe = 0
  *             self.probe_wait = 0             # <<<<<<<<<<<<<<
- * 
+ *         printf("flush 4\n")
  * 
  */
     __pyx_v_self->probe_wait = 0;
   }
   __pyx_L7:;
 
-  /* "KCP.pyx":513
+  /* "KCP.pyx":518
+ *             self.ts_probe = 0
+ *             self.probe_wait = 0
+ *         printf("flush 4\n")             # <<<<<<<<<<<<<<
+ * 
+ *         #
+ */
+  (void)(printf(((char *)"flush 4\n")));
+
+  /* "KCP.pyx":521
  * 
  *         #
  *         if (self.probe & IKCP_ASK_SEND) != 0:             # <<<<<<<<<<<<<<
@@ -8523,7 +8622,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
   __pyx_t_2 = (((__pyx_v_self->probe & __pyx_v_3KCP_IKCP_ASK_SEND) != 0) != 0);
   if (__pyx_t_2) {
 
-    /* "KCP.pyx":514
+    /* "KCP.pyx":522
  *         #
  *         if (self.probe & IKCP_ASK_SEND) != 0:
  *             seg.cmd = IKCP_CMD_WASK             # <<<<<<<<<<<<<<
@@ -8532,85 +8631,9 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     __pyx_v_seg->cmd = __pyx_v_3KCP_IKCP_CMD_WASK;
 
-    /* "KCP.pyx":515
- *         if (self.probe & IKCP_ASK_SEND) != 0:
- *             seg.cmd = IKCP_CMD_WASK
- *             if (offset + IKCP_OVERHEAD) > self.mtu:             # <<<<<<<<<<<<<<
- *                 self.ikcp_output(self.buffer, offset)
- *                 offset = 0
- */
-    __pyx_t_2 = (((__pyx_v_offset + __pyx_v_3KCP_IKCP_OVERHEAD) > __pyx_v_self->mtu) != 0);
-    if (__pyx_t_2) {
-
-      /* "KCP.pyx":516
- *             seg.cmd = IKCP_CMD_WASK
- *             if (offset + IKCP_OVERHEAD) > self.mtu:
- *                 self.ikcp_output(self.buffer, offset)             # <<<<<<<<<<<<<<
- *                 offset = 0
- *             offset += seg.encode(self.buffer, offset)
- */
-      __pyx_t_3 = ((struct __pyx_vtabstruct_3KCP_KCP *)__pyx_v_self->__pyx_vtab)->ikcp_output(__pyx_v_self, __pyx_v_self->buffer, __pyx_v_offset, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 516, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-      /* "KCP.pyx":517
- *             if (offset + IKCP_OVERHEAD) > self.mtu:
- *                 self.ikcp_output(self.buffer, offset)
- *                 offset = 0             # <<<<<<<<<<<<<<
- *             offset += seg.encode(self.buffer, offset)
- * 
- */
-      __pyx_v_offset = 0;
-
-      /* "KCP.pyx":515
- *         if (self.probe & IKCP_ASK_SEND) != 0:
- *             seg.cmd = IKCP_CMD_WASK
- *             if (offset + IKCP_OVERHEAD) > self.mtu:             # <<<<<<<<<<<<<<
- *                 self.ikcp_output(self.buffer, offset)
- *                 offset = 0
- */
-    }
-
-    /* "KCP.pyx":518
- *                 self.ikcp_output(self.buffer, offset)
- *                 offset = 0
- *             offset += seg.encode(self.buffer, offset)             # <<<<<<<<<<<<<<
- * 
- *         #
- */
-    __pyx_v_offset = (__pyx_v_offset + ((struct __pyx_vtabstruct_3KCP_Segment *)__pyx_v_seg->__pyx_vtab)->encode(__pyx_v_seg, __pyx_v_self->buffer, __pyx_v_offset));
-
-    /* "KCP.pyx":513
- * 
- *         #
- *         if (self.probe & IKCP_ASK_SEND) != 0:             # <<<<<<<<<<<<<<
- *             seg.cmd = IKCP_CMD_WASK
- *             if (offset + IKCP_OVERHEAD) > self.mtu:
- */
-  }
-
-  /* "KCP.pyx":521
- * 
- *         #
- *         if (self.probe & IKCP_ASK_TELL) != 0:             # <<<<<<<<<<<<<<
- *             seg.cmd = IKCP_CMD_WINS
- *             if (offset + IKCP_OVERHEAD) > self.mtu:
- */
-  __pyx_t_2 = (((__pyx_v_self->probe & __pyx_v_3KCP_IKCP_ASK_TELL) != 0) != 0);
-  if (__pyx_t_2) {
-
-    /* "KCP.pyx":522
- *         #
- *         if (self.probe & IKCP_ASK_TELL) != 0:
- *             seg.cmd = IKCP_CMD_WINS             # <<<<<<<<<<<<<<
- *             if (offset + IKCP_OVERHEAD) > self.mtu:
- *                 self.ikcp_output(self.buffer, offset)
- */
-    __pyx_v_seg->cmd = __pyx_v_3KCP_IKCP_CMD_WINS;
-
     /* "KCP.pyx":523
- *         if (self.probe & IKCP_ASK_TELL) != 0:
- *             seg.cmd = IKCP_CMD_WINS
+ *         if (self.probe & IKCP_ASK_SEND) != 0:
+ *             seg.cmd = IKCP_CMD_WASK
  *             if (offset + IKCP_OVERHEAD) > self.mtu:             # <<<<<<<<<<<<<<
  *                 self.ikcp_output(self.buffer, offset)
  *                 offset = 0
@@ -8619,7 +8642,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
     if (__pyx_t_2) {
 
       /* "KCP.pyx":524
- *             seg.cmd = IKCP_CMD_WINS
+ *             seg.cmd = IKCP_CMD_WASK
  *             if (offset + IKCP_OVERHEAD) > self.mtu:
  *                 self.ikcp_output(self.buffer, offset)             # <<<<<<<<<<<<<<
  *                 offset = 0
@@ -8634,13 +8657,13 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  *                 self.ikcp_output(self.buffer, offset)
  *                 offset = 0             # <<<<<<<<<<<<<<
  *             offset += seg.encode(self.buffer, offset)
- * 
+ *         printf("flush 5\n")
  */
       __pyx_v_offset = 0;
 
       /* "KCP.pyx":523
- *         if (self.probe & IKCP_ASK_TELL) != 0:
- *             seg.cmd = IKCP_CMD_WINS
+ *         if (self.probe & IKCP_ASK_SEND) != 0:
+ *             seg.cmd = IKCP_CMD_WASK
  *             if (offset + IKCP_OVERHEAD) > self.mtu:             # <<<<<<<<<<<<<<
  *                 self.ikcp_output(self.buffer, offset)
  *                 offset = 0
@@ -8651,12 +8674,97 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  *                 self.ikcp_output(self.buffer, offset)
  *                 offset = 0
  *             offset += seg.encode(self.buffer, offset)             # <<<<<<<<<<<<<<
+ *         printf("flush 5\n")
  * 
- *         self.probe = 0
  */
     __pyx_v_offset = (__pyx_v_offset + ((struct __pyx_vtabstruct_3KCP_Segment *)__pyx_v_seg->__pyx_vtab)->encode(__pyx_v_seg, __pyx_v_self->buffer, __pyx_v_offset));
 
     /* "KCP.pyx":521
+ * 
+ *         #
+ *         if (self.probe & IKCP_ASK_SEND) != 0:             # <<<<<<<<<<<<<<
+ *             seg.cmd = IKCP_CMD_WASK
+ *             if (offset + IKCP_OVERHEAD) > self.mtu:
+ */
+  }
+
+  /* "KCP.pyx":527
+ *                 offset = 0
+ *             offset += seg.encode(self.buffer, offset)
+ *         printf("flush 5\n")             # <<<<<<<<<<<<<<
+ * 
+ *         #
+ */
+  (void)(printf(((char *)"flush 5\n")));
+
+  /* "KCP.pyx":530
+ * 
+ *         #
+ *         if (self.probe & IKCP_ASK_TELL) != 0:             # <<<<<<<<<<<<<<
+ *             seg.cmd = IKCP_CMD_WINS
+ *             if (offset + IKCP_OVERHEAD) > self.mtu:
+ */
+  __pyx_t_2 = (((__pyx_v_self->probe & __pyx_v_3KCP_IKCP_ASK_TELL) != 0) != 0);
+  if (__pyx_t_2) {
+
+    /* "KCP.pyx":531
+ *         #
+ *         if (self.probe & IKCP_ASK_TELL) != 0:
+ *             seg.cmd = IKCP_CMD_WINS             # <<<<<<<<<<<<<<
+ *             if (offset + IKCP_OVERHEAD) > self.mtu:
+ *                 self.ikcp_output(self.buffer, offset)
+ */
+    __pyx_v_seg->cmd = __pyx_v_3KCP_IKCP_CMD_WINS;
+
+    /* "KCP.pyx":532
+ *         if (self.probe & IKCP_ASK_TELL) != 0:
+ *             seg.cmd = IKCP_CMD_WINS
+ *             if (offset + IKCP_OVERHEAD) > self.mtu:             # <<<<<<<<<<<<<<
+ *                 self.ikcp_output(self.buffer, offset)
+ *                 offset = 0
+ */
+    __pyx_t_2 = (((__pyx_v_offset + __pyx_v_3KCP_IKCP_OVERHEAD) > __pyx_v_self->mtu) != 0);
+    if (__pyx_t_2) {
+
+      /* "KCP.pyx":533
+ *             seg.cmd = IKCP_CMD_WINS
+ *             if (offset + IKCP_OVERHEAD) > self.mtu:
+ *                 self.ikcp_output(self.buffer, offset)             # <<<<<<<<<<<<<<
+ *                 offset = 0
+ *             offset += seg.encode(self.buffer, offset)
+ */
+      __pyx_t_3 = ((struct __pyx_vtabstruct_3KCP_KCP *)__pyx_v_self->__pyx_vtab)->ikcp_output(__pyx_v_self, __pyx_v_self->buffer, __pyx_v_offset, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 533, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_3);
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+      /* "KCP.pyx":534
+ *             if (offset + IKCP_OVERHEAD) > self.mtu:
+ *                 self.ikcp_output(self.buffer, offset)
+ *                 offset = 0             # <<<<<<<<<<<<<<
+ *             offset += seg.encode(self.buffer, offset)
+ *         printf("flush 6\n")
+ */
+      __pyx_v_offset = 0;
+
+      /* "KCP.pyx":532
+ *         if (self.probe & IKCP_ASK_TELL) != 0:
+ *             seg.cmd = IKCP_CMD_WINS
+ *             if (offset + IKCP_OVERHEAD) > self.mtu:             # <<<<<<<<<<<<<<
+ *                 self.ikcp_output(self.buffer, offset)
+ *                 offset = 0
+ */
+    }
+
+    /* "KCP.pyx":535
+ *                 self.ikcp_output(self.buffer, offset)
+ *                 offset = 0
+ *             offset += seg.encode(self.buffer, offset)             # <<<<<<<<<<<<<<
+ *         printf("flush 6\n")
+ * 
+ */
+    __pyx_v_offset = (__pyx_v_offset + ((struct __pyx_vtabstruct_3KCP_Segment *)__pyx_v_seg->__pyx_vtab)->encode(__pyx_v_seg, __pyx_v_self->buffer, __pyx_v_offset));
+
+    /* "KCP.pyx":530
  * 
  *         #
  *         if (self.probe & IKCP_ASK_TELL) != 0:             # <<<<<<<<<<<<<<
@@ -8665,8 +8773,17 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
   }
 
-  /* "KCP.pyx":528
+  /* "KCP.pyx":536
+ *                 offset = 0
  *             offset += seg.encode(self.buffer, offset)
+ *         printf("flush 6\n")             # <<<<<<<<<<<<<<
+ * 
+ *         self.probe = 0
+ */
+  (void)(printf(((char *)"flush 6\n")));
+
+  /* "KCP.pyx":538
+ *         printf("flush 6\n")
  * 
  *         self.probe = 0             # <<<<<<<<<<<<<<
  * 
@@ -8674,7 +8791,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
   __pyx_v_self->probe = 0;
 
-  /* "KCP.pyx":531
+  /* "KCP.pyx":541
  * 
  *         #  window size
  *         cdef int cwnd = _imin_(self.snd_wnd, self.rmt_wnd)             # <<<<<<<<<<<<<<
@@ -8683,7 +8800,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
   __pyx_v_cwnd = __pyx_f_3KCP__imin_(__pyx_v_self->snd_wnd, __pyx_v_self->rmt_wnd);
 
-  /* "KCP.pyx":534
+  /* "KCP.pyx":544
  * 
  *         #
  *         if self.nocwnd == 0:             # <<<<<<<<<<<<<<
@@ -8693,7 +8810,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
   __pyx_t_2 = ((__pyx_v_self->nocwnd == 0) != 0);
   if (__pyx_t_2) {
 
-    /* "KCP.pyx":535
+    /* "KCP.pyx":545
  *         #
  *         if self.nocwnd == 0:
  *             cwnd = _imin_(self.cwnd, cwnd)             # <<<<<<<<<<<<<<
@@ -8702,7 +8819,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     __pyx_v_cwnd = __pyx_f_3KCP__imin_(__pyx_v_self->cwnd, __pyx_v_cwnd);
 
-    /* "KCP.pyx":534
+    /* "KCP.pyx":544
  * 
  *         #
  *         if self.nocwnd == 0:             # <<<<<<<<<<<<<<
@@ -8711,16 +8828,25 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
   }
 
-  /* "KCP.pyx":537
+  /* "KCP.pyx":547
  *             cwnd = _imin_(self.cwnd, cwnd)
  * 
  *         count = 0             # <<<<<<<<<<<<<<
+ *         printf("flush 7\n")
  * 
- *         # move data from snd_queue to snd_buf
  */
   __pyx_v_count = 0;
 
-  /* "KCP.pyx":541
+  /* "KCP.pyx":548
+ * 
+ *         count = 0
+ *         printf("flush 7\n")             # <<<<<<<<<<<<<<
+ * 
+ *         # move data from snd_queue to snd_buf
+ */
+  (void)(printf(((char *)"flush 7\n")));
+
+  /* "KCP.pyx":552
  *         # move data from snd_queue to snd_buf
  *         cdef Segment new_segment, nsnd_que_item
  *         for nsnd_que_item in self.nsnd_que:             # <<<<<<<<<<<<<<
@@ -8729,22 +8855,22 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
   if (unlikely(__pyx_v_self->nsnd_que == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 541, __pyx_L1_error)
+    __PYX_ERR(0, 552, __pyx_L1_error)
   }
   __pyx_t_3 = __pyx_v_self->nsnd_que; __Pyx_INCREF(__pyx_t_3); __pyx_t_4 = 0;
   for (;;) {
     if (__pyx_t_4 >= PyList_GET_SIZE(__pyx_t_3)) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_9 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_9); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 541, __pyx_L1_error)
+    __pyx_t_9 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_9); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 552, __pyx_L1_error)
     #else
-    __pyx_t_9 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 541, __pyx_L1_error)
+    __pyx_t_9 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 552, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     #endif
-    if (!(likely(((__pyx_t_9) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_9, __pyx_ptype_3KCP_Segment))))) __PYX_ERR(0, 541, __pyx_L1_error)
+    if (!(likely(((__pyx_t_9) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_9, __pyx_ptype_3KCP_Segment))))) __PYX_ERR(0, 552, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_nsnd_que_item, ((struct __pyx_obj_3KCP_Segment *)__pyx_t_9));
     __pyx_t_9 = 0;
 
-    /* "KCP.pyx":542
+    /* "KCP.pyx":553
  *         cdef Segment new_segment, nsnd_que_item
  *         for nsnd_que_item in self.nsnd_que:
  *             if (_itimediff(self.snd_nxt, self.snd_una + cwnd)) >= 0:             # <<<<<<<<<<<<<<
@@ -8754,7 +8880,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
     __pyx_t_2 = ((__pyx_f_3KCP__itimediff(__pyx_v_self->snd_nxt, (__pyx_v_self->snd_una + __pyx_v_cwnd)) >= 0) != 0);
     if (__pyx_t_2) {
 
-      /* "KCP.pyx":543
+      /* "KCP.pyx":554
  *         for nsnd_que_item in self.nsnd_que:
  *             if (_itimediff(self.snd_nxt, self.snd_una + cwnd)) >= 0:
  *                 break             # <<<<<<<<<<<<<<
@@ -8763,7 +8889,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       goto __pyx_L18_break;
 
-      /* "KCP.pyx":542
+      /* "KCP.pyx":553
  *         cdef Segment new_segment, nsnd_que_item
  *         for nsnd_que_item in self.nsnd_que:
  *             if (_itimediff(self.snd_nxt, self.snd_una + cwnd)) >= 0:             # <<<<<<<<<<<<<<
@@ -8772,7 +8898,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     }
 
-    /* "KCP.pyx":545
+    /* "KCP.pyx":556
  *                 break
  * 
  *             new_segment = nsnd_que_item             # <<<<<<<<<<<<<<
@@ -8782,7 +8908,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
     __Pyx_INCREF(((PyObject *)__pyx_v_nsnd_que_item));
     __Pyx_XDECREF_SET(__pyx_v_new_segment, __pyx_v_nsnd_que_item);
 
-    /* "KCP.pyx":546
+    /* "KCP.pyx":557
  * 
  *             new_segment = nsnd_que_item
  *             new_segment.conv = self.conv             # <<<<<<<<<<<<<<
@@ -8792,7 +8918,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
     __pyx_t_1 = __pyx_v_self->conv;
     __pyx_v_new_segment->conv = __pyx_t_1;
 
-    /* "KCP.pyx":547
+    /* "KCP.pyx":558
  *             new_segment = nsnd_que_item
  *             new_segment.conv = self.conv
  *             new_segment.cmd = IKCP_CMD_PUSH             # <<<<<<<<<<<<<<
@@ -8801,7 +8927,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     __pyx_v_new_segment->cmd = __pyx_v_3KCP_IKCP_CMD_PUSH;
 
-    /* "KCP.pyx":548
+    /* "KCP.pyx":559
  *             new_segment.conv = self.conv
  *             new_segment.cmd = IKCP_CMD_PUSH
  *             new_segment.wnd = seg.wnd             # <<<<<<<<<<<<<<
@@ -8811,7 +8937,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
     __pyx_t_1 = __pyx_v_seg->wnd;
     __pyx_v_new_segment->wnd = __pyx_t_1;
 
-    /* "KCP.pyx":549
+    /* "KCP.pyx":560
  *             new_segment.cmd = IKCP_CMD_PUSH
  *             new_segment.wnd = seg.wnd
  *             new_segment.ts = current             # <<<<<<<<<<<<<<
@@ -8820,7 +8946,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     __pyx_v_new_segment->ts = __pyx_v_current;
 
-    /* "KCP.pyx":550
+    /* "KCP.pyx":561
  *             new_segment.wnd = seg.wnd
  *             new_segment.ts = current
  *             new_segment.sn = self.snd_nxt             # <<<<<<<<<<<<<<
@@ -8830,7 +8956,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
     __pyx_t_1 = __pyx_v_self->snd_nxt;
     __pyx_v_new_segment->sn = __pyx_t_1;
 
-    /* "KCP.pyx":551
+    /* "KCP.pyx":562
  *             new_segment.ts = current
  *             new_segment.sn = self.snd_nxt
  *             new_segment.una = self.rcv_nxt             # <<<<<<<<<<<<<<
@@ -8840,7 +8966,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
     __pyx_t_1 = __pyx_v_self->rcv_nxt;
     __pyx_v_new_segment->una = __pyx_t_1;
 
-    /* "KCP.pyx":552
+    /* "KCP.pyx":563
  *             new_segment.sn = self.snd_nxt
  *             new_segment.una = self.rcv_nxt
  *             new_segment.resendts = current             # <<<<<<<<<<<<<<
@@ -8849,7 +8975,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     __pyx_v_new_segment->resendts = __pyx_v_current;
 
-    /* "KCP.pyx":553
+    /* "KCP.pyx":564
  *             new_segment.una = self.rcv_nxt
  *             new_segment.resendts = current
  *             new_segment.rto = self.rx_rto             # <<<<<<<<<<<<<<
@@ -8859,7 +8985,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
     __pyx_t_1 = __pyx_v_self->rx_rto;
     __pyx_v_new_segment->rto = __pyx_t_1;
 
-    /* "KCP.pyx":554
+    /* "KCP.pyx":565
  *             new_segment.resendts = current
  *             new_segment.rto = self.rx_rto
  *             new_segment.fastack = 0             # <<<<<<<<<<<<<<
@@ -8868,7 +8994,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     __pyx_v_new_segment->fastack = 0;
 
-    /* "KCP.pyx":555
+    /* "KCP.pyx":566
  *             new_segment.rto = self.rx_rto
  *             new_segment.fastack = 0
  *             new_segment.xmit = 0             # <<<<<<<<<<<<<<
@@ -8877,7 +9003,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     __pyx_v_new_segment->xmit = 0;
 
-    /* "KCP.pyx":556
+    /* "KCP.pyx":567
  *             new_segment.fastack = 0
  *             new_segment.xmit = 0
  *             self.nsnd_buf.append(new_segment)             # <<<<<<<<<<<<<<
@@ -8886,29 +9012,29 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     if (unlikely(__pyx_v_self->nsnd_buf == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "append");
-      __PYX_ERR(0, 556, __pyx_L1_error)
+      __PYX_ERR(0, 567, __pyx_L1_error)
     }
-    __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_self->nsnd_buf, ((PyObject *)__pyx_v_new_segment)); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 556, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_self->nsnd_buf, ((PyObject *)__pyx_v_new_segment)); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 567, __pyx_L1_error)
 
-    /* "KCP.pyx":557
+    /* "KCP.pyx":568
  *             new_segment.xmit = 0
  *             self.nsnd_buf.append(new_segment)
  *             self.snd_nxt += 1             # <<<<<<<<<<<<<<
  *             count += 1
- * 
+ *         printf("flush 8\n")
  */
     __pyx_v_self->snd_nxt = (__pyx_v_self->snd_nxt + 1);
 
-    /* "KCP.pyx":558
+    /* "KCP.pyx":569
  *             self.nsnd_buf.append(new_segment)
  *             self.snd_nxt += 1
  *             count += 1             # <<<<<<<<<<<<<<
+ *         printf("flush 8\n")
  * 
- *         if count > 0:
  */
     __pyx_v_count = (__pyx_v_count + 1);
 
-    /* "KCP.pyx":541
+    /* "KCP.pyx":552
  *         # move data from snd_queue to snd_buf
  *         cdef Segment new_segment, nsnd_que_item
  *         for nsnd_que_item in self.nsnd_que:             # <<<<<<<<<<<<<<
@@ -8919,8 +9045,17 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
   __pyx_L18_break:;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "KCP.pyx":560
+  /* "KCP.pyx":570
+ *             self.snd_nxt += 1
  *             count += 1
+ *         printf("flush 8\n")             # <<<<<<<<<<<<<<
+ * 
+ *         if count > 0:
+ */
+  (void)(printf(((char *)"flush 8\n")));
+
+  /* "KCP.pyx":572
+ *         printf("flush 8\n")
  * 
  *         if count > 0:             # <<<<<<<<<<<<<<
  *             self.nsnd_que = self.nsnd_que[count:]
@@ -8929,7 +9064,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
   __pyx_t_2 = ((__pyx_v_count > 0) != 0);
   if (__pyx_t_2) {
 
-    /* "KCP.pyx":561
+    /* "KCP.pyx":573
  * 
  *         if count > 0:
  *             self.nsnd_que = self.nsnd_que[count:]             # <<<<<<<<<<<<<<
@@ -8938,9 +9073,9 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     if (unlikely(__pyx_v_self->nsnd_que == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 561, __pyx_L1_error)
+      __PYX_ERR(0, 573, __pyx_L1_error)
     }
-    __pyx_t_3 = __Pyx_PyList_GetSlice(__pyx_v_self->nsnd_que, __pyx_v_count, PY_SSIZE_T_MAX); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 561, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyList_GetSlice(__pyx_v_self->nsnd_que, __pyx_v_count, PY_SSIZE_T_MAX); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 573, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_GIVEREF(__pyx_t_3);
     __Pyx_GOTREF(__pyx_v_self->nsnd_que);
@@ -8948,8 +9083,8 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
     __pyx_v_self->nsnd_que = ((PyObject*)__pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "KCP.pyx":560
- *             count += 1
+    /* "KCP.pyx":572
+ *         printf("flush 8\n")
  * 
  *         if count > 0:             # <<<<<<<<<<<<<<
  *             self.nsnd_que = self.nsnd_que[count:]
@@ -8957,7 +9092,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
   }
 
-  /* "KCP.pyx":565
+  /* "KCP.pyx":577
  *         # calculate resent
  *         cdef int resent, rtomin
  *         resent = self.fastresend if (self.fastresend > 0) else 0xffffffff             # <<<<<<<<<<<<<<
@@ -8971,7 +9106,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
   }
   __pyx_v_resent = __pyx_t_1;
 
-  /* "KCP.pyx":566
+  /* "KCP.pyx":578
  *         cdef int resent, rtomin
  *         resent = self.fastresend if (self.fastresend > 0) else 0xffffffff
  *         rtomin = (self.rx_rto >> 3) if (self.nodelay == 0) else 0             # <<<<<<<<<<<<<<
@@ -8985,7 +9120,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
   }
   __pyx_v_rtomin = __pyx_t_7;
 
-  /* "KCP.pyx":571
+  /* "KCP.pyx":583
  *         cdef Segment segment
  *         cdef bint need_send
  *         for segment in self.nsnd_buf:             # <<<<<<<<<<<<<<
@@ -8994,22 +9129,22 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
   if (unlikely(__pyx_v_self->nsnd_buf == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 571, __pyx_L1_error)
+    __PYX_ERR(0, 583, __pyx_L1_error)
   }
   __pyx_t_3 = __pyx_v_self->nsnd_buf; __Pyx_INCREF(__pyx_t_3); __pyx_t_4 = 0;
   for (;;) {
     if (__pyx_t_4 >= PyList_GET_SIZE(__pyx_t_3)) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_9 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_9); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 571, __pyx_L1_error)
+    __pyx_t_9 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_9); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 583, __pyx_L1_error)
     #else
-    __pyx_t_9 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 571, __pyx_L1_error)
+    __pyx_t_9 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 583, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     #endif
-    if (!(likely(((__pyx_t_9) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_9, __pyx_ptype_3KCP_Segment))))) __PYX_ERR(0, 571, __pyx_L1_error)
+    if (!(likely(((__pyx_t_9) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_9, __pyx_ptype_3KCP_Segment))))) __PYX_ERR(0, 583, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_segment, ((struct __pyx_obj_3KCP_Segment *)__pyx_t_9));
     __pyx_t_9 = 0;
 
-    /* "KCP.pyx":572
+    /* "KCP.pyx":584
  *         cdef bint need_send
  *         for segment in self.nsnd_buf:
  *             need_send = False             # <<<<<<<<<<<<<<
@@ -9018,7 +9153,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     __pyx_v_need_send = 0;
 
-    /* "KCP.pyx":573
+    /* "KCP.pyx":585
  *         for segment in self.nsnd_buf:
  *             need_send = False
  *             if segment.xmit == 0:             # <<<<<<<<<<<<<<
@@ -9028,7 +9163,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
     __pyx_t_2 = ((__pyx_v_segment->xmit == 0) != 0);
     if (__pyx_t_2) {
 
-      /* "KCP.pyx":575
+      /* "KCP.pyx":587
  *             if segment.xmit == 0:
  *                 #
  *                 need_send = True             # <<<<<<<<<<<<<<
@@ -9037,7 +9172,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       __pyx_v_need_send = 1;
 
-      /* "KCP.pyx":576
+      /* "KCP.pyx":588
  *                 #
  *                 need_send = True
  *                 segment.xmit += 1             # <<<<<<<<<<<<<<
@@ -9046,7 +9181,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       __pyx_v_segment->xmit = (__pyx_v_segment->xmit + 1);
 
-      /* "KCP.pyx":577
+      /* "KCP.pyx":589
  *                 need_send = True
  *                 segment.xmit += 1
  *                 segment.rto = self.rx_rto             # <<<<<<<<<<<<<<
@@ -9056,7 +9191,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
       __pyx_t_1 = __pyx_v_self->rx_rto;
       __pyx_v_segment->rto = __pyx_t_1;
 
-      /* "KCP.pyx":578
+      /* "KCP.pyx":590
  *                 segment.xmit += 1
  *                 segment.rto = self.rx_rto
  *                 segment.resendts = current + segment.rto + rtomin             # <<<<<<<<<<<<<<
@@ -9065,7 +9200,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       __pyx_v_segment->resendts = ((__pyx_v_current + __pyx_v_segment->rto) + __pyx_v_rtomin);
 
-      /* "KCP.pyx":573
+      /* "KCP.pyx":585
  *         for segment in self.nsnd_buf:
  *             need_send = False
  *             if segment.xmit == 0:             # <<<<<<<<<<<<<<
@@ -9075,7 +9210,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
       goto __pyx_L23;
     }
 
-    /* "KCP.pyx":579
+    /* "KCP.pyx":591
  *                 segment.rto = self.rx_rto
  *                 segment.resendts = current + segment.rto + rtomin
  *             elif _itimediff(current, segment.resendts) >= 0:             # <<<<<<<<<<<<<<
@@ -9085,7 +9220,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
     __pyx_t_2 = ((__pyx_f_3KCP__itimediff(__pyx_v_current, __pyx_v_segment->resendts) >= 0) != 0);
     if (__pyx_t_2) {
 
-      /* "KCP.pyx":581
+      /* "KCP.pyx":593
  *             elif _itimediff(current, segment.resendts) >= 0:
  *                 #
  *                 need_send = True             # <<<<<<<<<<<<<<
@@ -9094,7 +9229,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       __pyx_v_need_send = 1;
 
-      /* "KCP.pyx":582
+      /* "KCP.pyx":594
  *                 #
  *                 need_send = True
  *                 segment.xmit += 1             # <<<<<<<<<<<<<<
@@ -9103,7 +9238,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       __pyx_v_segment->xmit = (__pyx_v_segment->xmit + 1);
 
-      /* "KCP.pyx":583
+      /* "KCP.pyx":595
  *                 need_send = True
  *                 segment.xmit += 1
  *                 self.xmit += 1             # <<<<<<<<<<<<<<
@@ -9112,7 +9247,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       __pyx_v_self->xmit = (__pyx_v_self->xmit + 1);
 
-      /* "KCP.pyx":584
+      /* "KCP.pyx":596
  *                 segment.xmit += 1
  *                 self.xmit += 1
  *                 if self.nodelay == 0:             # <<<<<<<<<<<<<<
@@ -9122,7 +9257,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
       __pyx_t_2 = ((__pyx_v_self->nodelay == 0) != 0);
       if (__pyx_t_2) {
 
-        /* "KCP.pyx":585
+        /* "KCP.pyx":597
  *                 self.xmit += 1
  *                 if self.nodelay == 0:
  *                     segment.rto += self.rx_rto             # <<<<<<<<<<<<<<
@@ -9131,7 +9266,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
         __pyx_v_segment->rto = (__pyx_v_segment->rto + __pyx_v_self->rx_rto);
 
-        /* "KCP.pyx":584
+        /* "KCP.pyx":596
  *                 segment.xmit += 1
  *                 self.xmit += 1
  *                 if self.nodelay == 0:             # <<<<<<<<<<<<<<
@@ -9141,7 +9276,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
         goto __pyx_L24;
       }
 
-      /* "KCP.pyx":587
+      /* "KCP.pyx":599
  *                     segment.rto += self.rx_rto
  *                 else:
  *                     segment.rto += self.rx_rto / 2             # <<<<<<<<<<<<<<
@@ -9153,7 +9288,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
       }
       __pyx_L24:;
 
-      /* "KCP.pyx":588
+      /* "KCP.pyx":600
  *                 else:
  *                     segment.rto += self.rx_rto / 2
  *                 segment.resendts = current + segment.rto             # <<<<<<<<<<<<<<
@@ -9162,7 +9297,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       __pyx_v_segment->resendts = (__pyx_v_current + __pyx_v_segment->rto);
 
-      /* "KCP.pyx":589
+      /* "KCP.pyx":601
  *                     segment.rto += self.rx_rto / 2
  *                 segment.resendts = current + segment.rto
  *                 lost = 1             # <<<<<<<<<<<<<<
@@ -9171,7 +9306,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       __pyx_v_lost = 1;
 
-      /* "KCP.pyx":579
+      /* "KCP.pyx":591
  *                 segment.rto = self.rx_rto
  *                 segment.resendts = current + segment.rto + rtomin
  *             elif _itimediff(current, segment.resendts) >= 0:             # <<<<<<<<<<<<<<
@@ -9181,7 +9316,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
       goto __pyx_L23;
     }
 
-    /* "KCP.pyx":590
+    /* "KCP.pyx":602
  *                 segment.resendts = current + segment.rto
  *                 lost = 1
  *             elif segment.fastack >= resent:             # <<<<<<<<<<<<<<
@@ -9191,7 +9326,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
     __pyx_t_2 = ((__pyx_v_segment->fastack >= __pyx_v_resent) != 0);
     if (__pyx_t_2) {
 
-      /* "KCP.pyx":592
+      /* "KCP.pyx":604
  *             elif segment.fastack >= resent:
  *                 #
  *                 need_send = True             # <<<<<<<<<<<<<<
@@ -9200,7 +9335,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       __pyx_v_need_send = 1;
 
-      /* "KCP.pyx":593
+      /* "KCP.pyx":605
  *                 #
  *                 need_send = True
  *                 segment.xmit += 1             # <<<<<<<<<<<<<<
@@ -9209,7 +9344,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       __pyx_v_segment->xmit = (__pyx_v_segment->xmit + 1);
 
-      /* "KCP.pyx":594
+      /* "KCP.pyx":606
  *                 need_send = True
  *                 segment.xmit += 1
  *                 segment.fastack = 0             # <<<<<<<<<<<<<<
@@ -9218,7 +9353,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       __pyx_v_segment->fastack = 0;
 
-      /* "KCP.pyx":595
+      /* "KCP.pyx":607
  *                 segment.xmit += 1
  *                 segment.fastack = 0
  *                 segment.resendts = current + segment.rto             # <<<<<<<<<<<<<<
@@ -9227,7 +9362,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       __pyx_v_segment->resendts = (__pyx_v_current + __pyx_v_segment->rto);
 
-      /* "KCP.pyx":596
+      /* "KCP.pyx":608
  *                 segment.fastack = 0
  *                 segment.resendts = current + segment.rto
  *                 change += 1             # <<<<<<<<<<<<<<
@@ -9236,7 +9371,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       __pyx_v_change = (__pyx_v_change + 1);
 
-      /* "KCP.pyx":590
+      /* "KCP.pyx":602
  *                 segment.resendts = current + segment.rto
  *                 lost = 1
  *             elif segment.fastack >= resent:             # <<<<<<<<<<<<<<
@@ -9246,7 +9381,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
     }
     __pyx_L23:;
 
-    /* "KCP.pyx":598
+    /* "KCP.pyx":610
  *                 change += 1
  * 
  *             if need_send:             # <<<<<<<<<<<<<<
@@ -9256,7 +9391,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
     __pyx_t_2 = (__pyx_v_need_send != 0);
     if (__pyx_t_2) {
 
-      /* "KCP.pyx":599
+      /* "KCP.pyx":611
  * 
  *             if need_send:
  *                 segment.ts = current             # <<<<<<<<<<<<<<
@@ -9265,7 +9400,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       __pyx_v_segment->ts = __pyx_v_current;
 
-      /* "KCP.pyx":600
+      /* "KCP.pyx":612
  *             if need_send:
  *                 segment.ts = current
  *                 segment.wnd = seg.wnd             # <<<<<<<<<<<<<<
@@ -9275,7 +9410,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
       __pyx_t_1 = __pyx_v_seg->wnd;
       __pyx_v_segment->wnd = __pyx_t_1;
 
-      /* "KCP.pyx":601
+      /* "KCP.pyx":613
  *                 segment.ts = current
  *                 segment.wnd = seg.wnd
  *                 segment.una = self.rcv_nxt             # <<<<<<<<<<<<<<
@@ -9285,51 +9420,51 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
       __pyx_t_1 = __pyx_v_self->rcv_nxt;
       __pyx_v_segment->una = __pyx_t_1;
 
-      /* "KCP.pyx":603
+      /* "KCP.pyx":615
  *                 segment.una = self.rcv_nxt
  * 
  *                 need = IKCP_OVERHEAD + segment.size             # <<<<<<<<<<<<<<
  *                 if (offset + need) >= self.mtu:
  *                     self.ikcp_output(self.buffer, offset)
  */
-      __pyx_t_9 = __Pyx_PyInt_From_int((__pyx_v_3KCP_IKCP_OVERHEAD + __pyx_v_segment->size)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 603, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyInt_From_int((__pyx_v_3KCP_IKCP_OVERHEAD + __pyx_v_segment->size)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 615, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_XDECREF_SET(__pyx_v_need, __pyx_t_9);
       __pyx_t_9 = 0;
 
-      /* "KCP.pyx":604
+      /* "KCP.pyx":616
  * 
  *                 need = IKCP_OVERHEAD + segment.size
  *                 if (offset + need) >= self.mtu:             # <<<<<<<<<<<<<<
  *                     self.ikcp_output(self.buffer, offset)
  *                     offset = 0
  */
-      __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_offset); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 604, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_offset); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 616, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_10 = PyNumber_Add(__pyx_t_9, __pyx_v_need); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 604, __pyx_L1_error)
+      __pyx_t_10 = PyNumber_Add(__pyx_t_9, __pyx_v_need); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 616, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_self->mtu); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 604, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_self->mtu); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 616, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_12 = PyObject_RichCompare(__pyx_t_10, __pyx_t_9, Py_GE); __Pyx_XGOTREF(__pyx_t_12); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 604, __pyx_L1_error)
+      __pyx_t_12 = PyObject_RichCompare(__pyx_t_10, __pyx_t_9, Py_GE); __Pyx_XGOTREF(__pyx_t_12); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 616, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_12); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 604, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_12); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 616, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       if (__pyx_t_2) {
 
-        /* "KCP.pyx":605
+        /* "KCP.pyx":617
  *                 need = IKCP_OVERHEAD + segment.size
  *                 if (offset + need) >= self.mtu:
  *                     self.ikcp_output(self.buffer, offset)             # <<<<<<<<<<<<<<
  *                     offset = 0
  *                 offset += segment.encode(self.buffer, offset)
  */
-        __pyx_t_12 = ((struct __pyx_vtabstruct_3KCP_KCP *)__pyx_v_self->__pyx_vtab)->ikcp_output(__pyx_v_self, __pyx_v_self->buffer, __pyx_v_offset, 0); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 605, __pyx_L1_error)
+        __pyx_t_12 = ((struct __pyx_vtabstruct_3KCP_KCP *)__pyx_v_self->__pyx_vtab)->ikcp_output(__pyx_v_self, __pyx_v_self->buffer, __pyx_v_offset, 0); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 617, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-        /* "KCP.pyx":606
+        /* "KCP.pyx":618
  *                 if (offset + need) >= self.mtu:
  *                     self.ikcp_output(self.buffer, offset)
  *                     offset = 0             # <<<<<<<<<<<<<<
@@ -9338,7 +9473,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
         __pyx_v_offset = 0;
 
-        /* "KCP.pyx":604
+        /* "KCP.pyx":616
  * 
  *                 need = IKCP_OVERHEAD + segment.size
  *                 if (offset + need) >= self.mtu:             # <<<<<<<<<<<<<<
@@ -9347,7 +9482,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       }
 
-      /* "KCP.pyx":607
+      /* "KCP.pyx":619
  *                     self.ikcp_output(self.buffer, offset)
  *                     offset = 0
  *                 offset += segment.encode(self.buffer, offset)             # <<<<<<<<<<<<<<
@@ -9356,7 +9491,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       __pyx_v_offset = (__pyx_v_offset + ((struct __pyx_vtabstruct_3KCP_Segment *)__pyx_v_segment->__pyx_vtab)->encode(__pyx_v_segment, __pyx_v_self->buffer, __pyx_v_offset));
 
-      /* "KCP.pyx":609
+      /* "KCP.pyx":621
  *                 offset += segment.encode(self.buffer, offset)
  * 
  *                 if segment.size > 0:             # <<<<<<<<<<<<<<
@@ -9366,7 +9501,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
       __pyx_t_2 = ((__pyx_v_segment->size > 0) != 0);
       if (__pyx_t_2) {
 
-        /* "KCP.pyx":610
+        /* "KCP.pyx":622
  * 
  *                 if segment.size > 0:
  *                     buffer = self.buffer + offset             # <<<<<<<<<<<<<<
@@ -9375,7 +9510,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
         __pyx_v_buffer = (__pyx_v_self->buffer + __pyx_v_offset);
 
-        /* "KCP.pyx":611
+        /* "KCP.pyx":623
  *                 if segment.size > 0:
  *                     buffer = self.buffer + offset
  *                     memcpy(buffer, segment.data, segment.size)             # <<<<<<<<<<<<<<
@@ -9384,7 +9519,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
         (void)(memcpy(__pyx_v_buffer, __pyx_v_segment->data, __pyx_v_segment->size));
 
-        /* "KCP.pyx":612
+        /* "KCP.pyx":624
  *                     buffer = self.buffer + offset
  *                     memcpy(buffer, segment.data, segment.size)
  *                     offset += segment.size             # <<<<<<<<<<<<<<
@@ -9393,7 +9528,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
         __pyx_v_offset = (__pyx_v_offset + __pyx_v_segment->size);
 
-        /* "KCP.pyx":609
+        /* "KCP.pyx":621
  *                 offset += segment.encode(self.buffer, offset)
  * 
  *                 if segment.size > 0:             # <<<<<<<<<<<<<<
@@ -9402,35 +9537,35 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       }
 
-      /* "KCP.pyx":613
+      /* "KCP.pyx":625
  *                     memcpy(buffer, segment.data, segment.size)
  *                     offset += segment.size
  *                 if segment.xmit >= self.dead_link:             # <<<<<<<<<<<<<<
  *                     self.state = -1
- * 
+ *         printf("flush 9\n")
  */
       __pyx_t_2 = ((__pyx_v_segment->xmit >= __pyx_v_self->dead_link) != 0);
       if (__pyx_t_2) {
 
-        /* "KCP.pyx":614
+        /* "KCP.pyx":626
  *                     offset += segment.size
  *                 if segment.xmit >= self.dead_link:
  *                     self.state = -1             # <<<<<<<<<<<<<<
+ *         printf("flush 9\n")
  * 
- *         # flash remain segment
  */
         __pyx_v_self->state = -1;
 
-        /* "KCP.pyx":613
+        /* "KCP.pyx":625
  *                     memcpy(buffer, segment.data, segment.size)
  *                     offset += segment.size
  *                 if segment.xmit >= self.dead_link:             # <<<<<<<<<<<<<<
  *                     self.state = -1
- * 
+ *         printf("flush 9\n")
  */
       }
 
-      /* "KCP.pyx":598
+      /* "KCP.pyx":610
  *                 change += 1
  * 
  *             if need_send:             # <<<<<<<<<<<<<<
@@ -9439,7 +9574,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     }
 
-    /* "KCP.pyx":571
+    /* "KCP.pyx":583
  *         cdef Segment segment
  *         cdef bint need_send
  *         for segment in self.nsnd_buf:             # <<<<<<<<<<<<<<
@@ -9449,7 +9584,16 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "KCP.pyx":617
+  /* "KCP.pyx":627
+ *                 if segment.xmit >= self.dead_link:
+ *                     self.state = -1
+ *         printf("flush 9\n")             # <<<<<<<<<<<<<<
+ * 
+ *         # flash remain segment
+ */
+  (void)(printf(((char *)"flush 9\n")));
+
+  /* "KCP.pyx":630
  * 
  *         # flash remain segment
  *         if offset > 0:             # <<<<<<<<<<<<<<
@@ -9459,18 +9603,18 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
   __pyx_t_2 = ((__pyx_v_offset > 0) != 0);
   if (__pyx_t_2) {
 
-    /* "KCP.pyx":618
+    /* "KCP.pyx":631
  *         # flash remain segment
  *         if offset > 0:
  *             self.ikcp_output(self.buffer, offset)             # <<<<<<<<<<<<<<
  * 
  *         # update ssthresh
  */
-    __pyx_t_3 = ((struct __pyx_vtabstruct_3KCP_KCP *)__pyx_v_self->__pyx_vtab)->ikcp_output(__pyx_v_self, __pyx_v_self->buffer, __pyx_v_offset, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 618, __pyx_L1_error)
+    __pyx_t_3 = ((struct __pyx_vtabstruct_3KCP_KCP *)__pyx_v_self->__pyx_vtab)->ikcp_output(__pyx_v_self, __pyx_v_self->buffer, __pyx_v_offset, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 631, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "KCP.pyx":617
+    /* "KCP.pyx":630
  * 
  *         # flash remain segment
  *         if offset > 0:             # <<<<<<<<<<<<<<
@@ -9479,7 +9623,16 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
   }
 
-  /* "KCP.pyx":624
+  /* "KCP.pyx":635
+ *         # update ssthresh
+ *         #
+ *         printf("flush 10\n")             # <<<<<<<<<<<<<<
+ * 
+ *         cdef int inflight
+ */
+  (void)(printf(((char *)"flush 10\n")));
+
+  /* "KCP.pyx":638
  * 
  *         cdef int inflight
  *         if change != 0:             # <<<<<<<<<<<<<<
@@ -9489,7 +9642,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
   __pyx_t_2 = ((__pyx_v_change != 0) != 0);
   if (__pyx_t_2) {
 
-    /* "KCP.pyx":625
+    /* "KCP.pyx":639
  *         cdef int inflight
  *         if change != 0:
  *             inflight = self.snd_nxt - self.snd_una             # <<<<<<<<<<<<<<
@@ -9498,7 +9651,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     __pyx_v_inflight = (__pyx_v_self->snd_nxt - __pyx_v_self->snd_una);
 
-    /* "KCP.pyx":626
+    /* "KCP.pyx":640
  *         if change != 0:
  *             inflight = self.snd_nxt - self.snd_una
  *             self.ssthresh = inflight / 2             # <<<<<<<<<<<<<<
@@ -9507,7 +9660,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     __pyx_v_self->ssthresh = __Pyx_div_long(__pyx_v_inflight, 2);
 
-    /* "KCP.pyx":627
+    /* "KCP.pyx":641
  *             inflight = self.snd_nxt - self.snd_una
  *             self.ssthresh = inflight / 2
  *             if self.ssthresh < IKCP_THRESH_MIN:             # <<<<<<<<<<<<<<
@@ -9517,7 +9670,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
     __pyx_t_2 = ((__pyx_v_self->ssthresh < __pyx_v_3KCP_IKCP_THRESH_MIN) != 0);
     if (__pyx_t_2) {
 
-      /* "KCP.pyx":628
+      /* "KCP.pyx":642
  *             self.ssthresh = inflight / 2
  *             if self.ssthresh < IKCP_THRESH_MIN:
  *                 self.ssthresh = IKCP_THRESH_MIN             # <<<<<<<<<<<<<<
@@ -9526,7 +9679,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       __pyx_v_self->ssthresh = __pyx_v_3KCP_IKCP_THRESH_MIN;
 
-      /* "KCP.pyx":627
+      /* "KCP.pyx":641
  *             inflight = self.snd_nxt - self.snd_una
  *             self.ssthresh = inflight / 2
  *             if self.ssthresh < IKCP_THRESH_MIN:             # <<<<<<<<<<<<<<
@@ -9535,7 +9688,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     }
 
-    /* "KCP.pyx":629
+    /* "KCP.pyx":643
  *             if self.ssthresh < IKCP_THRESH_MIN:
  *                 self.ssthresh = IKCP_THRESH_MIN
  *             self.cwnd = self.ssthresh + resent             # <<<<<<<<<<<<<<
@@ -9544,7 +9697,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     __pyx_v_self->cwnd = (__pyx_v_self->ssthresh + __pyx_v_resent);
 
-    /* "KCP.pyx":630
+    /* "KCP.pyx":644
  *                 self.ssthresh = IKCP_THRESH_MIN
  *             self.cwnd = self.ssthresh + resent
  *             self.incr = self.cwnd * self.mss             # <<<<<<<<<<<<<<
@@ -9553,7 +9706,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     __pyx_v_self->incr = (__pyx_v_self->cwnd * __pyx_v_self->mss);
 
-    /* "KCP.pyx":624
+    /* "KCP.pyx":638
  * 
  *         cdef int inflight
  *         if change != 0:             # <<<<<<<<<<<<<<
@@ -9562,7 +9715,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
   }
 
-  /* "KCP.pyx":632
+  /* "KCP.pyx":646
  *             self.incr = self.cwnd * self.mss
  * 
  *         if lost != 0:             # <<<<<<<<<<<<<<
@@ -9572,7 +9725,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
   __pyx_t_2 = ((__pyx_v_lost != 0) != 0);
   if (__pyx_t_2) {
 
-    /* "KCP.pyx":633
+    /* "KCP.pyx":647
  * 
  *         if lost != 0:
  *             self.ssthresh = self.cwnd / 2             # <<<<<<<<<<<<<<
@@ -9581,7 +9734,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     __pyx_v_self->ssthresh = __Pyx_div_long(__pyx_v_self->cwnd, 2);
 
-    /* "KCP.pyx":634
+    /* "KCP.pyx":648
  *         if lost != 0:
  *             self.ssthresh = self.cwnd / 2
  *             if self.ssthresh < IKCP_THRESH_MIN:             # <<<<<<<<<<<<<<
@@ -9591,7 +9744,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
     __pyx_t_2 = ((__pyx_v_self->ssthresh < __pyx_v_3KCP_IKCP_THRESH_MIN) != 0);
     if (__pyx_t_2) {
 
-      /* "KCP.pyx":635
+      /* "KCP.pyx":649
  *             self.ssthresh = self.cwnd / 2
  *             if self.ssthresh < IKCP_THRESH_MIN:
  *                 self.ssthresh = IKCP_THRESH_MIN             # <<<<<<<<<<<<<<
@@ -9600,7 +9753,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
       __pyx_v_self->ssthresh = __pyx_v_3KCP_IKCP_THRESH_MIN;
 
-      /* "KCP.pyx":634
+      /* "KCP.pyx":648
  *         if lost != 0:
  *             self.ssthresh = self.cwnd / 2
  *             if self.ssthresh < IKCP_THRESH_MIN:             # <<<<<<<<<<<<<<
@@ -9609,7 +9762,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     }
 
-    /* "KCP.pyx":636
+    /* "KCP.pyx":650
  *             if self.ssthresh < IKCP_THRESH_MIN:
  *                 self.ssthresh = IKCP_THRESH_MIN
  *             self.cwnd = 1             # <<<<<<<<<<<<<<
@@ -9618,7 +9771,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     __pyx_v_self->cwnd = 1;
 
-    /* "KCP.pyx":637
+    /* "KCP.pyx":651
  *                 self.ssthresh = IKCP_THRESH_MIN
  *             self.cwnd = 1
  *             self.incr = self.mss             # <<<<<<<<<<<<<<
@@ -9628,7 +9781,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
     __pyx_t_1 = __pyx_v_self->mss;
     __pyx_v_self->incr = __pyx_t_1;
 
-    /* "KCP.pyx":632
+    /* "KCP.pyx":646
  *             self.incr = self.cwnd * self.mss
  * 
  *         if lost != 0:             # <<<<<<<<<<<<<<
@@ -9637,7 +9790,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
   }
 
-  /* "KCP.pyx":639
+  /* "KCP.pyx":653
  *             self.incr = self.mss
  * 
  *         if self.cwnd < 1:             # <<<<<<<<<<<<<<
@@ -9647,7 +9800,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
   __pyx_t_2 = ((__pyx_v_self->cwnd < 1) != 0);
   if (__pyx_t_2) {
 
-    /* "KCP.pyx":640
+    /* "KCP.pyx":654
  * 
  *         if self.cwnd < 1:
  *             self.cwnd = 1             # <<<<<<<<<<<<<<
@@ -9656,7 +9809,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
     __pyx_v_self->cwnd = 1;
 
-    /* "KCP.pyx":641
+    /* "KCP.pyx":655
  *         if self.cwnd < 1:
  *             self.cwnd = 1
  *             self.incr = self.mss             # <<<<<<<<<<<<<<
@@ -9666,7 +9819,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
     __pyx_t_1 = __pyx_v_self->mss;
     __pyx_v_self->incr = __pyx_t_1;
 
-    /* "KCP.pyx":639
+    /* "KCP.pyx":653
  *             self.incr = self.mss
  * 
  *         if self.cwnd < 1:             # <<<<<<<<<<<<<<
@@ -9675,7 +9828,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
  */
   }
 
-  /* "KCP.pyx":462
+  /* "KCP.pyx":468
  *         return 0
  * 
  *     cdef void flush(self):             # <<<<<<<<<<<<<<
@@ -9700,7 +9853,7 @@ static void __pyx_f_3KCP_3KCP_flush(struct __pyx_obj_3KCP_KCP *__pyx_v_self) {
   __Pyx_RefNannyFinishContext();
 }
 
-/* "KCP.pyx":643
+/* "KCP.pyx":657
  *             self.incr = self.mss
  * 
  *     cpdef update(self, int current):             # <<<<<<<<<<<<<<
@@ -9731,11 +9884,11 @@ static PyObject *__pyx_f_3KCP_3KCP_update(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_update); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 643, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_update); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 657, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_3KCP_3KCP_13update)) {
         __Pyx_XDECREF(__pyx_r);
-        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_current); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 643, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_current); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 657, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_4 = __pyx_t_1; __pyx_t_5 = NULL;
@@ -9751,7 +9904,7 @@ static PyObject *__pyx_f_3KCP_3KCP_update(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
         __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3);
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 643, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 657, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __pyx_r = __pyx_t_2;
@@ -9772,7 +9925,7 @@ static PyObject *__pyx_f_3KCP_3KCP_update(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
     #endif
   }
 
-  /* "KCP.pyx":644
+  /* "KCP.pyx":658
  * 
  *     cpdef update(self, int current):
  *         self.current = current             # <<<<<<<<<<<<<<
@@ -9781,7 +9934,7 @@ static PyObject *__pyx_f_3KCP_3KCP_update(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
  */
   __pyx_v_self->current = __pyx_v_current;
 
-  /* "KCP.pyx":646
+  /* "KCP.pyx":660
  *         self.current = current
  * 
  *         if 0 == self.updated:             # <<<<<<<<<<<<<<
@@ -9791,7 +9944,7 @@ static PyObject *__pyx_f_3KCP_3KCP_update(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
   __pyx_t_6 = ((0 == __pyx_v_self->updated) != 0);
   if (__pyx_t_6) {
 
-    /* "KCP.pyx":647
+    /* "KCP.pyx":661
  * 
  *         if 0 == self.updated:
  *             self.updated = 1             # <<<<<<<<<<<<<<
@@ -9800,7 +9953,7 @@ static PyObject *__pyx_f_3KCP_3KCP_update(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
  */
     __pyx_v_self->updated = 1;
 
-    /* "KCP.pyx":648
+    /* "KCP.pyx":662
  *         if 0 == self.updated:
  *             self.updated = 1
  *             self.ts_flush = self.current             # <<<<<<<<<<<<<<
@@ -9810,7 +9963,7 @@ static PyObject *__pyx_f_3KCP_3KCP_update(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
     __pyx_t_7 = __pyx_v_self->current;
     __pyx_v_self->ts_flush = __pyx_t_7;
 
-    /* "KCP.pyx":646
+    /* "KCP.pyx":660
  *         self.current = current
  * 
  *         if 0 == self.updated:             # <<<<<<<<<<<<<<
@@ -9819,7 +9972,7 @@ static PyObject *__pyx_f_3KCP_3KCP_update(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
  */
   }
 
-  /* "KCP.pyx":651
+  /* "KCP.pyx":665
  * 
  *         #
  *         cdef int slap = _itimediff(self.current, self.ts_flush)             # <<<<<<<<<<<<<<
@@ -9828,7 +9981,7 @@ static PyObject *__pyx_f_3KCP_3KCP_update(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
  */
   __pyx_v_slap = __pyx_f_3KCP__itimediff(__pyx_v_self->current, __pyx_v_self->ts_flush);
 
-  /* "KCP.pyx":654
+  /* "KCP.pyx":668
  * 
  *         # intervalUpdate
  *         if (slap >= 10000) or (slap < -10000):             # <<<<<<<<<<<<<<
@@ -9846,7 +9999,7 @@ static PyObject *__pyx_f_3KCP_3KCP_update(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
   __pyx_L5_bool_binop_done:;
   if (__pyx_t_6) {
 
-    /* "KCP.pyx":655
+    /* "KCP.pyx":669
  *         # intervalUpdate
  *         if (slap >= 10000) or (slap < -10000):
  *             self.ts_flush = self.current             # <<<<<<<<<<<<<<
@@ -9856,7 +10009,7 @@ static PyObject *__pyx_f_3KCP_3KCP_update(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
     __pyx_t_7 = __pyx_v_self->current;
     __pyx_v_self->ts_flush = __pyx_t_7;
 
-    /* "KCP.pyx":656
+    /* "KCP.pyx":670
  *         if (slap >= 10000) or (slap < -10000):
  *             self.ts_flush = self.current
  *             slap = 0             # <<<<<<<<<<<<<<
@@ -9865,7 +10018,7 @@ static PyObject *__pyx_f_3KCP_3KCP_update(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
  */
     __pyx_v_slap = 0;
 
-    /* "KCP.pyx":654
+    /* "KCP.pyx":668
  * 
  *         # intervalUpdate
  *         if (slap >= 10000) or (slap < -10000):             # <<<<<<<<<<<<<<
@@ -9874,7 +10027,7 @@ static PyObject *__pyx_f_3KCP_3KCP_update(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
  */
   }
 
-  /* "KCP.pyx":658
+  /* "KCP.pyx":672
  *             slap = 0
  * 
  *         if slap >= 0:             # <<<<<<<<<<<<<<
@@ -9884,7 +10037,7 @@ static PyObject *__pyx_f_3KCP_3KCP_update(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
   __pyx_t_6 = ((__pyx_v_slap >= 0) != 0);
   if (__pyx_t_6) {
 
-    /* "KCP.pyx":659
+    /* "KCP.pyx":673
  * 
  *         if slap >= 0:
  *             self.ts_flush += self.interval             # <<<<<<<<<<<<<<
@@ -9893,7 +10046,7 @@ static PyObject *__pyx_f_3KCP_3KCP_update(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
  */
     __pyx_v_self->ts_flush = (__pyx_v_self->ts_flush + __pyx_v_self->interval);
 
-    /* "KCP.pyx":660
+    /* "KCP.pyx":674
  *         if slap >= 0:
  *             self.ts_flush += self.interval
  *             if _itimediff(self.current, self.ts_flush) >= 0:             # <<<<<<<<<<<<<<
@@ -9903,7 +10056,7 @@ static PyObject *__pyx_f_3KCP_3KCP_update(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
     __pyx_t_6 = ((__pyx_f_3KCP__itimediff(__pyx_v_self->current, __pyx_v_self->ts_flush) >= 0) != 0);
     if (__pyx_t_6) {
 
-      /* "KCP.pyx":661
+      /* "KCP.pyx":675
  *             self.ts_flush += self.interval
  *             if _itimediff(self.current, self.ts_flush) >= 0:
  *                 self.ts_flush = self.current + self.interval             # <<<<<<<<<<<<<<
@@ -9912,7 +10065,7 @@ static PyObject *__pyx_f_3KCP_3KCP_update(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
  */
       __pyx_v_self->ts_flush = (__pyx_v_self->current + __pyx_v_self->interval);
 
-      /* "KCP.pyx":660
+      /* "KCP.pyx":674
  *         if slap >= 0:
  *             self.ts_flush += self.interval
  *             if _itimediff(self.current, self.ts_flush) >= 0:             # <<<<<<<<<<<<<<
@@ -9921,7 +10074,7 @@ static PyObject *__pyx_f_3KCP_3KCP_update(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
  */
     }
 
-    /* "KCP.pyx":662
+    /* "KCP.pyx":676
  *             if _itimediff(self.current, self.ts_flush) >= 0:
  *                 self.ts_flush = self.current + self.interval
  *             self.flush()             # <<<<<<<<<<<<<<
@@ -9930,7 +10083,7 @@ static PyObject *__pyx_f_3KCP_3KCP_update(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
  */
     ((struct __pyx_vtabstruct_3KCP_KCP *)__pyx_v_self->__pyx_vtab)->flush(__pyx_v_self);
 
-    /* "KCP.pyx":658
+    /* "KCP.pyx":672
  *             slap = 0
  * 
  *         if slap >= 0:             # <<<<<<<<<<<<<<
@@ -9939,7 +10092,7 @@ static PyObject *__pyx_f_3KCP_3KCP_update(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
  */
   }
 
-  /* "KCP.pyx":643
+  /* "KCP.pyx":657
  *             self.incr = self.mss
  * 
  *     cpdef update(self, int current):             # <<<<<<<<<<<<<<
@@ -9972,7 +10125,7 @@ static PyObject *__pyx_pw_3KCP_3KCP_13update(PyObject *__pyx_v_self, PyObject *_
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("update (wrapper)", 0);
   assert(__pyx_arg_current); {
-    __pyx_v_current = __Pyx_PyInt_As_int(__pyx_arg_current); if (unlikely((__pyx_v_current == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 643, __pyx_L3_error)
+    __pyx_v_current = __Pyx_PyInt_As_int(__pyx_arg_current); if (unlikely((__pyx_v_current == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 657, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -9993,7 +10146,7 @@ static PyObject *__pyx_pf_3KCP_3KCP_12update(struct __pyx_obj_3KCP_KCP *__pyx_v_
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("update", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_3KCP_3KCP_update(__pyx_v_self, __pyx_v_current, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 643, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_3KCP_3KCP_update(__pyx_v_self, __pyx_v_current, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 657, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -10010,7 +10163,7 @@ static PyObject *__pyx_pf_3KCP_3KCP_12update(struct __pyx_obj_3KCP_KCP *__pyx_v_
   return __pyx_r;
 }
 
-/* "KCP.pyx":664
+/* "KCP.pyx":678
  *             self.flush()
  * 
  *     cpdef int check(self, current):             # <<<<<<<<<<<<<<
@@ -10046,7 +10199,7 @@ static int __pyx_f_3KCP_3KCP_check(struct __pyx_obj_3KCP_KCP *__pyx_v_self, PyOb
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_check); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 664, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_check); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 678, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_3KCP_3KCP_15check)) {
         __Pyx_INCREF(__pyx_t_1);
@@ -10062,10 +10215,10 @@ static int __pyx_f_3KCP_3KCP_check(struct __pyx_obj_3KCP_KCP *__pyx_v_self, PyOb
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v_current) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_current);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 664, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 678, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 664, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 678, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_5;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -10084,7 +10237,7 @@ static int __pyx_f_3KCP_3KCP_check(struct __pyx_obj_3KCP_KCP *__pyx_v_self, PyOb
     #endif
   }
 
-  /* "KCP.pyx":665
+  /* "KCP.pyx":679
  * 
  *     cpdef int check(self, current):
  *         cdef int ts_flush = self.ts_flush             # <<<<<<<<<<<<<<
@@ -10094,7 +10247,7 @@ static int __pyx_f_3KCP_3KCP_check(struct __pyx_obj_3KCP_KCP *__pyx_v_self, PyOb
   __pyx_t_5 = __pyx_v_self->ts_flush;
   __pyx_v_ts_flush = __pyx_t_5;
 
-  /* "KCP.pyx":666
+  /* "KCP.pyx":680
  *     cpdef int check(self, current):
  *         cdef int ts_flush = self.ts_flush
  *         cdef int tm_packet = 0x7ffffff             # <<<<<<<<<<<<<<
@@ -10103,7 +10256,7 @@ static int __pyx_f_3KCP_3KCP_check(struct __pyx_obj_3KCP_KCP *__pyx_v_self, PyOb
  */
   __pyx_v_tm_packet = 0x7ffffff;
 
-  /* "KCP.pyx":668
+  /* "KCP.pyx":682
  *         cdef int tm_packet = 0x7ffffff
  *         cdef int tm_flush
  *         if self.updated == 0:             # <<<<<<<<<<<<<<
@@ -10113,18 +10266,18 @@ static int __pyx_f_3KCP_3KCP_check(struct __pyx_obj_3KCP_KCP *__pyx_v_self, PyOb
   __pyx_t_6 = ((__pyx_v_self->updated == 0) != 0);
   if (__pyx_t_6) {
 
-    /* "KCP.pyx":669
+    /* "KCP.pyx":683
  *         cdef int tm_flush
  *         if self.updated == 0:
  *             return current             # <<<<<<<<<<<<<<
  *         if (_itimediff(current, ts_flush) >= 10000) or (_itimediff(current, ts_flush) < -10000):
  *             ts_flush = current
  */
-    __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_current); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 669, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_current); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 683, __pyx_L1_error)
     __pyx_r = __pyx_t_5;
     goto __pyx_L0;
 
-    /* "KCP.pyx":668
+    /* "KCP.pyx":682
  *         cdef int tm_packet = 0x7ffffff
  *         cdef int tm_flush
  *         if self.updated == 0:             # <<<<<<<<<<<<<<
@@ -10133,37 +10286,37 @@ static int __pyx_f_3KCP_3KCP_check(struct __pyx_obj_3KCP_KCP *__pyx_v_self, PyOb
  */
   }
 
-  /* "KCP.pyx":670
+  /* "KCP.pyx":684
  *         if self.updated == 0:
  *             return current
  *         if (_itimediff(current, ts_flush) >= 10000) or (_itimediff(current, ts_flush) < -10000):             # <<<<<<<<<<<<<<
  *             ts_flush = current
  * 
  */
-  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_current); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 670, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_current); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 684, __pyx_L1_error)
   __pyx_t_7 = ((__pyx_f_3KCP__itimediff(__pyx_t_5, __pyx_v_ts_flush) >= 0x2710) != 0);
   if (!__pyx_t_7) {
   } else {
     __pyx_t_6 = __pyx_t_7;
     goto __pyx_L5_bool_binop_done;
   }
-  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_current); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 670, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_current); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 684, __pyx_L1_error)
   __pyx_t_7 = ((__pyx_f_3KCP__itimediff(__pyx_t_5, __pyx_v_ts_flush) < -10000L) != 0);
   __pyx_t_6 = __pyx_t_7;
   __pyx_L5_bool_binop_done:;
   if (__pyx_t_6) {
 
-    /* "KCP.pyx":671
+    /* "KCP.pyx":685
  *             return current
  *         if (_itimediff(current, ts_flush) >= 10000) or (_itimediff(current, ts_flush) < -10000):
  *             ts_flush = current             # <<<<<<<<<<<<<<
  * 
  *         if _itimediff(current, ts_flush) >= 0:
  */
-    __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_current); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 671, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_current); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 685, __pyx_L1_error)
     __pyx_v_ts_flush = __pyx_t_5;
 
-    /* "KCP.pyx":670
+    /* "KCP.pyx":684
  *         if self.updated == 0:
  *             return current
  *         if (_itimediff(current, ts_flush) >= 10000) or (_itimediff(current, ts_flush) < -10000):             # <<<<<<<<<<<<<<
@@ -10172,29 +10325,29 @@ static int __pyx_f_3KCP_3KCP_check(struct __pyx_obj_3KCP_KCP *__pyx_v_self, PyOb
  */
   }
 
-  /* "KCP.pyx":673
+  /* "KCP.pyx":687
  *             ts_flush = current
  * 
  *         if _itimediff(current, ts_flush) >= 0:             # <<<<<<<<<<<<<<
  *             return current
  *         tm_flush = _itimediff(ts_flush, current)
  */
-  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_current); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 673, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_current); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 687, __pyx_L1_error)
   __pyx_t_6 = ((__pyx_f_3KCP__itimediff(__pyx_t_5, __pyx_v_ts_flush) >= 0) != 0);
   if (__pyx_t_6) {
 
-    /* "KCP.pyx":674
+    /* "KCP.pyx":688
  * 
  *         if _itimediff(current, ts_flush) >= 0:
  *             return current             # <<<<<<<<<<<<<<
  *         tm_flush = _itimediff(ts_flush, current)
  *         cdef Segment seg
  */
-    __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_current); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 674, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_current); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 688, __pyx_L1_error)
     __pyx_r = __pyx_t_5;
     goto __pyx_L0;
 
-    /* "KCP.pyx":673
+    /* "KCP.pyx":687
  *             ts_flush = current
  * 
  *         if _itimediff(current, ts_flush) >= 0:             # <<<<<<<<<<<<<<
@@ -10203,17 +10356,17 @@ static int __pyx_f_3KCP_3KCP_check(struct __pyx_obj_3KCP_KCP *__pyx_v_self, PyOb
  */
   }
 
-  /* "KCP.pyx":675
+  /* "KCP.pyx":689
  *         if _itimediff(current, ts_flush) >= 0:
  *             return current
  *         tm_flush = _itimediff(ts_flush, current)             # <<<<<<<<<<<<<<
  *         cdef Segment seg
  *         for seg in self.nsnd_buf:
  */
-  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_current); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 675, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_current); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 689, __pyx_L1_error)
   __pyx_v_tm_flush = __pyx_f_3KCP__itimediff(__pyx_v_ts_flush, __pyx_t_5);
 
-  /* "KCP.pyx":677
+  /* "KCP.pyx":691
  *         tm_flush = _itimediff(ts_flush, current)
  *         cdef Segment seg
  *         for seg in self.nsnd_buf:             # <<<<<<<<<<<<<<
@@ -10222,32 +10375,32 @@ static int __pyx_f_3KCP_3KCP_check(struct __pyx_obj_3KCP_KCP *__pyx_v_self, PyOb
  */
   if (unlikely(__pyx_v_self->nsnd_buf == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 677, __pyx_L1_error)
+    __PYX_ERR(0, 691, __pyx_L1_error)
   }
   __pyx_t_1 = __pyx_v_self->nsnd_buf; __Pyx_INCREF(__pyx_t_1); __pyx_t_8 = 0;
   for (;;) {
     if (__pyx_t_8 >= PyList_GET_SIZE(__pyx_t_1)) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_8); __Pyx_INCREF(__pyx_t_2); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 677, __pyx_L1_error)
+    __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_8); __Pyx_INCREF(__pyx_t_2); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 691, __pyx_L1_error)
     #else
-    __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 677, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 691, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     #endif
-    if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_3KCP_Segment))))) __PYX_ERR(0, 677, __pyx_L1_error)
+    if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_3KCP_Segment))))) __PYX_ERR(0, 691, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_seg, ((struct __pyx_obj_3KCP_Segment *)__pyx_t_2));
     __pyx_t_2 = 0;
 
-    /* "KCP.pyx":678
+    /* "KCP.pyx":692
  *         cdef Segment seg
  *         for seg in self.nsnd_buf:
  *             diff = _itimediff(seg.resendts, current)             # <<<<<<<<<<<<<<
  *             if diff <= 0:
  *                 return current
  */
-    __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_current); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 678, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_current); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 692, __pyx_L1_error)
     __pyx_v_diff = __pyx_f_3KCP__itimediff(__pyx_v_seg->resendts, __pyx_t_5);
 
-    /* "KCP.pyx":679
+    /* "KCP.pyx":693
  *         for seg in self.nsnd_buf:
  *             diff = _itimediff(seg.resendts, current)
  *             if diff <= 0:             # <<<<<<<<<<<<<<
@@ -10257,19 +10410,19 @@ static int __pyx_f_3KCP_3KCP_check(struct __pyx_obj_3KCP_KCP *__pyx_v_self, PyOb
     __pyx_t_6 = ((__pyx_v_diff <= 0) != 0);
     if (__pyx_t_6) {
 
-      /* "KCP.pyx":680
+      /* "KCP.pyx":694
  *             diff = _itimediff(seg.resendts, current)
  *             if diff <= 0:
  *                 return current             # <<<<<<<<<<<<<<
  *             if diff < tm_packet:
  *                 tm_packet = diff
  */
-      __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_current); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 680, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_current); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 694, __pyx_L1_error)
       __pyx_r = __pyx_t_5;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       goto __pyx_L0;
 
-      /* "KCP.pyx":679
+      /* "KCP.pyx":693
  *         for seg in self.nsnd_buf:
  *             diff = _itimediff(seg.resendts, current)
  *             if diff <= 0:             # <<<<<<<<<<<<<<
@@ -10278,7 +10431,7 @@ static int __pyx_f_3KCP_3KCP_check(struct __pyx_obj_3KCP_KCP *__pyx_v_self, PyOb
  */
     }
 
-    /* "KCP.pyx":681
+    /* "KCP.pyx":695
  *             if diff <= 0:
  *                 return current
  *             if diff < tm_packet:             # <<<<<<<<<<<<<<
@@ -10288,7 +10441,7 @@ static int __pyx_f_3KCP_3KCP_check(struct __pyx_obj_3KCP_KCP *__pyx_v_self, PyOb
     __pyx_t_6 = ((__pyx_v_diff < __pyx_v_tm_packet) != 0);
     if (__pyx_t_6) {
 
-      /* "KCP.pyx":682
+      /* "KCP.pyx":696
  *                 return current
  *             if diff < tm_packet:
  *                 tm_packet = diff             # <<<<<<<<<<<<<<
@@ -10297,7 +10450,7 @@ static int __pyx_f_3KCP_3KCP_check(struct __pyx_obj_3KCP_KCP *__pyx_v_self, PyOb
  */
       __pyx_v_tm_packet = __pyx_v_diff;
 
-      /* "KCP.pyx":681
+      /* "KCP.pyx":695
  *             if diff <= 0:
  *                 return current
  *             if diff < tm_packet:             # <<<<<<<<<<<<<<
@@ -10306,7 +10459,7 @@ static int __pyx_f_3KCP_3KCP_check(struct __pyx_obj_3KCP_KCP *__pyx_v_self, PyOb
  */
     }
 
-    /* "KCP.pyx":677
+    /* "KCP.pyx":691
  *         tm_flush = _itimediff(ts_flush, current)
  *         cdef Segment seg
  *         for seg in self.nsnd_buf:             # <<<<<<<<<<<<<<
@@ -10316,7 +10469,7 @@ static int __pyx_f_3KCP_3KCP_check(struct __pyx_obj_3KCP_KCP *__pyx_v_self, PyOb
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "KCP.pyx":683
+  /* "KCP.pyx":697
  *             if diff < tm_packet:
  *                 tm_packet = diff
  *         minimal = tm_packet if (tm_packet < tm_flush) else tm_flush             # <<<<<<<<<<<<<<
@@ -10324,12 +10477,12 @@ static int __pyx_f_3KCP_3KCP_check(struct __pyx_obj_3KCP_KCP *__pyx_v_self, PyOb
  *             minimal = self.interval
  */
   if (((__pyx_v_tm_packet < __pyx_v_tm_flush) != 0)) {
-    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_tm_packet); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 683, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_tm_packet); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 697, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_1 = __pyx_t_2;
     __pyx_t_2 = 0;
   } else {
-    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_tm_flush); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 683, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_tm_flush); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 697, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_1 = __pyx_t_2;
     __pyx_t_2 = 0;
@@ -10337,34 +10490,34 @@ static int __pyx_f_3KCP_3KCP_check(struct __pyx_obj_3KCP_KCP *__pyx_v_self, PyOb
   __pyx_v_minimal = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "KCP.pyx":684
+  /* "KCP.pyx":698
  *                 tm_packet = diff
  *         minimal = tm_packet if (tm_packet < tm_flush) else tm_flush
  *         if minimal >= self.interval:             # <<<<<<<<<<<<<<
  *             minimal = self.interval
  *         return current + minimal
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->interval); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 684, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->interval); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 698, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_RichCompare(__pyx_v_minimal, __pyx_t_1, Py_GE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 684, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_v_minimal, __pyx_t_1, Py_GE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 698, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 684, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 698, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_6) {
 
-    /* "KCP.pyx":685
+    /* "KCP.pyx":699
  *         minimal = tm_packet if (tm_packet < tm_flush) else tm_flush
  *         if minimal >= self.interval:
  *             minimal = self.interval             # <<<<<<<<<<<<<<
  *         return current + minimal
  * 
  */
-    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->interval); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 685, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->interval); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 699, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF_SET(__pyx_v_minimal, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "KCP.pyx":684
+    /* "KCP.pyx":698
  *                 tm_packet = diff
  *         minimal = tm_packet if (tm_packet < tm_flush) else tm_flush
  *         if minimal >= self.interval:             # <<<<<<<<<<<<<<
@@ -10373,21 +10526,21 @@ static int __pyx_f_3KCP_3KCP_check(struct __pyx_obj_3KCP_KCP *__pyx_v_self, PyOb
  */
   }
 
-  /* "KCP.pyx":686
+  /* "KCP.pyx":700
  *         if minimal >= self.interval:
  *             minimal = self.interval
  *         return current + minimal             # <<<<<<<<<<<<<<
  * 
  *     cpdef bint set_mtu(self, int mtu):
  */
-  __pyx_t_2 = PyNumber_Add(__pyx_v_current, __pyx_v_minimal); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 686, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Add(__pyx_v_current, __pyx_v_minimal); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 700, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 686, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 700, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_5;
   goto __pyx_L0;
 
-  /* "KCP.pyx":664
+  /* "KCP.pyx":678
  *             self.flush()
  * 
  *     cpdef int check(self, current):             # <<<<<<<<<<<<<<
@@ -10429,7 +10582,7 @@ static PyObject *__pyx_pf_3KCP_3KCP_14check(struct __pyx_obj_3KCP_KCP *__pyx_v_s
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("check", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3KCP_3KCP_check(__pyx_v_self, __pyx_v_current, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 664, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3KCP_3KCP_check(__pyx_v_self, __pyx_v_current, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 678, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -10446,7 +10599,7 @@ static PyObject *__pyx_pf_3KCP_3KCP_14check(struct __pyx_obj_3KCP_KCP *__pyx_v_s
   return __pyx_r;
 }
 
-/* "KCP.pyx":688
+/* "KCP.pyx":702
  *         return current + minimal
  * 
  *     cpdef bint set_mtu(self, int mtu):             # <<<<<<<<<<<<<<
@@ -10476,10 +10629,10 @@ static int __pyx_f_3KCP_3KCP_set_mtu(struct __pyx_obj_3KCP_KCP *__pyx_v_self, in
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_set_mtu); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 688, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_set_mtu); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 702, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_3KCP_3KCP_17set_mtu)) {
-        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_mtu); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 688, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_mtu); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 702, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_4 = __pyx_t_1; __pyx_t_5 = NULL;
@@ -10495,10 +10648,10 @@ static int __pyx_f_3KCP_3KCP_set_mtu(struct __pyx_obj_3KCP_KCP *__pyx_v_self, in
         __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3);
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 688, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 702, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 688, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 702, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_6;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -10517,7 +10670,7 @@ static int __pyx_f_3KCP_3KCP_set_mtu(struct __pyx_obj_3KCP_KCP *__pyx_v_self, in
     #endif
   }
 
-  /* "KCP.pyx":689
+  /* "KCP.pyx":703
  * 
  *     cpdef bint set_mtu(self, int mtu):
  *         if (mtu < 50) or (mtu < IKCP_OVERHEAD):             # <<<<<<<<<<<<<<
@@ -10535,7 +10688,7 @@ static int __pyx_f_3KCP_3KCP_set_mtu(struct __pyx_obj_3KCP_KCP *__pyx_v_self, in
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_6) {
 
-    /* "KCP.pyx":690
+    /* "KCP.pyx":704
  *     cpdef bint set_mtu(self, int mtu):
  *         if (mtu < 50) or (mtu < IKCP_OVERHEAD):
  *             return False             # <<<<<<<<<<<<<<
@@ -10545,7 +10698,7 @@ static int __pyx_f_3KCP_3KCP_set_mtu(struct __pyx_obj_3KCP_KCP *__pyx_v_self, in
     __pyx_r = 0;
     goto __pyx_L0;
 
-    /* "KCP.pyx":689
+    /* "KCP.pyx":703
  * 
  *     cpdef bint set_mtu(self, int mtu):
  *         if (mtu < 50) or (mtu < IKCP_OVERHEAD):             # <<<<<<<<<<<<<<
@@ -10554,7 +10707,7 @@ static int __pyx_f_3KCP_3KCP_set_mtu(struct __pyx_obj_3KCP_KCP *__pyx_v_self, in
  */
   }
 
-  /* "KCP.pyx":691
+  /* "KCP.pyx":705
  *         if (mtu < 50) or (mtu < IKCP_OVERHEAD):
  *             return False
  *         self.mtu = mtu             # <<<<<<<<<<<<<<
@@ -10563,7 +10716,7 @@ static int __pyx_f_3KCP_3KCP_set_mtu(struct __pyx_obj_3KCP_KCP *__pyx_v_self, in
  */
   __pyx_v_self->mtu = __pyx_v_mtu;
 
-  /* "KCP.pyx":692
+  /* "KCP.pyx":706
  *             return False
  *         self.mtu = mtu
  *         self.mss = self.mtu - IKCP_OVERHEAD             # <<<<<<<<<<<<<<
@@ -10572,7 +10725,7 @@ static int __pyx_f_3KCP_3KCP_set_mtu(struct __pyx_obj_3KCP_KCP *__pyx_v_self, in
  */
   __pyx_v_self->mss = (__pyx_v_self->mtu - __pyx_v_3KCP_IKCP_OVERHEAD);
 
-  /* "KCP.pyx":693
+  /* "KCP.pyx":707
  *         self.mtu = mtu
  *         self.mss = self.mtu - IKCP_OVERHEAD
  *         free(self.buffer)             # <<<<<<<<<<<<<<
@@ -10581,7 +10734,7 @@ static int __pyx_f_3KCP_3KCP_set_mtu(struct __pyx_obj_3KCP_KCP *__pyx_v_self, in
  */
   free(__pyx_v_self->buffer);
 
-  /* "KCP.pyx":694
+  /* "KCP.pyx":708
  *         self.mss = self.mtu - IKCP_OVERHEAD
  *         free(self.buffer)
  *         cdef char *buffer = <char*> malloc(sizeof(char) * (self.mtu + IKCP_OVERHEAD) * 3)             # <<<<<<<<<<<<<<
@@ -10590,7 +10743,7 @@ static int __pyx_f_3KCP_3KCP_set_mtu(struct __pyx_obj_3KCP_KCP *__pyx_v_self, in
  */
   __pyx_v_buffer = ((char *)malloc((((sizeof(char)) * (__pyx_v_self->mtu + __pyx_v_3KCP_IKCP_OVERHEAD)) * 3)));
 
-  /* "KCP.pyx":695
+  /* "KCP.pyx":709
  *         free(self.buffer)
  *         cdef char *buffer = <char*> malloc(sizeof(char) * (self.mtu + IKCP_OVERHEAD) * 3)
  *         if buffer == NULL:             # <<<<<<<<<<<<<<
@@ -10600,16 +10753,16 @@ static int __pyx_f_3KCP_3KCP_set_mtu(struct __pyx_obj_3KCP_KCP *__pyx_v_self, in
   __pyx_t_6 = ((__pyx_v_buffer == NULL) != 0);
   if (unlikely(__pyx_t_6)) {
 
-    /* "KCP.pyx":696
+    /* "KCP.pyx":710
  *         cdef char *buffer = <char*> malloc(sizeof(char) * (self.mtu + IKCP_OVERHEAD) * 3)
  *         if buffer == NULL:
  *             raise MemoryError()             # <<<<<<<<<<<<<<
  *         self.buffer = buffer
  *         return 0
  */
-    PyErr_NoMemory(); __PYX_ERR(0, 696, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 710, __pyx_L1_error)
 
-    /* "KCP.pyx":695
+    /* "KCP.pyx":709
  *         free(self.buffer)
  *         cdef char *buffer = <char*> malloc(sizeof(char) * (self.mtu + IKCP_OVERHEAD) * 3)
  *         if buffer == NULL:             # <<<<<<<<<<<<<<
@@ -10618,7 +10771,7 @@ static int __pyx_f_3KCP_3KCP_set_mtu(struct __pyx_obj_3KCP_KCP *__pyx_v_self, in
  */
   }
 
-  /* "KCP.pyx":697
+  /* "KCP.pyx":711
  *         if buffer == NULL:
  *             raise MemoryError()
  *         self.buffer = buffer             # <<<<<<<<<<<<<<
@@ -10627,7 +10780,7 @@ static int __pyx_f_3KCP_3KCP_set_mtu(struct __pyx_obj_3KCP_KCP *__pyx_v_self, in
  */
   __pyx_v_self->buffer = __pyx_v_buffer;
 
-  /* "KCP.pyx":698
+  /* "KCP.pyx":712
  *             raise MemoryError()
  *         self.buffer = buffer
  *         return 0             # <<<<<<<<<<<<<<
@@ -10637,7 +10790,7 @@ static int __pyx_f_3KCP_3KCP_set_mtu(struct __pyx_obj_3KCP_KCP *__pyx_v_self, in
   __pyx_r = 0;
   goto __pyx_L0;
 
-  /* "KCP.pyx":688
+  /* "KCP.pyx":702
  *         return current + minimal
  * 
  *     cpdef bint set_mtu(self, int mtu):             # <<<<<<<<<<<<<<
@@ -10667,7 +10820,7 @@ static PyObject *__pyx_pw_3KCP_3KCP_17set_mtu(PyObject *__pyx_v_self, PyObject *
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("set_mtu (wrapper)", 0);
   assert(__pyx_arg_mtu); {
-    __pyx_v_mtu = __Pyx_PyInt_As_int(__pyx_arg_mtu); if (unlikely((__pyx_v_mtu == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 688, __pyx_L3_error)
+    __pyx_v_mtu = __Pyx_PyInt_As_int(__pyx_arg_mtu); if (unlikely((__pyx_v_mtu == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 702, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -10688,7 +10841,7 @@ static PyObject *__pyx_pf_3KCP_3KCP_16set_mtu(struct __pyx_obj_3KCP_KCP *__pyx_v
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("set_mtu", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_3KCP_3KCP_set_mtu(__pyx_v_self, __pyx_v_mtu, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 688, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_3KCP_3KCP_set_mtu(__pyx_v_self, __pyx_v_mtu, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 702, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -10705,7 +10858,7 @@ static PyObject *__pyx_pf_3KCP_3KCP_16set_mtu(struct __pyx_obj_3KCP_KCP *__pyx_v
   return __pyx_r;
 }
 
-/* "KCP.pyx":700
+/* "KCP.pyx":714
  *         return 0
  * 
  *     cpdef int set_interval(self, int interval):             # <<<<<<<<<<<<<<
@@ -10734,10 +10887,10 @@ static int __pyx_f_3KCP_3KCP_set_interval(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_set_interval); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 700, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_set_interval); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 714, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_3KCP_3KCP_19set_interval)) {
-        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_interval); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 700, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_interval); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 714, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_4 = __pyx_t_1; __pyx_t_5 = NULL;
@@ -10753,10 +10906,10 @@ static int __pyx_f_3KCP_3KCP_set_interval(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
         __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3);
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 700, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 714, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 700, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 714, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_6;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -10775,7 +10928,7 @@ static int __pyx_f_3KCP_3KCP_set_interval(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
     #endif
   }
 
-  /* "KCP.pyx":701
+  /* "KCP.pyx":715
  * 
  *     cpdef int set_interval(self, int interval):
  *         if interval > 5000:             # <<<<<<<<<<<<<<
@@ -10785,7 +10938,7 @@ static int __pyx_f_3KCP_3KCP_set_interval(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
   __pyx_t_7 = ((__pyx_v_interval > 0x1388) != 0);
   if (__pyx_t_7) {
 
-    /* "KCP.pyx":702
+    /* "KCP.pyx":716
  *     cpdef int set_interval(self, int interval):
  *         if interval > 5000:
  *             interval = 5000             # <<<<<<<<<<<<<<
@@ -10794,7 +10947,7 @@ static int __pyx_f_3KCP_3KCP_set_interval(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
  */
     __pyx_v_interval = 0x1388;
 
-    /* "KCP.pyx":701
+    /* "KCP.pyx":715
  * 
  *     cpdef int set_interval(self, int interval):
  *         if interval > 5000:             # <<<<<<<<<<<<<<
@@ -10804,7 +10957,7 @@ static int __pyx_f_3KCP_3KCP_set_interval(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
     goto __pyx_L3;
   }
 
-  /* "KCP.pyx":703
+  /* "KCP.pyx":717
  *         if interval > 5000:
  *             interval = 5000
  *         elif interval < 10:             # <<<<<<<<<<<<<<
@@ -10814,7 +10967,7 @@ static int __pyx_f_3KCP_3KCP_set_interval(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
   __pyx_t_7 = ((__pyx_v_interval < 10) != 0);
   if (__pyx_t_7) {
 
-    /* "KCP.pyx":704
+    /* "KCP.pyx":718
  *             interval = 5000
  *         elif interval < 10:
  *             interval = 10             # <<<<<<<<<<<<<<
@@ -10823,7 +10976,7 @@ static int __pyx_f_3KCP_3KCP_set_interval(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
  */
     __pyx_v_interval = 10;
 
-    /* "KCP.pyx":703
+    /* "KCP.pyx":717
  *         if interval > 5000:
  *             interval = 5000
  *         elif interval < 10:             # <<<<<<<<<<<<<<
@@ -10833,7 +10986,7 @@ static int __pyx_f_3KCP_3KCP_set_interval(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
   }
   __pyx_L3:;
 
-  /* "KCP.pyx":705
+  /* "KCP.pyx":719
  *         elif interval < 10:
  *             interval = 10
  *         self.interval = interval             # <<<<<<<<<<<<<<
@@ -10842,7 +10995,7 @@ static int __pyx_f_3KCP_3KCP_set_interval(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
  */
   __pyx_v_self->interval = __pyx_v_interval;
 
-  /* "KCP.pyx":706
+  /* "KCP.pyx":720
  *             interval = 10
  *         self.interval = interval
  *         return 0             # <<<<<<<<<<<<<<
@@ -10852,7 +11005,7 @@ static int __pyx_f_3KCP_3KCP_set_interval(struct __pyx_obj_3KCP_KCP *__pyx_v_sel
   __pyx_r = 0;
   goto __pyx_L0;
 
-  /* "KCP.pyx":700
+  /* "KCP.pyx":714
  *         return 0
  * 
  *     cpdef int set_interval(self, int interval):             # <<<<<<<<<<<<<<
@@ -10882,7 +11035,7 @@ static PyObject *__pyx_pw_3KCP_3KCP_19set_interval(PyObject *__pyx_v_self, PyObj
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("set_interval (wrapper)", 0);
   assert(__pyx_arg_interval); {
-    __pyx_v_interval = __Pyx_PyInt_As_int(__pyx_arg_interval); if (unlikely((__pyx_v_interval == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 700, __pyx_L3_error)
+    __pyx_v_interval = __Pyx_PyInt_As_int(__pyx_arg_interval); if (unlikely((__pyx_v_interval == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 714, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -10903,7 +11056,7 @@ static PyObject *__pyx_pf_3KCP_3KCP_18set_interval(struct __pyx_obj_3KCP_KCP *__
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("set_interval", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3KCP_3KCP_set_interval(__pyx_v_self, __pyx_v_interval, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 700, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3KCP_3KCP_set_interval(__pyx_v_self, __pyx_v_interval, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 714, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -10920,7 +11073,7 @@ static PyObject *__pyx_pf_3KCP_3KCP_18set_interval(struct __pyx_obj_3KCP_KCP *__
   return __pyx_r;
 }
 
-/* "KCP.pyx":708
+/* "KCP.pyx":722
  *         return 0
  * 
  *     cpdef bint set_nodelay(self, int nodelay, int interval, int resend, int nc):             # <<<<<<<<<<<<<<
@@ -10953,16 +11106,16 @@ static int __pyx_f_3KCP_3KCP_set_nodelay(struct __pyx_obj_3KCP_KCP *__pyx_v_self
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_set_nodelay); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 708, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_set_nodelay); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 722, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_3KCP_3KCP_21set_nodelay)) {
-        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_nodelay); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 708, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_nodelay); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 722, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_interval); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 708, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_interval); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 722, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_resend); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 708, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_resend); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 722, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_nc); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 708, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_nc); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 722, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_7 = __pyx_t_1; __pyx_t_8 = NULL;
@@ -10980,7 +11133,7 @@ static int __pyx_f_3KCP_3KCP_set_nodelay(struct __pyx_obj_3KCP_KCP *__pyx_v_self
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_7)) {
           PyObject *__pyx_temp[5] = {__pyx_t_8, __pyx_t_3, __pyx_t_4, __pyx_t_5, __pyx_t_6};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 708, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 722, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -10992,7 +11145,7 @@ static int __pyx_f_3KCP_3KCP_set_nodelay(struct __pyx_obj_3KCP_KCP *__pyx_v_self
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
           PyObject *__pyx_temp[5] = {__pyx_t_8, __pyx_t_3, __pyx_t_4, __pyx_t_5, __pyx_t_6};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 708, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 722, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -11002,7 +11155,7 @@ static int __pyx_f_3KCP_3KCP_set_nodelay(struct __pyx_obj_3KCP_KCP *__pyx_v_self
         } else
         #endif
         {
-          __pyx_t_10 = PyTuple_New(4+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 708, __pyx_L1_error)
+          __pyx_t_10 = PyTuple_New(4+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 722, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           if (__pyx_t_8) {
             __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_8); __pyx_t_8 = NULL;
@@ -11019,12 +11172,12 @@ static int __pyx_f_3KCP_3KCP_set_nodelay(struct __pyx_obj_3KCP_KCP *__pyx_v_self
           __pyx_t_4 = 0;
           __pyx_t_5 = 0;
           __pyx_t_6 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_10, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 708, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_10, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 722, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         }
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_11 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 708, __pyx_L1_error)
+        __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_11 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 722, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_11;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -11043,7 +11196,7 @@ static int __pyx_f_3KCP_3KCP_set_nodelay(struct __pyx_obj_3KCP_KCP *__pyx_v_self
     #endif
   }
 
-  /* "KCP.pyx":709
+  /* "KCP.pyx":723
  * 
  *     cpdef bint set_nodelay(self, int nodelay, int interval, int resend, int nc):
  *         if nodelay >= 0:             # <<<<<<<<<<<<<<
@@ -11053,7 +11206,7 @@ static int __pyx_f_3KCP_3KCP_set_nodelay(struct __pyx_obj_3KCP_KCP *__pyx_v_self
   __pyx_t_11 = ((__pyx_v_nodelay >= 0) != 0);
   if (__pyx_t_11) {
 
-    /* "KCP.pyx":710
+    /* "KCP.pyx":724
  *     cpdef bint set_nodelay(self, int nodelay, int interval, int resend, int nc):
  *         if nodelay >= 0:
  *             self.nodelay = nodelay             # <<<<<<<<<<<<<<
@@ -11062,7 +11215,7 @@ static int __pyx_f_3KCP_3KCP_set_nodelay(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_self->nodelay = __pyx_v_nodelay;
 
-    /* "KCP.pyx":711
+    /* "KCP.pyx":725
  *         if nodelay >= 0:
  *             self.nodelay = nodelay
  *             if nodelay != 0:             # <<<<<<<<<<<<<<
@@ -11072,7 +11225,7 @@ static int __pyx_f_3KCP_3KCP_set_nodelay(struct __pyx_obj_3KCP_KCP *__pyx_v_self
     __pyx_t_11 = ((__pyx_v_nodelay != 0) != 0);
     if (__pyx_t_11) {
 
-      /* "KCP.pyx":712
+      /* "KCP.pyx":726
  *             self.nodelay = nodelay
  *             if nodelay != 0:
  *                 self.rx_minrto = IKCP_RTO_NDL             # <<<<<<<<<<<<<<
@@ -11081,7 +11234,7 @@ static int __pyx_f_3KCP_3KCP_set_nodelay(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
       __pyx_v_self->rx_minrto = __pyx_v_3KCP_IKCP_RTO_NDL;
 
-      /* "KCP.pyx":711
+      /* "KCP.pyx":725
  *         if nodelay >= 0:
  *             self.nodelay = nodelay
  *             if nodelay != 0:             # <<<<<<<<<<<<<<
@@ -11091,7 +11244,7 @@ static int __pyx_f_3KCP_3KCP_set_nodelay(struct __pyx_obj_3KCP_KCP *__pyx_v_self
       goto __pyx_L4;
     }
 
-    /* "KCP.pyx":714
+    /* "KCP.pyx":728
  *                 self.rx_minrto = IKCP_RTO_NDL
  *             else:
  *                 self.rx_minrto = IKCP_RTO_MIN             # <<<<<<<<<<<<<<
@@ -11103,7 +11256,7 @@ static int __pyx_f_3KCP_3KCP_set_nodelay(struct __pyx_obj_3KCP_KCP *__pyx_v_self
     }
     __pyx_L4:;
 
-    /* "KCP.pyx":709
+    /* "KCP.pyx":723
  * 
  *     cpdef bint set_nodelay(self, int nodelay, int interval, int resend, int nc):
  *         if nodelay >= 0:             # <<<<<<<<<<<<<<
@@ -11112,7 +11265,7 @@ static int __pyx_f_3KCP_3KCP_set_nodelay(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
   }
 
-  /* "KCP.pyx":715
+  /* "KCP.pyx":729
  *             else:
  *                 self.rx_minrto = IKCP_RTO_MIN
  *         self.set_interval(interval)             # <<<<<<<<<<<<<<
@@ -11121,7 +11274,7 @@ static int __pyx_f_3KCP_3KCP_set_nodelay(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
   (void)(((struct __pyx_vtabstruct_3KCP_KCP *)__pyx_v_self->__pyx_vtab)->set_interval(__pyx_v_self, __pyx_v_interval, 0));
 
-  /* "KCP.pyx":716
+  /* "KCP.pyx":730
  *                 self.rx_minrto = IKCP_RTO_MIN
  *         self.set_interval(interval)
  *         if resend >= 0:             # <<<<<<<<<<<<<<
@@ -11131,7 +11284,7 @@ static int __pyx_f_3KCP_3KCP_set_nodelay(struct __pyx_obj_3KCP_KCP *__pyx_v_self
   __pyx_t_11 = ((__pyx_v_resend >= 0) != 0);
   if (__pyx_t_11) {
 
-    /* "KCP.pyx":717
+    /* "KCP.pyx":731
  *         self.set_interval(interval)
  *         if resend >= 0:
  *             self.fastresend = resend             # <<<<<<<<<<<<<<
@@ -11140,7 +11293,7 @@ static int __pyx_f_3KCP_3KCP_set_nodelay(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_self->fastresend = __pyx_v_resend;
 
-    /* "KCP.pyx":716
+    /* "KCP.pyx":730
  *                 self.rx_minrto = IKCP_RTO_MIN
  *         self.set_interval(interval)
  *         if resend >= 0:             # <<<<<<<<<<<<<<
@@ -11149,7 +11302,7 @@ static int __pyx_f_3KCP_3KCP_set_nodelay(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
   }
 
-  /* "KCP.pyx":718
+  /* "KCP.pyx":732
  *         if resend >= 0:
  *             self.fastresend = resend
  *         if nc >= 0:             # <<<<<<<<<<<<<<
@@ -11159,7 +11312,7 @@ static int __pyx_f_3KCP_3KCP_set_nodelay(struct __pyx_obj_3KCP_KCP *__pyx_v_self
   __pyx_t_11 = ((__pyx_v_nc >= 0) != 0);
   if (__pyx_t_11) {
 
-    /* "KCP.pyx":719
+    /* "KCP.pyx":733
  *             self.fastresend = resend
  *         if nc >= 0:
  *             self.nocwnd = nc             # <<<<<<<<<<<<<<
@@ -11168,7 +11321,7 @@ static int __pyx_f_3KCP_3KCP_set_nodelay(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
     __pyx_v_self->nocwnd = __pyx_v_nc;
 
-    /* "KCP.pyx":718
+    /* "KCP.pyx":732
  *         if resend >= 0:
  *             self.fastresend = resend
  *         if nc >= 0:             # <<<<<<<<<<<<<<
@@ -11177,7 +11330,7 @@ static int __pyx_f_3KCP_3KCP_set_nodelay(struct __pyx_obj_3KCP_KCP *__pyx_v_self
  */
   }
 
-  /* "KCP.pyx":720
+  /* "KCP.pyx":734
  *         if nc >= 0:
  *             self.nocwnd = nc
  *         return True             # <<<<<<<<<<<<<<
@@ -11187,7 +11340,7 @@ static int __pyx_f_3KCP_3KCP_set_nodelay(struct __pyx_obj_3KCP_KCP *__pyx_v_self
   __pyx_r = 1;
   goto __pyx_L0;
 
-  /* "KCP.pyx":708
+  /* "KCP.pyx":722
  *         return 0
  * 
  *     cpdef bint set_nodelay(self, int nodelay, int interval, int resend, int nc):             # <<<<<<<<<<<<<<
@@ -11250,23 +11403,23 @@ static PyObject *__pyx_pw_3KCP_3KCP_21set_nodelay(PyObject *__pyx_v_self, PyObje
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_interval)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("set_nodelay", 1, 4, 4, 1); __PYX_ERR(0, 708, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("set_nodelay", 1, 4, 4, 1); __PYX_ERR(0, 722, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_resend)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("set_nodelay", 1, 4, 4, 2); __PYX_ERR(0, 708, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("set_nodelay", 1, 4, 4, 2); __PYX_ERR(0, 722, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_nc)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("set_nodelay", 1, 4, 4, 3); __PYX_ERR(0, 708, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("set_nodelay", 1, 4, 4, 3); __PYX_ERR(0, 722, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "set_nodelay") < 0)) __PYX_ERR(0, 708, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "set_nodelay") < 0)) __PYX_ERR(0, 722, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -11276,14 +11429,14 @@ static PyObject *__pyx_pw_3KCP_3KCP_21set_nodelay(PyObject *__pyx_v_self, PyObje
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
     }
-    __pyx_v_nodelay = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_nodelay == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 708, __pyx_L3_error)
-    __pyx_v_interval = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_interval == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 708, __pyx_L3_error)
-    __pyx_v_resend = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_resend == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 708, __pyx_L3_error)
-    __pyx_v_nc = __Pyx_PyInt_As_int(values[3]); if (unlikely((__pyx_v_nc == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 708, __pyx_L3_error)
+    __pyx_v_nodelay = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_nodelay == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 722, __pyx_L3_error)
+    __pyx_v_interval = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_interval == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 722, __pyx_L3_error)
+    __pyx_v_resend = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_resend == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 722, __pyx_L3_error)
+    __pyx_v_nc = __Pyx_PyInt_As_int(values[3]); if (unlikely((__pyx_v_nc == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 722, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("set_nodelay", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 708, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("set_nodelay", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 722, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("KCP.KCP.set_nodelay", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -11302,7 +11455,7 @@ static PyObject *__pyx_pf_3KCP_3KCP_20set_nodelay(struct __pyx_obj_3KCP_KCP *__p
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("set_nodelay", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_3KCP_3KCP_set_nodelay(__pyx_v_self, __pyx_v_nodelay, __pyx_v_interval, __pyx_v_resend, __pyx_v_nc, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 708, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_3KCP_3KCP_set_nodelay(__pyx_v_self, __pyx_v_nodelay, __pyx_v_interval, __pyx_v_resend, __pyx_v_nc, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 722, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -11319,7 +11472,7 @@ static PyObject *__pyx_pf_3KCP_3KCP_20set_nodelay(struct __pyx_obj_3KCP_KCP *__p
   return __pyx_r;
 }
 
-/* "KCP.pyx":722
+/* "KCP.pyx":736
  *         return True
  * 
  *     cpdef bint wnd_size(self, int snd_wnd, int rcv_wnd):             # <<<<<<<<<<<<<<
@@ -11350,12 +11503,12 @@ static int __pyx_f_3KCP_3KCP_wnd_size(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_wnd_size); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 722, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_wnd_size); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 736, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_3KCP_3KCP_23wnd_size)) {
-        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_snd_wnd); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 722, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_snd_wnd); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 736, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_rcv_wnd); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 722, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_rcv_wnd); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 736, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_5 = __pyx_t_1; __pyx_t_6 = NULL;
@@ -11373,7 +11526,7 @@ static int __pyx_f_3KCP_3KCP_wnd_size(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 722, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 736, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -11383,7 +11536,7 @@ static int __pyx_f_3KCP_3KCP_wnd_size(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 722, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 736, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -11391,7 +11544,7 @@ static int __pyx_f_3KCP_3KCP_wnd_size(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
         } else
         #endif
         {
-          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 722, __pyx_L1_error)
+          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 736, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           if (__pyx_t_6) {
             __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -11402,12 +11555,12 @@ static int __pyx_f_3KCP_3KCP_wnd_size(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
           PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_t_4);
           __pyx_t_3 = 0;
           __pyx_t_4 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 722, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 736, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 722, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 736, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_9;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -11426,7 +11579,7 @@ static int __pyx_f_3KCP_3KCP_wnd_size(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
     #endif
   }
 
-  /* "KCP.pyx":723
+  /* "KCP.pyx":737
  * 
  *     cpdef bint wnd_size(self, int snd_wnd, int rcv_wnd):
  *         if snd_wnd > 0:             # <<<<<<<<<<<<<<
@@ -11436,7 +11589,7 @@ static int __pyx_f_3KCP_3KCP_wnd_size(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
   __pyx_t_9 = ((__pyx_v_snd_wnd > 0) != 0);
   if (__pyx_t_9) {
 
-    /* "KCP.pyx":724
+    /* "KCP.pyx":738
  *     cpdef bint wnd_size(self, int snd_wnd, int rcv_wnd):
  *         if snd_wnd > 0:
  *             self.snd_wnd = snd_wnd             # <<<<<<<<<<<<<<
@@ -11445,7 +11598,7 @@ static int __pyx_f_3KCP_3KCP_wnd_size(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
  */
     __pyx_v_self->snd_wnd = __pyx_v_snd_wnd;
 
-    /* "KCP.pyx":723
+    /* "KCP.pyx":737
  * 
  *     cpdef bint wnd_size(self, int snd_wnd, int rcv_wnd):
  *         if snd_wnd > 0:             # <<<<<<<<<<<<<<
@@ -11454,7 +11607,7 @@ static int __pyx_f_3KCP_3KCP_wnd_size(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
  */
   }
 
-  /* "KCP.pyx":725
+  /* "KCP.pyx":739
  *         if snd_wnd > 0:
  *             self.snd_wnd = snd_wnd
  *         if rcv_wnd > 0:             # <<<<<<<<<<<<<<
@@ -11464,7 +11617,7 @@ static int __pyx_f_3KCP_3KCP_wnd_size(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
   __pyx_t_9 = ((__pyx_v_rcv_wnd > 0) != 0);
   if (__pyx_t_9) {
 
-    /* "KCP.pyx":726
+    /* "KCP.pyx":740
  *             self.snd_wnd = snd_wnd
  *         if rcv_wnd > 0:
  *             self.rcv_wnd = rcv_wnd             # <<<<<<<<<<<<<<
@@ -11473,7 +11626,7 @@ static int __pyx_f_3KCP_3KCP_wnd_size(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
  */
     __pyx_v_self->rcv_wnd = __pyx_v_rcv_wnd;
 
-    /* "KCP.pyx":725
+    /* "KCP.pyx":739
  *         if snd_wnd > 0:
  *             self.snd_wnd = snd_wnd
  *         if rcv_wnd > 0:             # <<<<<<<<<<<<<<
@@ -11482,7 +11635,7 @@ static int __pyx_f_3KCP_3KCP_wnd_size(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
  */
   }
 
-  /* "KCP.pyx":727
+  /* "KCP.pyx":741
  *         if rcv_wnd > 0:
  *             self.rcv_wnd = rcv_wnd
  *         return True             # <<<<<<<<<<<<<<
@@ -11492,7 +11645,7 @@ static int __pyx_f_3KCP_3KCP_wnd_size(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
   __pyx_r = 1;
   goto __pyx_L0;
 
-  /* "KCP.pyx":722
+  /* "KCP.pyx":736
  *         return True
  * 
  *     cpdef bint wnd_size(self, int snd_wnd, int rcv_wnd):             # <<<<<<<<<<<<<<
@@ -11547,11 +11700,11 @@ static PyObject *__pyx_pw_3KCP_3KCP_23wnd_size(PyObject *__pyx_v_self, PyObject 
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_rcv_wnd)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("wnd_size", 1, 2, 2, 1); __PYX_ERR(0, 722, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("wnd_size", 1, 2, 2, 1); __PYX_ERR(0, 736, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "wnd_size") < 0)) __PYX_ERR(0, 722, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "wnd_size") < 0)) __PYX_ERR(0, 736, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -11559,12 +11712,12 @@ static PyObject *__pyx_pw_3KCP_3KCP_23wnd_size(PyObject *__pyx_v_self, PyObject 
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_snd_wnd = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_snd_wnd == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 722, __pyx_L3_error)
-    __pyx_v_rcv_wnd = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_rcv_wnd == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 722, __pyx_L3_error)
+    __pyx_v_snd_wnd = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_snd_wnd == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 736, __pyx_L3_error)
+    __pyx_v_rcv_wnd = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_rcv_wnd == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 736, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("wnd_size", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 722, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("wnd_size", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 736, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("KCP.KCP.wnd_size", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -11583,7 +11736,7 @@ static PyObject *__pyx_pf_3KCP_3KCP_22wnd_size(struct __pyx_obj_3KCP_KCP *__pyx_
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("wnd_size", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_3KCP_3KCP_wnd_size(__pyx_v_self, __pyx_v_snd_wnd, __pyx_v_rcv_wnd, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 722, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_3KCP_3KCP_wnd_size(__pyx_v_self, __pyx_v_snd_wnd, __pyx_v_rcv_wnd, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 736, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -11600,7 +11753,7 @@ static PyObject *__pyx_pf_3KCP_3KCP_22wnd_size(struct __pyx_obj_3KCP_KCP *__pyx_
   return __pyx_r;
 }
 
-/* "KCP.pyx":729
+/* "KCP.pyx":743
  *         return True
  * 
  *     cpdef int wait_snd(self):             # <<<<<<<<<<<<<<
@@ -11629,7 +11782,7 @@ static int __pyx_f_3KCP_3KCP_wait_snd(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_wait_snd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 729, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_wait_snd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 743, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_3KCP_3KCP_25wait_snd)) {
         __Pyx_INCREF(__pyx_t_1);
@@ -11645,10 +11798,10 @@ static int __pyx_f_3KCP_3KCP_wait_snd(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 729, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 743, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 729, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 743, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_5;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -11667,7 +11820,7 @@ static int __pyx_f_3KCP_3KCP_wait_snd(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
     #endif
   }
 
-  /* "KCP.pyx":730
+  /* "KCP.pyx":744
  * 
  *     cpdef int wait_snd(self):
  *         return len(self.nsnd_buf) + len(self.nsnd_que)             # <<<<<<<<<<<<<<
@@ -11678,22 +11831,22 @@ static int __pyx_f_3KCP_3KCP_wait_snd(struct __pyx_obj_3KCP_KCP *__pyx_v_self, i
   __Pyx_INCREF(__pyx_t_1);
   if (unlikely(__pyx_t_1 == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 730, __pyx_L1_error)
+    __PYX_ERR(0, 744, __pyx_L1_error)
   }
-  __pyx_t_6 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 730, __pyx_L1_error)
+  __pyx_t_6 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 744, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = __pyx_v_self->nsnd_que;
   __Pyx_INCREF(__pyx_t_1);
   if (unlikely(__pyx_t_1 == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 730, __pyx_L1_error)
+    __PYX_ERR(0, 744, __pyx_L1_error)
   }
-  __pyx_t_7 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_7 == ((Py_ssize_t)-1))) __PYX_ERR(0, 730, __pyx_L1_error)
+  __pyx_t_7 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_7 == ((Py_ssize_t)-1))) __PYX_ERR(0, 744, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = (__pyx_t_6 + __pyx_t_7);
   goto __pyx_L0;
 
-  /* "KCP.pyx":729
+  /* "KCP.pyx":743
  *         return True
  * 
  *     cpdef int wait_snd(self):             # <<<<<<<<<<<<<<
@@ -11733,7 +11886,7 @@ static PyObject *__pyx_pf_3KCP_3KCP_24wait_snd(struct __pyx_obj_3KCP_KCP *__pyx_
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("wait_snd", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3KCP_3KCP_wait_snd(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 729, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_3KCP_3KCP_wait_snd(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 743, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -11750,17 +11903,15 @@ static PyObject *__pyx_pf_3KCP_3KCP_24wait_snd(struct __pyx_obj_3KCP_KCP *__pyx_
   return __pyx_r;
 }
 
-/* "KCP.pyx":732
+/* "KCP.pyx":746
  *         return len(self.nsnd_buf) + len(self.nsnd_que)
  * 
  *     cpdef ikcp_output(self, char *buffer, int size):             # <<<<<<<<<<<<<<
- *         cdef char* o
- *         o = <char*> malloc(sizeof(char) * size)
+ *         self.output(PyBytes_FromStringAndSize(buffer, size), size)
  */
 
 static PyObject *__pyx_pw_3KCP_3KCP_27ikcp_output(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static PyObject *__pyx_f_3KCP_3KCP_ikcp_output(struct __pyx_obj_3KCP_KCP *__pyx_v_self, char *__pyx_v_buffer, int __pyx_v_size, int __pyx_skip_dispatch) {
-  char *__pyx_v_o;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -11781,13 +11932,13 @@ static PyObject *__pyx_f_3KCP_3KCP_ikcp_output(struct __pyx_obj_3KCP_KCP *__pyx_
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ikcp_output); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 732, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ikcp_output); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 746, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_3KCP_3KCP_27ikcp_output)) {
         __Pyx_XDECREF(__pyx_r);
-        __pyx_t_3 = __Pyx_PyBytes_FromString(__pyx_v_buffer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 732, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyBytes_FromString(__pyx_v_buffer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 746, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_size); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 732, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_size); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 746, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_5 = __pyx_t_1; __pyx_t_6 = NULL;
@@ -11805,7 +11956,7 @@ static PyObject *__pyx_f_3KCP_3KCP_ikcp_output(struct __pyx_obj_3KCP_KCP *__pyx_
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 732, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 746, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -11815,7 +11966,7 @@ static PyObject *__pyx_f_3KCP_3KCP_ikcp_output(struct __pyx_obj_3KCP_KCP *__pyx_
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 732, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 746, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -11823,7 +11974,7 @@ static PyObject *__pyx_f_3KCP_3KCP_ikcp_output(struct __pyx_obj_3KCP_KCP *__pyx_
         } else
         #endif
         {
-          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 732, __pyx_L1_error)
+          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 746, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           if (__pyx_t_6) {
             __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -11834,7 +11985,7 @@ static PyObject *__pyx_f_3KCP_3KCP_ikcp_output(struct __pyx_obj_3KCP_KCP *__pyx_
           PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_t_4);
           __pyx_t_3 = 0;
           __pyx_t_4 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 732, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 746, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
@@ -11857,34 +12008,14 @@ static PyObject *__pyx_f_3KCP_3KCP_ikcp_output(struct __pyx_obj_3KCP_KCP *__pyx_
     #endif
   }
 
-  /* "KCP.pyx":734
- *     cpdef ikcp_output(self, char *buffer, int size):
- *         cdef char* o
- *         o = <char*> malloc(sizeof(char) * size)             # <<<<<<<<<<<<<<
- *         memcpy(o, buffer, size)
- *         self.output(PyBytes_FromStringAndSize(o, size), size)
- */
-  __pyx_v_o = ((char *)malloc(((sizeof(char)) * __pyx_v_size)));
-
-  /* "KCP.pyx":735
- *         cdef char* o
- *         o = <char*> malloc(sizeof(char) * size)
- *         memcpy(o, buffer, size)             # <<<<<<<<<<<<<<
- *         self.output(PyBytes_FromStringAndSize(o, size), size)
- *         free(o)
- */
-  (void)(memcpy(__pyx_v_o, __pyx_v_buffer, __pyx_v_size));
-
-  /* "KCP.pyx":736
- *         o = <char*> malloc(sizeof(char) * size)
- *         memcpy(o, buffer, size)
- *         self.output(PyBytes_FromStringAndSize(o, size), size)             # <<<<<<<<<<<<<<
- *         free(o)
+  /* "KCP.pyx":747
  * 
+ *     cpdef ikcp_output(self, char *buffer, int size):
+ *         self.output(PyBytes_FromStringAndSize(buffer, size), size)             # <<<<<<<<<<<<<<
  */
-  __pyx_t_2 = PyBytes_FromStringAndSize(__pyx_v_o, __pyx_v_size); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 736, __pyx_L1_error)
+  __pyx_t_2 = PyBytes_FromStringAndSize(__pyx_v_buffer, __pyx_v_size); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 747, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_size); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 736, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_size); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 747, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_v_self->output);
   __pyx_t_8 = __pyx_v_self->output; __pyx_t_4 = NULL;
@@ -11902,7 +12033,7 @@ static PyObject *__pyx_f_3KCP_3KCP_ikcp_output(struct __pyx_obj_3KCP_KCP *__pyx_
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_8)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_t_2, __pyx_t_5};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 736, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 747, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -11912,7 +12043,7 @@ static PyObject *__pyx_f_3KCP_3KCP_ikcp_output(struct __pyx_obj_3KCP_KCP *__pyx_
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_8)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_t_2, __pyx_t_5};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 736, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 747, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -11920,7 +12051,7 @@ static PyObject *__pyx_f_3KCP_3KCP_ikcp_output(struct __pyx_obj_3KCP_KCP *__pyx_
   } else
   #endif
   {
-    __pyx_t_3 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 736, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 747, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     if (__pyx_t_4) {
       __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -11931,28 +12062,18 @@ static PyObject *__pyx_f_3KCP_3KCP_ikcp_output(struct __pyx_obj_3KCP_KCP *__pyx_
     PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_7, __pyx_t_5);
     __pyx_t_2 = 0;
     __pyx_t_5 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 736, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 747, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "KCP.pyx":737
- *         memcpy(o, buffer, size)
- *         self.output(PyBytes_FromStringAndSize(o, size), size)
- *         free(o)             # <<<<<<<<<<<<<<
- * 
- * 
- */
-  free(__pyx_v_o);
-
-  /* "KCP.pyx":732
+  /* "KCP.pyx":746
  *         return len(self.nsnd_buf) + len(self.nsnd_que)
  * 
  *     cpdef ikcp_output(self, char *buffer, int size):             # <<<<<<<<<<<<<<
- *         cdef char* o
- *         o = <char*> malloc(sizeof(char) * size)
+ *         self.output(PyBytes_FromStringAndSize(buffer, size), size)
  */
 
   /* function exit code */
@@ -12005,11 +12126,11 @@ static PyObject *__pyx_pw_3KCP_3KCP_27ikcp_output(PyObject *__pyx_v_self, PyObje
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_size)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("ikcp_output", 1, 2, 2, 1); __PYX_ERR(0, 732, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("ikcp_output", 1, 2, 2, 1); __PYX_ERR(0, 746, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "ikcp_output") < 0)) __PYX_ERR(0, 732, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "ikcp_output") < 0)) __PYX_ERR(0, 746, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -12017,12 +12138,12 @@ static PyObject *__pyx_pw_3KCP_3KCP_27ikcp_output(PyObject *__pyx_v_self, PyObje
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_buffer = __Pyx_PyObject_AsWritableString(values[0]); if (unlikely((!__pyx_v_buffer) && PyErr_Occurred())) __PYX_ERR(0, 732, __pyx_L3_error)
-    __pyx_v_size = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_size == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 732, __pyx_L3_error)
+    __pyx_v_buffer = __Pyx_PyObject_AsWritableString(values[0]); if (unlikely((!__pyx_v_buffer) && PyErr_Occurred())) __PYX_ERR(0, 746, __pyx_L3_error)
+    __pyx_v_size = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_size == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 746, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("ikcp_output", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 732, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("ikcp_output", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 746, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("KCP.KCP.ikcp_output", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -12041,7 +12162,7 @@ static PyObject *__pyx_pf_3KCP_3KCP_26ikcp_output(struct __pyx_obj_3KCP_KCP *__p
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("ikcp_output", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_3KCP_3KCP_ikcp_output(__pyx_v_self, __pyx_v_buffer, __pyx_v_size, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 732, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_3KCP_3KCP_ikcp_output(__pyx_v_self, __pyx_v_buffer, __pyx_v_size, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 746, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -12993,7 +13114,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
   __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(0, 70, __pyx_L1_error)
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(1, 2, __pyx_L1_error)
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 262, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 265, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -13022,14 +13143,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "KCP.pyx":473
+  /* "KCP.pyx":479
  *             return
- * 
+ *         printf("flush 1\n")
  *         cdef Segment seg = Segment(0)             # <<<<<<<<<<<<<<
  *         seg.conv = self.conv
  *         seg.cmd = IKCP_CMD_ACK
  */
-  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_int_0); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 473, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_int_0); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 479, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
 

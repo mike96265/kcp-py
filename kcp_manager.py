@@ -5,16 +5,17 @@ import socket
 import time
 from dataclasses import dataclass
 
-from KCP import KCP
+from KCPWrapper import KCP
 
 logger = logging.getLogger(__name__)
 
 
-def ikcp_decode32u(p, offset):
-    return (p[offset + 0] & 0xff) << 24 \
-           | (p[offset + 1] & 0xff) << 16 \
-           | (p[offset + 2] & 0xff) << 8 \
-           | p[offset + 3] & 0xff
+def decode_conv(p, offset):
+    l = p[3]
+    l = (l << 8) + p[2]
+    l = (l << 8) + p[1]
+    l = (l << 8) + p[0]
+    return l
 
 
 @dataclass
@@ -52,20 +53,22 @@ class AbstractKCPManager:
         cw = conversation.downstream_writer
         kcp.update(current)
         if kcp.state == -1:
-            pass
-        peeksize = kcp.peeksize()
-        if peeksize not in (0, -1):
-            data = bytes(peeksize)
-            kcp.recv(data, peeksize)
-            cw.write(data)
-            self.loop.create_task(cw.drain())
-        next_call = kcp.check(current)
-        schedule = self.loop.call_later((next_call - current) / 1000, functools.partial(self.update, conv))
-        self._update_schedule[conv] = schedule
+            self.close_conversation(conv)
+        else:
+            peeksize = kcp.peeksize()
+            if peeksize not in (0, -1):
+                data = bytes(peeksize)
+                kcp.recv(data, peeksize)
+                cw.write(data)
+                self.loop.create_task(cw.drain())
+            next_call = kcp.check(current)
+            schedule = self.loop.call_later((next_call - current) / 1000, functools.partial(self.update, conv))
+            self._update_schedule[conv] = schedule
 
     def close_conversation(self, conv):
         try:
             conversation = self._conns[conv]
+            del self._conns[conv]
             conversation.upstream_writer.close()
             conversation.downstream_writer.close()
             self._active_conns.remove(conv)
@@ -86,21 +89,23 @@ class AbstractKCPManager:
     async def upstream_waiter(self, conv, upstream_reader: asyncio.StreamReader):
         try:
             data = await upstream_reader.read(1024)
-            print(type(data))
             if data:
                 conversation = self._conns[conv]
                 try:
                     conversation.kcp.send(data, len(data))
                 except Exception as e:
                     print(e)
+                    self.close_conversation(conv)
                 self._active_conns.add(conv)
                 self.loop.create_task(self.upstream_waiter(conv, upstream_reader))
+            else:
+                self.close_conversation(conv)
         except Exception as err:
             print(err)
             self.close_conversation(conv)
 
     def datagram_received(self, data, addr):
-        conv = ikcp_decode32u(data, 0)
+        conv = decode_conv(data, 0)
         self.dispatch(conv, data, addr)
 
     def dispatch(self, conv, data, addr):
@@ -112,7 +117,7 @@ class AbstractKCPManager:
         else:
             kcp = KCP(self._conv, output)
             self._conv += 1
-        kcp.set_nodelay(1, 30, 3, 1)
+        kcp.nodelay(1, 30, 3, 1)
         return kcp
 
     def create_stream(self):
@@ -186,7 +191,7 @@ class KCPServerManager(AbstractKCPManager, asyncio.DatagramProtocol):
         else:
             if conv not in self._accept_dict:
                 kcp = self.create_kcp(conv, output=self.output)
-                kcp.input(data, len(data))
+                a = kcp.input(data, len(data))
                 self._accept_dict[conv] = kcp
                 if not self._acceptable.is_set():
                     self._acceptable.set()

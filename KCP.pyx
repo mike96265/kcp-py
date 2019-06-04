@@ -184,6 +184,7 @@ cdef class KCP:
         free(self.buffer)
 
     cpdef int recv(self, char *buffer, int size):
+        # 判断接受队列长度
         if not len(self.nrcv_que):
             return -1
         cdef int peeksize = self.peeksize()
@@ -403,7 +404,6 @@ cdef class KCP:
                     and cmd != IKCP_CMD_WINS
             ):
                 return -3
-
             self.rmt_wnd = wnd
             self.parse_una(una)
             self.shrink_buf()
@@ -465,11 +465,10 @@ cdef class KCP:
         current = self.current
         change = 0
         lost = 0
-        cdef char* buffer
+        cdef char*buffer
 
         if self.updated == 0:
             return
-
         cdef Segment seg = Segment(0)
         seg.conv = self.conv
         seg.cmd = IKCP_CMD_ACK
@@ -507,7 +506,6 @@ cdef class KCP:
         else:
             self.ts_probe = 0
             self.probe_wait = 0
-
 
         # 请求对端接受窗口
         if (self.probe & IKCP_ASK_SEND) != 0:
@@ -730,10 +728,4 @@ cdef class KCP:
         return len(self.nsnd_buf) + len(self.nsnd_que)
 
     cpdef ikcp_output(self, char *buffer, int size):
-        cdef char* o
-        o = <char*> malloc(sizeof(char) * size)
-        memcpy(o, buffer, size)
-        self.output(PyBytes_FromStringAndSize(o, size), size)
-        free(o)
-
-
+        self.output(PyBytes_FromStringAndSize(buffer, size), size)
