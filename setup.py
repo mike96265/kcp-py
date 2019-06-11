@@ -1,6 +1,10 @@
-from distutils.core import setup
+from setuptools import setup, Extension
 from Cython.Build import cythonize
 
+ext = Extension("KCP", sources=["KCP.pyx", "ikcp.c"])
+
+core = cythonize(ext)
+
 setup(
-    ext_modules=cythonize("KCP.pyx")
+    ext_modules=core,
 )

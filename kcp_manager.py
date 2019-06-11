@@ -5,7 +5,7 @@ import socket
 import time
 from dataclasses import dataclass
 
-from KCPWrapper import KCP
+from KCP import KCP
 
 logger = logging.getLogger(__name__)
 
