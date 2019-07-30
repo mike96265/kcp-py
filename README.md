@@ -14,6 +14,7 @@
 ```shell script
 git clone https://github.com/yukityan/kcp-py.git
 cd kcp-py
+python3 kcp/ikcp_setup.py build_ext --build-lib=kcp/
 python3 setup.py install
 ```
 
@@ -31,7 +32,7 @@ foo@bar:~$ kcp_local -h
 usage: kcp_local [-h] -s SERVER -p SERVER_PORT -l LOCAL -t LOCAL_PORT [-m MTU]
                 [-i {30,40,50}] [--nodelay] [-r {0,1,2}] [--nc] [-c CONFIG]
 
-Python binding KCP tunnel.
+Python binding KCP tunnel Local.
 
 optional arguments:
  -h, --help            show this help message and exit
@@ -57,10 +58,10 @@ optional arguments:
 - kcp_server
 ```console
 foo@bar:~$ kcp_server -h
-usage: kcp_local [-h] -s SERVER -p SERVER_PORT -l LOCAL -t LOCAL_PORT [-m MTU]
+usage: kcp_server [-h] -s SERVER -p SERVER_PORT -l LOCAL -t LOCAL_PORT [-m MTU]
                 [-i {30,40,50}] [--nodelay] [-r {0,1,2}] [--nc] [-c CONFIG]
 
-Python binding KCP tunnel.
+Python binding KCP tunnel Server.
 
 optional arguments:
  -h, --help            show this help message and exit
