@@ -39,7 +39,7 @@ class KCPConfig:
 def get_config(is_local):
     logging.basicConfig(level=logging.INFO,
                         format='%(levelname)-s: %(message)s')
-    parser = argparse.ArgumentParser(description='Python binding KCP tunnel.')
+    parser = argparse.ArgumentParser(description='Python binding KCP tunnel {}.'.format('Local' if is_local else 'Server'))
     parser.add_argument('-s', '--server', help='Host name or IP address of your remote server.', required=True)
     parser.add_argument('-p', '--server_port', help='Port number of your remote server.', required=True, type=int)
     parser.add_argument('-l', '--local', help='Host name or IP address your local server', required=True)
