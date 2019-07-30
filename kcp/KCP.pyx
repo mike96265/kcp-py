@@ -80,6 +80,10 @@ cdef class KCP:
     def state(self):
         return self.ckcp.state
 
+    @state.setter
+    def state(self, int s):
+        self.ckcp.state = s
+
     def __cinit__(self, conv):
         self.ckcp = ikcp_create(conv, <void*> self)
 

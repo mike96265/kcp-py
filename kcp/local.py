@@ -17,17 +17,7 @@ class LocalServerError(Exception):
     """local server error"""
 
 
-async def shutdown(signame, loop):
-    logging.info('caught {0}'.format(signame))
-    tasks = [task for task in asyncio.Task.all_tasks() if task is not
-             asyncio.tasks.Task.current_task()]
-    list(map(lambda task: task.cancel(), tasks))
-    results = await asyncio.gather(*tasks, return_exceptions=True)
-    logging.info('finished awaiting cancelled tasks, results: %s'.format(results))
-    loop.stop()
-
-
-async def main():
+async def _main():
     loop = asyncio.get_event_loop()
     utils.check_python()
     config = utils.get_config(True)
@@ -44,11 +34,11 @@ async def main():
                                         port=config.local_port)
 
     logging.info("starting local at %s:%s", config.local_address, config.local_port)
-    for signame in {'SIGQUIT', 'SIGTERM'}:
-        loop.add_signal_handler(
-            getattr(signal, signame), lambda: asyncio.ensure_future(shutdown(signame, loop)))
     updater.load_config(config)
     updater.run()
+    for signame in {'SIGQUIT', 'SIGTERM'}:
+        loop.add_signal_handler(
+            getattr(signal, signame), lambda: asyncio.ensure_future(utils.shutdown(signame, loop)))
     try:
         async with server:
             await server.serve_forever()
@@ -56,5 +46,9 @@ async def main():
         await asyncio.sleep(1)
 
 
+def main():
+    asyncio.run(_main())
+
+
 if __name__ == '__main__':
-    asyncio.run(main())
+    main()

@@ -3,9 +3,9 @@ import logging
 from asyncio import streams, transports
 from dataclasses import dataclass
 
-from KCP import KCP
+from kcp.KCP import KCP
 
-from .updater import updater
+from kcp.updater import updater
 
 
 def get_conv(p, offset=0):
@@ -22,6 +22,7 @@ class TunnelTransportWrapper:
         self._transport = transport
         self._remote_addr = remote_addr
         self._kcp = kcp
+        self._is_closing = False
 
     def __getattr__(self, item):
         return getattr(self._transport, item)
@@ -47,6 +48,13 @@ class TunnelTransportWrapper:
 
     def resume_reading(self):
         pass
+
+    def close(self):
+        self._is_closing = True
+        self._kcp.state = -1
+
+    def is_closing(self):
+        return self._is_closing
 
 
 @dataclass
@@ -81,8 +89,7 @@ class Tunnel:
         conv = get_conv(data)
         if conv in self.sessions:
             session = self.sessions[conv]
-            status = session.kcp.input(data, len(data))
-            logging.info("input data with status: %s", status)
+            session.kcp.input(data, len(data))
             self.active_sessions.add(conv)
         else:
             if not self.is_local and conv not in self.accept_dict:
@@ -95,12 +102,19 @@ class Tunnel:
                     res = self.client_connected_cb(reader, writer)
                     if asyncio.iscoroutine(res):
                         loop.create_task(res)
+                    del self.accept_dict[conv]
 
                 task = loop.create_task(self.create_connection(conv))
                 task.add_done_callback(cb)
 
-    def connection_close(self, exc):
-        pass
+    def close(self, exc):
+        sessions = self.sessions
+        for session in sessions.values():
+            session.protocol.eof_received()
+            session.protocol.connection_lost(exc)
+            del sessions[session.conv]
+        del sessions
+        self.sessions = None
 
     async def create_connection(self, conv=None):
         logging.info("in create connection")
@@ -122,7 +136,10 @@ class Tunnel:
         return reader, writer
 
     def close_session(self, session):
-        pass
+        conv = session.conv
+        del self.sessions[conv]
+        if conv in self.active_sessions:
+            self.active_sessions.remove(conv)
 
 
 class LocalDataGramHandlerProtocol:
@@ -143,7 +160,12 @@ class LocalDataGramHandlerProtocol:
         handler.data_received(data)
 
     def connection_lost(self, exc):
-        pass
+        updater.unregister(self.tunnel)
+        self.tunnel.close(exc)
+
+    def error_received(self, exc):
+        updater.unregister(self.tunnel)
+        self.tunnel.close(exc)
 
 
 class ServerDataGramHandlerProtocol:
@@ -169,7 +191,12 @@ class ServerDataGramHandlerProtocol:
         tunnel.data_received(data)
 
     def connection_lost(self, exc):
-        pass
+        for tunnel in self.tunnels:
+            updater.unregister(tunnel)
+            tunnel.close(exc)
 
     def error_received(self, exc):
+        for tunnel in self.tunnels:
+            updater.unregister(tunnel)
+            tunnel.close(exc)
         self.transport.close()
