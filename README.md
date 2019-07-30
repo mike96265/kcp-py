@@ -1,9 +1,10 @@
-# PY-KCP
-1. python binding of kcp
-2. simple tunnel implementation based asyncio module
+# KCP-PY
+
 
 ### description
-[KCP: A Fast and Reliable ARQ Protocol](https://github.com/skywind3000/kcp)
+- python binding of kcp
+- simple tunnel implementation based asyncio module
+- [KCP: A Fast and Reliable ARQ Protocol](https://github.com/skywind3000/kcp)
 
 ### platform
 - python3.7
