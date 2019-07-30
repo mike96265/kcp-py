@@ -760,7 +760,6 @@ int ikcp_input(ikcpcb *kcp, const char *data, long size)
 		if (size < (int)IKCP_OVERHEAD) break;
 
 		data = ikcp_decode32u(data, &conv);
-		printf("decode conv is %d", conv);
 		if (conv != kcp->conv) return -1;
 
 		data = ikcp_decode8u(data, &cmd);

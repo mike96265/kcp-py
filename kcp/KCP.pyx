@@ -6,7 +6,7 @@ cdef extern from 'stdio.h':
     int printf(char *format, ...);
 
 
-cdef extern from "ikcp.h":
+cdef extern from "../ikcp/ikcp.h":
     ctypedef uint32_t ISTDUINT32;  #for linux
     ctypedef int32_t ISTDINT32;  #for linux
     ctypedef ISTDINT32 IINT32;
@@ -55,6 +55,7 @@ cdef extern from "ikcp.h":
     int ikcp_nodelay(ikcpcb *kcp, int nodelay, int interval, int resend, int nc);
     int ikcp_peeksize(const ikcpcb *kcp);
     void ikcp_setoutput(ikcpcb *kcp, int (*output)(const char *buf, int len, ikcpcb *kcp, void *user));
+    IUINT32 ikcp_getconv(const void *ptr);
 
 
 
@@ -64,7 +65,8 @@ cdef int output_wrapper(const char *buf, int length, ikcpcb *ikcp, void *user):
     kcp.output(o, length)
     return 1
 
-
+cpdef get_conv(const char *ptr):
+    return ikcp_getconv(ptr)
 
 cdef class KCP:
     cdef ikcpcb *ckcp
@@ -78,10 +80,8 @@ cdef class KCP:
     def state(self):
         return self.ckcp.state
 
-    def __cinit__(self, conv, output):
+    def __cinit__(self, conv):
         self.ckcp = ikcp_create(conv, <void*> self)
-        self.output = output
-        ikcp_setoutput(self.ckcp, output_wrapper)
 
     def __dealloc__(self):
         ikcp_release(self.ckcp)
@@ -109,3 +109,7 @@ cdef class KCP:
 
     cpdef int peeksize(self):
         return ikcp_peeksize(self.ckcp)
+
+    def set_output(self, output):
+        self.output = output
+        ikcp_setoutput(self.ckcp, output_wrapper)
