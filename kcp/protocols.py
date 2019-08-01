@@ -106,13 +106,15 @@ class Tunnel:
 
                 task = loop.create_task(self.create_connection(conv))
                 task.add_done_callback(cb)
+                self.accept_dict[conv] = task
 
     def close(self, exc):
         sessions = self.sessions
         for session in sessions.values():
             session.protocol.eof_received()
             session.protocol.connection_lost(exc)
-            del sessions[session.conv]
+        sessions.clear()
+        self.accept_dict.clear()
         del sessions
         self.sessions = None
 
