@@ -33,7 +33,7 @@ async def _main():
     server = await asyncio.start_server(functools.partial(open_pipe, ds_factory=ds_factory), host=config.local_address,
                                         port=config.local_port)
 
-    logging.info("starting local at %s:%s", config.local_address, config.local_port)
+    logging.info("starting local at %s:%s", config.local, config.local_port)
     updater.load_config(config)
     updater.run()
     for signame in {'SIGQUIT', 'SIGTERM'}:

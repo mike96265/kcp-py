@@ -14,13 +14,14 @@
 ```shell script
 git clone https://github.com/yukityan/kcp-py.git
 cd kcp-py
+python3 -m pip install cython
 python3 kcp/ikcp_setup.py build_ext --build-lib=kcp/
 python3 setup.py install
 ```
 
 ### uninstall
 ```shell script
-pip uninstall py_kcp
+pip uninstall kcp_py
 ```
 
 ### usage
