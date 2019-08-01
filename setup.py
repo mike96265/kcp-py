@@ -2,7 +2,7 @@ import codecs
 from setuptools import setup
 
 setup(
-    name='py_kcp',
+    name='kcp_py',
     version='0.0.1',
     description='Python binding KCP tunnel',
     author='luvjoey1996',
