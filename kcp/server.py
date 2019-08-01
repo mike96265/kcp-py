@@ -29,7 +29,10 @@ async def _main():
         loop.add_signal_handler(
             getattr(signal, signame), lambda: asyncio.ensure_future(utils.shutdown(signame, loop)))
     e = asyncio.Event()
-    await e.wait()
+    try:
+        await e.wait()
+    except KeyboardInterrupt:
+        await utils.shutdown('KeyboardInterrupt', loop)
 
 
 def main():

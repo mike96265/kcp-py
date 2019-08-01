@@ -44,6 +44,8 @@ async def _main():
             await server.serve_forever()
     except asyncio.CancelledError:
         await asyncio.sleep(1)
+    except KeyboardInterrupt:
+        await utils.shutdown('KeyboardInterrupt', loop)
 
 
 def main():

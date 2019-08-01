@@ -13,7 +13,7 @@ async def open_pipe(us_reader: StreamReader, us_writer: StreamWriter, ds_factory
     ds_reader, ds_writer = await ds_factory()
     pipe = DataPipe((us_reader, us_writer), (ds_reader, ds_writer))
     try:
-        await pipe.flow(2048, 3000)
+        await pipe.flow(2048, 300)
     finally:
         logging.info("pipe closed")
         us_writer.is_closing() or us_writer.close()
@@ -34,6 +34,7 @@ class DataPipe:
             try:
                 while not reader.at_eof() and not writer.is_closing():
                     writer.write(await asyncio.wait_for(reader.read(size), timeout))
+                    await writer.drain()
             except TimeoutError:
                 logging.info("timeout while reading data")
             except DataPipeError:
