@@ -93,7 +93,13 @@ class Tunnel:
         conv = get_conv(data)
         if conv in self.sessions:
             session = self.sessions[conv]
-            session.kcp.input(data, len(data))
+            kcp = session.kcp
+            kcp.input(data, len(data))
+            peeksize = kcp.peeksize()
+            if peeksize != 0 and peeksize != -1:
+                data = bytes(peeksize)
+                kcp.recv(data, peeksize)
+                session.protocol.data_received(data)
             self.active_sessions.add(conv)
         else:
             if not self.is_local and conv not in self.accept_dict:

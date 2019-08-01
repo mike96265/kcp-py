@@ -1,5 +1,6 @@
 import asyncio
 import time
+import logging
 
 
 class Updater:
@@ -18,7 +19,8 @@ class Updater:
         for tunnel in self.tunnels:
             sessions = tunnel.sessions
             active = tunnel.active_sessions
-            for conv in active:
+            while active:
+                conv = active.pop()
                 session = sessions[conv]
                 kcp = session.kcp
                 kcp.update(now)
@@ -32,8 +34,9 @@ class Updater:
                         session.protocol.data_received(data)
                     next_call = kcp.check(now)
                     session.next_update = next_call
-            active = {session.conv for session in sessions.values() if session.next_update - now < 50}
-            tunnel.active_sessions = active
+            for session in sessions.values():
+                if session.next_update - now < 50:
+                    active.add(session.conv)
         asyncio.get_event_loop().call_later(self.interval, self.update)
 
     def now(self):
