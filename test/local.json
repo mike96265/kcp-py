@@ -1,5 +1,5 @@
 {
-    "server": "localhost",
+    "server": "kcp_test.com",
     "server_port": 8002,
     "local": "localhost",
     "local_port": 8002,

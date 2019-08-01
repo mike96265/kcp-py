@@ -19,8 +19,9 @@ def get_conv(p, offset=0):
 
 class TunnelTransportWrapper:
 
-    def __init__(self, transport, kcp, remote_addr):
+    def __init__(self, transport, tunnel, kcp, remote_addr):
         self._transport = transport
+        self._tunnel = tunnel
         self._remote_addr = remote_addr
         self._kcp = kcp
         self._is_closing = False
@@ -29,7 +30,9 @@ class TunnelTransportWrapper:
         return getattr(self._transport, item)
 
     def write(self, data):
-        self._kcp.send(data, len(data))
+        kcp = self._kcp
+        self._tunnel.active_sessions.add(kcp.conv)
+        kcp.send(data, len(data))
 
     def writelines(self, list_of_data):
         data = b''.join(list_of_data)
@@ -135,7 +138,7 @@ class Tunnel:
         kcp.wndsize(config.sndwnd, config.rcvwnd)
         reader = asyncio.StreamReader(limit=2 ** 16, loop=loop)
         protocol = streams.StreamReaderProtocol(reader, loop=loop)
-        transport = TunnelTransportWrapper(self._transport, kcp, self.remote_addr)
+        transport = TunnelTransportWrapper(self._transport, self, kcp, self.remote_addr)
         writer = streams.StreamWriter(transport, protocol, reader, loop)
         session = Session(protocol=protocol, transport=transport, kcp=kcp, conv=conv, next_update=0)
         self.active_sessions.add(conv)
