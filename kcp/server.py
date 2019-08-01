@@ -22,7 +22,7 @@ async def _main():
 
     protocol = ServerDataGramHandlerProtocol(functools.partial(open_pipe, ds_factory=ds_factory))
     await loop.create_datagram_endpoint(lambda: protocol, local_addr=(config.local, config.local_port))
-    logging.info("start server at %s:%s", config.local_address, config.local_port)
+    logging.info("start server at %s:%s", config.local, config.local_port)
     updater.load_config(config)
     updater.run()
     for signame in {'SIGQUIT', 'SIGTERM'}:
