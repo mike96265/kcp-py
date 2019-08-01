@@ -1,4 +1,5 @@
 import asyncio
+import functools
 import json
 import logging
 import sys
@@ -23,12 +24,28 @@ async def shutdown(signame, loop):
     loop.stop()
 
 
+def singleton(cls):
+    instance = None
+
+    @functools.wraps(cls)
+    def wrapper(*args, **kwargs):
+        nonlocal instance
+        if not instance:
+            instance = cls(*args, **kwargs)
+        return instance
+
+    return wrapper
+
+
+@singleton
 @dataclass
 class KCPConfig:
     server: str
     server_port: int
-    local_address: str
+    local: str
     local_port: int
+    sndwnd: int
+    rcvwnd: int
     mtu: int
     interval: int
     nodelay: bool
@@ -41,52 +58,68 @@ def get_config(is_local):
                         format='%(levelname)-s: %(message)s')
     parser = argparse.ArgumentParser(
         description='Python binding KCP tunnel {}.'.format('Local' if is_local else 'Server'))
-    parser.add_argument('-s', '--server', help='Host name or IP address of your remote server.', required=True)
-    parser.add_argument('-p', '--server_port', help='Port number of your remote server.', required=True, type=int)
-    parser.add_argument('-l', '--local', help='Host name or IP address your local server', required=True)
-    parser.add_argument('-t', '--local_port', help='Port number of your local server.', required=True, type=int)
-    parser.add_argument('-m', '--mtu', help='Maximum Transmission Unit for UDP packets (default: 1350)', default=1350)
-    parser.add_argument('-i', '--interval', help='Interval of KCP update (ms)', type=int, default=50,
-                        choices=[30, 40, 50])
-    parser.add_argument('--nodelay', help='KCP ack nodelay or delay', action='store_true')
-    parser.add_argument('-r', '--resend', help='Fast resend', default=0, choices=[0, 1, 2])
-    parser.add_argument('--nc', help="enable net control", action='store_false')
+    config_attr = ['server', 'server_port', 'local', 'local_port',
+                   'sndwnd', 'rcvwnd', 'mtu',
+                   'interval', 'nodelay', 'resend', 'nc']
+    parser.add_argument('-s', '--server', help='Host name or IP address of your remote server.')
+    parser.add_argument('-p', '--server_port', help='Port number of your remote server.', type=int)
+    parser.add_argument('-l', '--local', help='Host name or IP address your local server')
+    parser.add_argument('-t', '--local_port', help='Port number of your local server.', type=int)
     parser.add_argument('-c', '--config', help='config file path')
+    parser.add_argument(
+        '--sndwnd',
+        help='send window size. (default 128)',
+        type=int,
+        default=128)
+    parser.add_argument(
+        '--rcvwnd',
+        help='receive window size (default 512)',
+        type=int,
+        default=512)
+    parser.add_argument(
+        '--mtu',
+        help='Maximum Transmission Unit for UDP packets (default: 1350)',
+        type=int,
+        default=1350)
+    parser.add_argument(
+        '--interval',
+        help='Interval of KCP update (ms)',
+        type=int,
+        default=50,
+        choices=[30, 40, 50])
+    parser.add_argument(
+        '--nodelay',
+        help='KCP ack nodelay or delay (default: 0 nodelay)',
+        type=int,
+        choices=[0, 1],
+        default=0)
+    parser.add_argument(
+        '--resend',
+        help='Fast resend',
+        type=int,
+        default=0,
+        choices=[0, 1, 2])
+    parser.add_argument(
+        '--nc',
+        help="net control disable or enable (default: 0 enable)",
+        type=int,
+        default=0,
+        choices=[0, 1])
     args = parser.parse_args()
     if args.config:
         try:
             with open(args.config) as file:
                 try:
+                    args_list = []
                     config_dict = json.load(file)
-                    return KCPConfig(**config_dict)
+                    for k, v in config_dict.items():
+                        args_list.append(f'--{k}')
+                        args_list.append(f'{v}')
+                    args = parser.parse_args(args_list)
                 except ValueError:
                     logging.exception("error format of config file")
                     exit(1)
         except IOError:
             logging.exception("error loading config file")
             exit(1)
-    return args
-    # if is_local:
-    #     return KCPConfig(**{
-    #         'server': '127.0.0.1',
-    #         'server_port': 8002,
-    #         'local': '127.0.0.1',
-    #         'local_port': 8001,
-    #         'interval': 50,
-    #         'nodelay': 1,
-    #         'nc': 1,
-    #         'resend': 2,
-    #         'mtu': 1250,
-    #     })
-    # else:
-    #     return KCPConfig(**{
-    #         'server': '127.0.0.1',
-    #         'server_port': 8003,
-    #         'local': '127.0.0.1',
-    #         'local_port': 8002,
-    #         'interval': 50,
-    #         'nodelay': 1,
-    #         'nc': 1,
-    #         'resend': 2,
-    #         'mtu': 1250,
-    #     })
+    return KCPConfig(**{k: getattr(args, k) for k in config_attr})

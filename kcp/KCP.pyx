@@ -54,6 +54,7 @@ cdef extern from "../ikcp/ikcp.h":
     int ikcp_wndsize(ikcpcb *kcp, int sndwnd, int rcvwnd);
     int ikcp_nodelay(ikcpcb *kcp, int nodelay, int interval, int resend, int nc);
     int ikcp_peeksize(const ikcpcb *kcp);
+    int ikcp_setmtu(ikcpcb *kcp, int mtu)
     void ikcp_setoutput(ikcpcb *kcp, int (*output)(const char *buf, int len, ikcpcb *kcp, void *user));
     IUINT32 ikcp_getconv(const void *ptr);
 
@@ -113,6 +114,9 @@ cdef class KCP:
 
     cpdef int peeksize(self):
         return ikcp_peeksize(self.ckcp)
+
+    cpdef int set_mtu(self, int mtu):
+        return ikcp_setmtu(self.ckcp, mtu)
 
     def set_output(self, output):
         self.output = output

@@ -1,0 +1,13 @@
+{
+    "server": "localhost",
+    "server_port": 8002,
+    "local": "localhost",
+    "local_port": 8002,
+    "sndwnd": 128,
+    "rcvwnd": 1024,
+    "mtu": 1300,
+    "interval": 30,
+    "resend": 2,
+    "nc": 1,
+    "nodelay": 0
+}

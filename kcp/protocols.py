@@ -6,6 +6,7 @@ from dataclasses import dataclass
 from kcp.KCP import KCP
 
 from kcp.updater import updater
+from kcp.utils import KCPConfig
 
 
 def get_conv(p, offset=0):
@@ -126,8 +127,12 @@ class Tunnel:
             self.conv += 1
         else:
             conv = conv
+        config = KCPConfig()
         kcp = KCP(conv)
         kcp.set_output(self.output_callback)
+        kcp.set_mtu(config.mtu)
+        kcp.nodelay(config.nodelay, config.interval, config.resend, config.nc)
+        kcp.wndsize(config.sndwnd, config.rcvwnd)
         reader = asyncio.StreamReader(limit=2 ** 16, loop=loop)
         protocol = streams.StreamReaderProtocol(reader, loop=loop)
         transport = TunnelTransportWrapper(self._transport, kcp, self.remote_addr)
