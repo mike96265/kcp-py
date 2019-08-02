@@ -13,7 +13,7 @@ from kcp.pipe import open_pipe
 from kcp.updater import updater
 
 
-async def _main():
+async def server_main():
     loop = asyncio.get_event_loop()
     config = utils.get_config(False)
 
@@ -36,7 +36,7 @@ async def _main():
 
 
 def main():
-    asyncio.run(_main())
+    asyncio.run(server_main())
 
 
 if __name__ == '__main__':

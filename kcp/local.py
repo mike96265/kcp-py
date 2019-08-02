@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../'))
 
 from kcp import utils
 from kcp.pipe import open_pipe
-from kcp.protocols import LocalDataGramHandlerProtocol
+from kcp.protocols import DataGramConnHandlerProtocol
 from kcp.updater import updater
 
 
@@ -17,21 +17,19 @@ class LocalServerError(Exception):
     """local server error"""
 
 
-async def _main():
+async def local_main():
     loop = asyncio.get_event_loop()
     utils.check_python()
     config = utils.get_config(True)
     _, protocol = await loop.create_datagram_endpoint(
-        LocalDataGramHandlerProtocol,
+        lambda: DataGramConnHandlerProtocol(is_local=True),
         remote_addr=(config.server, config.server_port)
     )
 
-    def ds_factory():
-        tunnel = protocol.tunnel
-        return tunnel.create_connection()
-
-    server = await asyncio.start_server(functools.partial(open_pipe, ds_factory=ds_factory), host=config.local,
-                                        port=config.local_port)
+    server = await asyncio.start_server(
+        functools.partial(open_pipe, ds_factory=protocol.create_connection),
+        host=config.local,
+        port=config.local_port)
 
     logging.info("starting local at %s:%s", config.local, config.local_port)
     updater.load_config(config)
@@ -49,7 +47,7 @@ async def _main():
 
 
 def main():
-    asyncio.run(_main())
+    asyncio.run(local_main())
 
 
 if __name__ == '__main__':

@@ -64,7 +64,7 @@ cdef extern from "../ikcp/ikcp.h":
 cdef int output_wrapper(const char *buf, int length, ikcpcb *ikcp, void *user):
     cdef object kcp = <object> user
     cdef bytes o = PyBytes_FromStringAndSize(buf, length)
-    kcp.output(o, length)
+    kcp.output(o)
     return 1
 
 cpdef uint32_t get_conv(const char *ptr):
