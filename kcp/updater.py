@@ -1,12 +1,14 @@
 import asyncio
-import time
-import logging
+
+from KCP import kcp_now
 
 
 class Updater:
 
     def __init__(self):
         self.tunnels = set()
+        self.interval = 0.05
+        self.raw_interval = 50
 
     def register(self, tunnel):
         self.tunnels.add(tunnel)
@@ -15,7 +17,7 @@ class Updater:
         self.tunnels.remove(tunnel)
 
     def update(self):
-        now = self.now()
+        now = kcp_now()
         for tunnel in self.tunnels:
             sessions = tunnel.sessions
             active = tunnel.active_sessions
@@ -35,14 +37,12 @@ class Updater:
                     next_call = kcp.check(now)
                     session.next_update = next_call
             for session in sessions.values():
-                if session.next_update - now < 50:
+                if session.next_update - now < self.raw_interval:
                     active.add(session.conv)
         asyncio.get_event_loop().call_later(self.interval, self.update)
 
-    def now(self):
-        return int(time.time() * 1000) & 0xffffffff
-
     def load_config(self, config):
+        self.raw_interval = config.interval
         self.interval = config.interval / 1000
 
     def run(self):

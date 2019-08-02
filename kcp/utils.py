@@ -1,10 +1,10 @@
+import argparse
 import asyncio
 import functools
 import json
 import logging
 import sys
 from dataclasses import dataclass
-import argparse
 
 
 def check_python():

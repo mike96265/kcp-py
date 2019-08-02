@@ -1,6 +1,7 @@
 from cpython.bytes cimport PyBytes_FromStringAndSize
 from cpython.pycapsule cimport *
 from libc.stdint cimport uint32_t, int32_t
+from posix.time cimport clock_gettime, timespec, CLOCK_REALTIME
 
 cdef extern from 'stdio.h':
     int printf(char *format, ...);
@@ -66,8 +67,17 @@ cdef int output_wrapper(const char *buf, int length, ikcpcb *ikcp, void *user):
     kcp.output(o, length)
     return 1
 
-cpdef get_conv(const char *ptr):
+cpdef uint32_t get_conv(const char *ptr):
     return ikcp_getconv(ptr)
+
+cpdef int kcp_now():
+    cdef timespec ts
+    cdef long current
+    clock_gettime(CLOCK_REALTIME, &ts)
+    current = ts.tv_sec * 1000 + (ts.tv_nsec / 1000000)
+    return current & 0xffffffff
+
+
 
 cdef class KCP:
     cdef ikcpcb *ckcp

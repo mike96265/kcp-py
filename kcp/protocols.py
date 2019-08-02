@@ -3,18 +3,9 @@ import logging
 from asyncio import streams, transports
 from dataclasses import dataclass
 
-from kcp.KCP import KCP
-
+from kcp.KCP import KCP, get_conv
 from kcp.updater import updater
 from kcp.utils import KCPConfig
-
-
-def get_conv(p, offset=0):
-    l = p[3]
-    l = (l << 8) + p[2]
-    l = (l << 8) + p[1]
-    l = (l << 8) + p[0]
-    return l
 
 
 class TunnelTransportWrapper:

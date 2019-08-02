@@ -13,7 +13,7 @@ async def open_pipe(us_reader: StreamReader, us_writer: StreamWriter, ds_factory
     ds_reader, ds_writer = await ds_factory()
     pipe = DataPipe((us_reader, us_writer), (ds_reader, ds_writer))
     try:
-        await pipe.flow(2048, 300)
+        await pipe.flow(65536, 300)
     finally:
         logging.info("pipe closed")
         us_writer.is_closing() or us_writer.close()
