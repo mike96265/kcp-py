@@ -9,20 +9,18 @@ class Updater:
         self.tunnels = set()
         self.interval = 0.05
         self.raw_interval = 50
-
-    def register(self, tunnel):
-        self.tunnels.add(tunnel)
-
-    def unregister(self, tunnel):
-        self.tunnels.remove(tunnel)
+        self.register = self.tunnels.add
+        self.unregister = self.tunnels.remove
 
     def update(self):
-        now = kcp_now()
         for tunnel in self.tunnels:
+            now = kcp_now()
             sessions = tunnel.sessions
             active = tunnel.active_sessions
-            while active:
-                conv = active.pop()
+            active_pop = active.pop
+            active_add = active.add
+            try:
+                conv = active_pop()
                 session = sessions[conv]
                 kcp = session.kcp
                 kcp.update(now)
@@ -36,9 +34,11 @@ class Updater:
                         session.protocol.data_received(data)
                     next_call = kcp.check(now)
                     session.next_update = next_call
-            for session in sessions.values():
-                if session.next_update - now < self.raw_interval:
-                    active.add(session.conv)
+            except KeyError:
+                raw_interval = self.raw_interval
+                for session in sessions.values():
+                    if session.next_update - now < raw_interval:
+                        active_add(session.conv)
         asyncio.get_event_loop().call_later(self.interval, self.update)
 
     def load_config(self, config):
