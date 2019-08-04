@@ -34,8 +34,7 @@ class DataPipe:
             try:
                 while not reader.at_eof() and not writer.is_closing():
                     writer.write(await asyncio.wait_for(reader.read(size), timeout))
-                    await writer.drain()
-            except TimeoutError:
+            except asyncio.TimeoutError:
                 logging.info("timeout while reading data")
             except DataPipeError:
                 logging.exception("pipe error")

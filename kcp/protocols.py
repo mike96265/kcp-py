@@ -128,6 +128,7 @@ class DataGramConnHandlerProtocol(protocols.DatagramProtocol):
             if peeksize != 0 and peeksize != -1:
                 data = bytes(peeksize)
                 kcp.recv(data, peeksize)
+                kcp.flush()
                 session.protocol.data_received(data)
             self.active_sessions.add(conv)
         else:

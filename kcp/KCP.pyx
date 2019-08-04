@@ -128,6 +128,9 @@ cdef class KCP:
     cpdef int set_mtu(self, int mtu):
         return ikcp_setmtu(self.ckcp, mtu)
 
+    cpdef void flush(self):
+        ikcp_flush(self.ckcp)
+
     def set_output(self, output):
         self.output = output
         ikcp_setoutput(self.ckcp, output_wrapper)

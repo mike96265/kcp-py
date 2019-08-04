@@ -86,7 +86,7 @@ def get_config(is_local):
         help='Interval of KCP update (ms)',
         type=int,
         default=50,
-        choices=[30, 40, 50])
+        choices=[10, 20, 30, 40, 50])
     parser.add_argument(
         '--nodelay',
         help='KCP ack nodelay or delay (default: 0 nodelay)',
